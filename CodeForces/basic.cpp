@@ -7,13 +7,6 @@ int main(){
         freopen("input.txt","r",stdin);
         freopen("output.txt","w",stdout);
     #endif
-    string str="gfg";
-    for(int i=0;i<str.length();i++){
-        string a=str[i];
-        cout<<a;
-
-        
     
-    }
     
 }            

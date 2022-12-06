@@ -11,9 +11,9 @@ int main(){
     string order;
     cin>>number_of_students>>time;
     cin>>order;
-    // string new1="";
-    // int a,b;
-    // a=new1.length();
+    string new1="";
+    int a,b;
+    a=new1.length();
     for(int j=0;j<time;j++){
         for(int i=1;i<order.length();i++){
             if(b-a==2){
@@ -41,6 +41,8 @@ int main(){
 
     }
     cout<<order;
+
+// failing in test case 6 dont know the reason
 
 
 
