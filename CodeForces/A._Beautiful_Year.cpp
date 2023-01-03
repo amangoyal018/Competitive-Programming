@@ -12,6 +12,11 @@ int main(){
     int year11=stoi(year1);
 
     for(int i=year11;i<=9000;i++){
+        year2=to_string(i);
+        for(int j=0;j<4;j++){
+
+        }
+    
 
     }
 
