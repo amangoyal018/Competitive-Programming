@@ -10,6 +10,24 @@ int main(){
     #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
+
+    int num;
+    cin>>num;
+
+    string s="codeforces";
+    for(int i=0;i<num;i++){
+        char char1;
+        cin>>char1;
+        if(s.find(char1)==string::npos){
+            cout<<"NO"<<"\n";
+        }else{
+            cout<<"YES"<<"\n";
+        }
+
+
+    }
+    
+
     
     
 
