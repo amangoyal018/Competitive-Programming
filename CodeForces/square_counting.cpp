@@ -11,7 +11,19 @@ int main(){
     #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
+
+
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n;
+        long long int sum;
+        cin>>n>>sum;
+        long long int ans;
+        ans=sum/(n*n);
+        cout<<ans<<"\n";
+    }
+
     
 
 
