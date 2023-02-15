@@ -3,7 +3,9 @@
         "string": "cpp",
         "iostream": "cpp",
         "random": "cpp",
-        "*.txt": "cpp"
+        "*.txt": "cpp",
+        "cmath": "cpp",
+        "*.tcc": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

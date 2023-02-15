@@ -1,37 +1,37 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
+int main()
+{
 
-
-
-int main(){
-
-    #ifndef ONLINE_JUDGE
-        freopen("input.txt","r",stdin);
-        freopen("output.txt","w",stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
     int n;
-    cin>>n;
-    int N=int(1e5+3);
+    cin >> n;
+    int N = int(1e5 + 3);
     int arr[N];
-    for(int i=0;i<n;i++){
+    for (int i = 0; i < n; i++)
+    {
         int a;
-        cin>>a;
-        arr[a]=i+1;
+        cin >> a;
+        arr[a] = i + 1;
     }
 
     int m;
-    cin>>m;
+    cin >> m;
 
-    long long int vasya=0,petya=0;
-    for(int i=1;i<=m;i++){
+    long long int vasya = 0, petya = 0;
+    for (int i = 1; i <= m; i++)
+    {
         int b;
-        cin>>b;
-        vasya+=arr[b];
-        petya+=n-arr[b]+1;
+        cin >> b;
+        vasya += arr[b];
+        petya += n - arr[b] + 1;
         // for(int i=0;i<n;i++){
         //     if(arr[i]!=b){
         //         vasya++;
@@ -49,12 +49,6 @@ int main(){
         //         break;
         //     }
         // }
-
-
     }
-    cout<<vasya<<" "<<petya;
-
-
-
-    
+    cout << vasya << " " << petya;
 }
