@@ -9,7 +9,15 @@ int main()
 #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int n;
-    cin>>n;
-    cout<<0<<" "<<0<<" "<<n;
+
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int x, y, z;
+        cin >> x >> y >> z;
+        int seats=10*x;
+        int cost=z*min(y,seats);
+        cout<<cost<<"\n";
+    }
 }
