@@ -9,16 +9,31 @@ int main()
 #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int n;
+    long long int n;
     cin >> n;
-    int m;
+    long long int m;
     cin >> m;
-    int time=0;
-    int cp=1;
+    long long int time = 0;
+    int cp = 1;
     for (int i = 0; i < m; i++)
     {
-        int a;
+        long long int a;
         cin >> a;
-        if(cp<a)
-
+        if (a == cp)
+        {
+            continue;
+        }
+        if (cp < a)
+        {
+            time += a - cp;
+            cp = a;
+            continue;
+        }
+        if (cp > a)
+        {
+            time += n - cp + a;
+            cp = a;
+        }
     }
+    cout<<time;
+}

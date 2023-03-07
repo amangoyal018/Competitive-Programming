@@ -10,12 +10,18 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
+    string s,t;
+    cin>>s>>t;
+    string a="";
+    for(int i=0;i<s.length();i++){
+        a=s[i]+a;
+    }
+    if(a==t){
+        cout<<"YES";
 
-    float x1,x2,y1,y2,x,y;
-    cin>>x1>>x2>>y1>>y2>>x;
-    float m = (y2-y1)/(x2-x1);
-    y= m*(x-x1) + y1;
-    cout<<y;
+    }else{
+        cout<<"NO";
+    }
     
 
 }
