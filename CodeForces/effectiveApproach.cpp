@@ -13,6 +13,7 @@ int main()
 
     int n;
     cin >> n;
+    
     int N = int(1e5 + 3);
     int arr[N];
     for (int i = 0; i < n; i++)
