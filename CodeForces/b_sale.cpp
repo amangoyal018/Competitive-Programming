@@ -19,18 +19,18 @@ int main()
     for(int i=0;i<n;i++){
         int a;
         cin>>a;
-        v.push_back(a)
+        v.push_back(a);
     }
-    
 
-    for(int i=0;i<n;i++){
+    sort(v.begin(),v.end());
+
+
+    for(auto x:v){
         if(count==m){
             break;
         }
-        int a;
-        cin>>a;
-        if(a<0){
-            sum+=a;
+        if(x<0){
+            sum+=x;
             count++;
 
         }
