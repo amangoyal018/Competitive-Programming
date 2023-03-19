@@ -9,4 +9,9 @@ int main()
 #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
+
+    float a=2.3;
+    int b=a;
+    cout<<b;
+
 }
