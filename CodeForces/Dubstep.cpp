@@ -12,6 +12,23 @@ int main()
 
     string s;
     cin>>s;
+
+    bool istrue = true;
+
+    for(int i=0;i<s.length();i++){
+        if(s[i]=='W' and s[i+1]=='U' and s[i+2]=='B'){
+            i+=2;
+            if(!istrue){
+                cout<<" ";
+            }
+            continue;
+        }else{
+            istrue=false;
+            cout<<s[i];
+            
+        }
+    }
+    
     
     
 }
