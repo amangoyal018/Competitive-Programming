@@ -29,7 +29,7 @@ int main()
 
 
         for(auto x:s){
-            if(int(x)<min){
+            if(int(x)<=min){
                 min=int(x);
                 c=char(min);
 
