@@ -18,7 +18,8 @@
         "regex": "cpp",
         "valarray": "cpp",
         "chrono": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "cstdio": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
