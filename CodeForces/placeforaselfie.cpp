@@ -17,24 +17,50 @@ int main()
     cin>>t;
 
     while(t--){
-        int n,m;
+        int n;//lines
+        int m;//parabolas
         cin>>n>>m;
 
-        vector<int> v1;
+        vector<int> v;
+
         for(int i=0;i<n;i++){
             int k;
             cin>>k;
-            v1.push_back(k);
+            v.push_back(k);
         }
+
         while(m--){
             int a,b,c;
             cin>>a>>b>>c;
-            for(int i=0;i<n;i++){
-                int k=v1[0];
-                
+            int flag=0;
+            int ans;
+
+
+
+            if(c<0){
+                cout<<"NO"<<"\n";
+                continue;
+            }else{
+                for(auto x:v){
+                    if(x>b-2*(sqrt(a*c)) and x<b+2*(sqrt(a*c))){
+                        flag=1;
+                        ans=x;
+                        break;
+                    }
+                }
             }
+            
+
+        if(flag){
+            cout<<"YES\n";
+            cout<<ans<<"\n";
+        }else{
+            cout<<"NO\n";
+        }
         }
     }
+
+    
 
 
 
