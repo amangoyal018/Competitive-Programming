@@ -11,40 +11,39 @@ int main()
 
     int t;
     cin>>t;
+    
 
     while(t--){
-        int a;
-        cin>>a;
+
+        int n;
+        cin>>n;
+
 
         vector<int> v;
 
-        for(int i=1;i<a;i++){
-            int x;
-            cin>>x;
-            v.push_back(x);
+        for(int i=1;i<n;i++){
+            int a;
+            cin>>a;
+            v.push_back(a);
         }
+        
 
-        // int min=*min_element(v.begin(), v.end());
-
-        vector<int> ans(a);
-
-        int flag=0;
+        vector<int> ans(n);
         ans[0]=v[0];
-        ans[a-1]=v[a-2];
+        ans[n-1]=v[n-2];
 
-
-        for(int i=0;i<a-2;i++){
-            ans[i+1]=min(v[i],v[i+1]);
+        for(int i=0;i<n-2;i++){
+            int min1=min(v[i],v[i+1]);
+            ans[i+1]=min1;
         }
+
         for(auto x:ans){
             cout<<x<<" ";
         }
         cout<<"\n";
-
-
     }
 
-    
+
 
     
 }
