@@ -1,74 +1,60 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int f(string &s){
-    string a="";
-    for(int i=0;i<s.length();i++){
-        if(i==0){
-            a+=s[i];
-        }else{
-            if(a.find(s[i])==string::npos){
-                a+=s[i];
-            }else{
-                continue;
-            }
-        }
-    }
-    return a.length();
 
+int diffelements(string s){
+    int len=s.length();
+    unordered_set<char> set1;
+    for(int i=0;i<len;i++){
+        set1.insert(s[i]);
+    }
+    return set1.size();
 }
 
-
-
-int main(){
-    #ifndef ONLINE_JUDGE
-        freopen("input.txt","r",stdin);
-        freopen("output.txt","w",stdout);
-    #endif
+int main()
+{
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int n;
-    cin>>n;
 
-    for(int i=0;i<n;i++){
-        int len;
+
+
+
+    int t;
+    cin>>t;
+
+    while(t--){
+
+        int n;
+        cin>>n;
+
         string s;
-        cin>>len>>s;
-        int max;
-        for(int j=1;j<=len-1;j++){
-            string a=s.substr(0,j);
-            string b=s.substr(j,len-j);
-            int x=f(a)+f(b);
-            if(j==1){
-                max=x;
-            }else{
-                if(x>max){
-                    max=x;
-                }else{
-                    continue;
-                }
+        cin>>s;
+        int max_value=0;
+
+        for(int i=1;i<n;i++){
+
+        // total permuations=n-1;
+            string a="";
+            string b="";
+            for(int j=0;j<i;j++){
+                a+=s[j];
+            for(int j=i;j<n;j++){
+                b+=s[j];
             }
-            
+            int count=diffelements(a)+diffelements(b);
+            if(count>max_value){
+                max_value=count;
+            }
+
         }
-        cout<<max<<"\n";
 
 
+
+
+        }
+        cout<<max_value<<"\n";
     }
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    return 0;
-    
-
-}            
+}
