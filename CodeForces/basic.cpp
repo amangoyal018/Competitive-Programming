@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define ARA_ARA ios_base::sync_with_stdio(false); cin.tie(NULL);
+#define ll long long int 
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -8,5 +10,9 @@ int main()
 #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
+
+    ARA_ARA
+    
+
 
 }
