@@ -10,6 +10,13 @@ int main()
 #endif
 
     ARA_ARA
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        cout<<((n+1)/2-1)<<"\n";
+    }
     
     
 

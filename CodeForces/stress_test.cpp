@@ -1,111 +1,61 @@
 #include <bits/stdc++.h>
 using namespace std;
-int FindSecondLargestElement( int n, vector<vector<int>> vx, int k)
+vector<int> v;
+void fun(int n){
+
+    if(n%3!=0){
+        v.push_back(n);
+        return;
+    }
+    if(n%3==0){
+        int a=n/3;
+        int b=2*n/3;
+        v.push_back(a);
+        v.push_back(b);
+        if(a%3==0)fun(a);
+        if(b%3==0)fun(b);
+        
+        
+    }
+    return;
+}
+
+int chk(int n, int m){
+    if (n == m) return true;
+    if (n < m) return false;
+    if (n % 3) return false;
+    return chk(2 * n / 3, m) or chk(n / 3, m);
+}
+string FindSecondLargestElement( int n, int m)
 {
-    vector<vector<int>> v;
-    for (int i = 0; i < n; i++)
-    {
-        vector<int> v1;
-        for (int j = 0; j < n; j++)
-        {
+    
+    fun(n);
+    bool status=false;
+    for(auto x:v){
+        if(x==m){
+            v.clear();
+            status=true;
+            return "YES";
             
-            v1.push_back(vx[i][j]);
-        }
-        v.push_back(v1);
-    }
-    int count = 0;
-    for (int i = 0; i < n / 2; i++)
-    {
-        vector<int> a = v[i];
-        vector<int> b = v[n - 1 - i];
-        reverse(b.begin(), b.end());
-
-        for (int j = 0; j < n; j++)
-        {
-            if (a[j] != b[j])
-            {
-
-                count++;
-            }
+            
         }
     }
-    if(n&1){
-
-        int count1=0;
-        vector<int> a = v[n/2];
-        vector<int> b = v[n/2];
-        reverse(b.begin(), b.end());
+    if(status){
         
 
-        for (int j = 0; j < n; j++)
-        {
-            if (a[j] != b[j])
-            {
-
-                count1++;
-            }
-        }
-        count1/=2;
-        count+=count1;
+    }else{
+        
+        v.clear();
+        return "NO";
+    }
     
-    }
-    if (n == 1)
-    {
-        return 1;
-    }
-
-    if (count > k)
-    {
-        return -1;
-    }
-    else
-    {
-        if (count == k)
-        {
-            return 1;
-        }
-        else
-        {
-            int rem = k - count;
-            if (rem % 2 == 0 or n % 2 != 0)
-            {
-                return 1;
-            }
-            else
-            {
-                return -1;
-            }
-        }
-    }
     
 }
-int Brute_solution( int n,vector<vector<int>> vx, int k)
+string Brute_solution( int n,int m)
 {
+    return (chk(n, m) ? "YES" : "NO");
     
-    int min = 0;
-    vector<vector<int>> a;
-    for (int i = 0; i < n; i++)
-    {
-        vector<int> v1;
-        for (int j = 0; j < n; j++)
-        {
-            
-            v1.push_back(vx[i][j]);
-        }
-        a.push_back(v1);
-    }
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            min += a[i][j] != a[n - 1 - i][n - 1 - j];
-        }
-    }
-    min /= 2;
     
-    if (k >= min && (n % 2 == 1 || (k - min) % 2 == 0)) {
-        return 1;
-    } else {
-        return -1;
-    }
     
 }
 int main()
@@ -123,34 +73,14 @@ int main()
     while (count <= 10000)
     {
 
-        int n = rand() %10 +1;
-        int k = rand() % 10;
-        int arr[n][n];
-        vector<vector<int>> vx;
-        for (int i = 0; i < n; i++)
-        {
-            vector<int> v1;
-            for (int j = 0; j < n; j++)
-            {
-                
-                v1.push_back(rand() % 2);
-            }
-            vx.push_back(v1);
-        }
-        int myans = FindSecondLargestElement( n,vx, k);
-        int correctans = Brute_solution(n,vx, k);
+        int n = rand() %100 +1;
+        int m = rand() % 100+1;
+        string myans = FindSecondLargestElement( n,m);
+        string correctans = Brute_solution(n,m);
         if (correctans != myans)
         {
             cout << n << endl;
-            cout << k << endl;
-            for (int i = 0; i < n; i++)
-            {
-                for(int j=0;j<n;j++){
-
-                    cout << vx[i][j] << " ";
-                }
-                cout << endl;
-            }
+            cout << m << endl;
             break;
         }
         count++;

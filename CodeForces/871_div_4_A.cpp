@@ -10,7 +10,23 @@ int main()
 #endif
 
     ARA_ARA
-    
+    int t;
+    cin>>t;
+
+    while(t--){
+        string s;
+        cin>>s;
+        string s2="codeforces";
+        int count=0;
+        
+        for(int i=0;i<10;i++){
+            if(s[i]!=s2[i]){
+                count++;
+            }
+            
+        }
+        cout<<count<<"\n";
+    }
     
 
     

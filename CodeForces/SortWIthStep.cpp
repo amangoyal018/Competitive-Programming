@@ -10,8 +10,6 @@ int main()
 #endif
 
     ARA_ARA
-    
-    
 
     
     
