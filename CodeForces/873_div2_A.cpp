@@ -30,6 +30,11 @@ int main()
 #endif
 
     ARA_ARA
+    int t;
+    cin>>t;
+    while(t--){
+        
+    }
     
     
 

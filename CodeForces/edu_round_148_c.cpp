@@ -22,7 +22,7 @@ int main()
         cin>>n;
         vector<int> v1(n);
         for(int i=0;i<n;i++){
-            cin>>v1[i]
+            cin>>v1[i];
         }
 
 
@@ -54,7 +54,7 @@ int main()
 
         for(int i=1;i<n;i++){
             if(v[i]>v[i-1] and v[i]>v[min(i+1,n-1)]){
-                
+
                 ans++;
             }
             if(v[i]<v[i-1] and v[i]<v[min(i+1,n-1)]){
