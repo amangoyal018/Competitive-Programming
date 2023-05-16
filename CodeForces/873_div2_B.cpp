@@ -30,6 +30,32 @@ int main()
 #endif
 
     ARA_ARA
+    int t;
+    cin>>t;
+
+    while(t--){
+        int n;
+        cin>>n;
+
+        vi v;
+        
+        for(int i=1;i<=n;i++){
+            int a;
+            cin>>a;
+            int x=abs(a-i);
+            v.pb(x);
+            
+            
+        }
+        int ans=v[0];
+        for(int i=1;i<n;i++){
+            ans=gcd(ans,v[i]);
+        }
+        cout<<ans<<"\n";
+
+
+        
+    }
     
     
 

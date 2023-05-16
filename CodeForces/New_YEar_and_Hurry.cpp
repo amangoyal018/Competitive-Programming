@@ -20,14 +20,6 @@ int factorial(unsigned int n)
 		return 1;
 	return (n * factorial(n - 1)) % mod;
 }
-int diffelements(string s){
-    int len=s.length();
-    unordered_set<char> set1;
-    for(int i=0;i<len;i++){
-        set1.insert(s[i]);
-    }
-    return set1.size();
-}
 
 //code start  JAI SHREE RAM
 int main()
@@ -38,7 +30,28 @@ int main()
 #endif
 
     ARA_ARA
-	
+
+    int n,k;
+    cin>>n>>k;
+    int time=240-k;
+    // cout<<time;
+    int cnt=0;
+    bool status=true;
+    for(int i=1;i<=n;i++){
+        cnt+=i*5;
+        // cout<<cnt<<endl;
+        if(time<cnt){
+            cout<<i-1;
+            status=false;
+            break;
+
+        }
+
+    }
+    if(status){
+
+        cout<<n;
+    }
 	
     
     
