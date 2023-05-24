@@ -28,11 +28,6 @@ int diffelements(string s){
     }
     return set1.size();
 }
-bool sortbysec(const pair<int,int> &a,
-            const pair<int,int> &b)
-{
-    return (a.second < b.second);
-}
 
 //code start  JAI SHREE RAM
 int main()
@@ -43,9 +38,46 @@ int main()
 #endif
 
     ARA_ARA
-    
-    
-    
+
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k;
+        cin>>n>>k;
+        vi v1;
+        vi v2;
+        f(i,0,n){
+            int a;
+            cin>>a;
+            v1.push_back(a);
+            
+        }
+        f(i,0,n){
+            int a;
+            cin>>a;
+            v2.push_back(a);
+
+        }
+        vector<pair<int,int>> v3;
+        vi v4(n);
+        for(int i=0;i<n;i++){
+            int a=v1[i];
+            pair<int,int> p={a,i};
+            v3.push_back(p);
+
+        }
+        sort(all(v3));
+        sort(all(v2));
+        f(i,0,n){
+            v4[v3[i].second]=v2[i];
+        }
+        for(auto x:v4){
+            cout<<x<<" ";
+        }
+        // cout<<v4[n-1];
+        cout<<"\n";
+
+    }
 	
 	
     

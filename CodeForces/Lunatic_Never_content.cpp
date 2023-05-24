@@ -43,8 +43,29 @@ int main()
 #endif
 
     ARA_ARA
-    
-    
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vi v(n);
+        f(i,0,n){
+            cin>>v[i];
+        }
+        
+        vi vec;
+        for(int i=0;i<n/2;i++){
+            int a=abs(v[i]-v[n-i-1]);
+            vec.pb(a);
+            // cout<<a;
+        }
+
+        int g=0;
+        for(auto x:vec){
+            g=gcd(g,x);
+        }
+        cout<<g<<endl;
+    }
     
 	
 	

@@ -28,11 +28,6 @@ int diffelements(string s){
     }
     return set1.size();
 }
-bool sortbysec(const pair<int,int> &a,
-            const pair<int,int> &b)
-{
-    return (a.second < b.second);
-}
 
 //code start  JAI SHREE RAM
 int main()
@@ -43,9 +38,27 @@ int main()
 #endif
 
     ARA_ARA
-    
-    
-    
+
+    int t;
+    cin>>t;
+    while(t--){
+        int len;
+        cin>>len;
+        string s;
+        cin>>s;
+        // cout<<s<<endl;
+        set<string> set1;
+        for(int i=0;i<len-1;i++){
+            string s1="";
+            // cout<<s[i]+s[i+1]<<endl;
+            s1=s[i];
+            s1+=s[i+1];
+            set1.insert(s1);
+            // cout<<s1<<endl;
+
+        }
+        cout<<set1.size()<<"\n";
+    }
 	
 	
     

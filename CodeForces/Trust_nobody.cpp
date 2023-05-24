@@ -43,8 +43,39 @@ int main()
 #endif
 
     ARA_ARA
-    
-    
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vi v;
+        f(i,0,n){
+            int a;
+            cin>>a;
+            v.pb(a);
+        }
+        int cnt;
+        bool status=true;
+        for(int i=0;i<=n;i++){
+            // cout<<i;
+            cnt=0;
+            f(j,0,n){
+                if(v[j]>i){
+                    cnt++;
+                }
+            }
+            if(cnt==i){
+                cout<<i<<"\n";
+                status=false;
+                break;
+
+            }
+        }
+        if(status){
+            cout<<-1<<"\n";
+        }
+        
+    }
     
 	
 	

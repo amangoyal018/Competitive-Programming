@@ -43,9 +43,54 @@ int main()
 #endif
 
     ARA_ARA
-    
-    
-    
+
+    int t;
+    cin>>t;
+    while(t--){
+        int n,m;
+        cin>>n>>m;
+        vector<pair<int,int>> v;
+        f(i,0,n){
+            f(j,0,m){
+                int a;
+                cin>>a;
+                pair<int,int> p={a,i};
+                v.pb(p);    
+            }
+        }
+
+        sort(all(v));
+
+        vector<vector<int>> vec(n,vector<int>(m,-1));
+        f(i,0,m){
+            vec[v[i].second][i]=v[i].first;
+        }
+        int index=m;
+        sort(v.begin()+m,v.end(),sortbysec);
+
+        f(i,0,n){
+            f(j,0,m){
+                if(vec[i][j]!=-1){
+                    continue;
+
+                }else{
+                    vec[i][j]=v[index].first;
+                    index++;
+
+                }
+            }
+        }
+        for(auto x:vec){
+            for(auto y:x){
+                cout<<y<<" ";
+            }
+            cout<<"\n";
+        }
+
+
+
+        
+    }
 	
 	
     

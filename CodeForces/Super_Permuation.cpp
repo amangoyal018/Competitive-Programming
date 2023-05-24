@@ -43,7 +43,44 @@ int main()
 #endif
 
     ARA_ARA
-    
+
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        if(n==1){
+            cout<<1<<"\n";
+            continue;
+
+        }else if(n%2!=0){
+            cout<<-1<<"\n";
+            continue;
+        }else{
+            vi v(n);
+            for(int i=0;i<n;i+=2){
+                v[i+1]=i+1;
+                v[i]=n-i;
+
+
+            }
+            vi prefix(n);
+            prefix[0]=v[0];
+            for(int i=1;i<n;i++){
+                prefix[i]=((prefix[i-1]+v[i]));
+            
+            }
+            for(int i=0;i<n;i++){
+                prefix[i]=prefix[i]%n;
+            
+            }
+            for(auto x:v){
+                cout<<x+1-1<<" ";
+            }
+            cout<<"\n";
+            
+        }
+    }
     
     
 	
