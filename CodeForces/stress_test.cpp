@@ -1,63 +1,107 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<int> v;
-void fun(int n){
+#define ARA_ARA ios_base::sync_with_stdio(false); cin.tie(NULL);
+#define ll long long int 
+const int mod = 1e9 + 1;
+#define vi vector < int >
+#define vll vector<long long int>
+#define f(i,a,b) for(int i=a;i<b;i++)
+#define all(x) x.begin() , x.end()
+#define pb push_back
+int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 
-    if(n%3!=0){
-        v.push_back(n);
-        return;
-    }
-    if(n%3==0){
-        int a=n/3;
-        int b=2*n/3;
-        v.push_back(a);
-        v.push_back(b);
-        if(a%3==0)fun(a);
-        if(b%3==0)fun(b);
-        
-        
-    }
-    return;
+bool isValid(int x, int y, int n, int m){
+	if(x < 0 or x >= n)return false;
+	if(y < 0 or y >= m)return false;
+	return true;
 }
-
-int chk(int n, int m){
-    if (n == m) return true;
-    if (n < m) return false;
-    if (n % 3) return false;
-    return chk(2 * n / 3, m) or chk(n / 3, m);
-}
-string FindSecondLargestElement( int n, int m)
+int factorial(unsigned int n)
 {
-    
-    fun(n);
-    bool status=false;
-    for(auto x:v){
-        if(x==m){
-            v.clear();
-            status=true;
-            return "YES";
-            
-            
+	if (n == 0)
+		return 1;
+	return (n * factorial(n - 1)) % mod;
+}
+int diffelements(string s){
+    int len=s.length();
+    unordered_set<char> set1;
+    for(int i=0;i<len;i++){
+        set1.insert(s[i]);
+    }
+    return set1.size();
+}
+bool sortbysec(const pair<int,int> &a,
+            const pair<int,int> &b)
+{
+    return (a.second < b.second);
+}
+
+//code start  JAI SHREE RAM
+
+int  FindSecondLargestElement(int n,int k,int d,int w,vector<int> v){
+    int dosecnt=0;
+    int cnt=0;
+    int a=v[0];
+    if(n==1){
+        return 1;
+        
+    }
+    f(i,0,n){
+        if(v[i]<=a+d+w){
+            cnt++;
+            if(cnt%k==0){
+                dosecnt++;
+                cnt=0;
+                a=v[min(i+1,n-1)];
+            }
+        }else{
+            if(cnt>0){
+                
+                dosecnt++;
+                cnt=0;
+            }
+            // dosecnt++;                
+            a=v[i];
+            cnt=1;
+            if(cnt%k==0){
+                dosecnt++;
+                cnt=0;
+            }
         }
-    }
-    if(status){
-        
+        // cout<<cnt<<dosecnt<<" "<<a<<endl;
 
-    }else{
-        
-        v.clear();
-        return "NO";
     }
-    
-    
+    if(cnt){
+        dosecnt++;
+    }
+    return dosecnt;
+
 }
-string Brute_solution( int n,int m)
+
+int Brute_solution(int n,int k,int d,int w,vector<int> a)
 {
-    return (chk(n, m) ? "YES" : "NO");
-    
-    
-    
+        a.pb(a[n-1]);
+        int cnt=1;
+        int prev=a[0];
+        for(int i=1;i<n;i++)
+        {
+
+        int t=k-1;
+        while(prev+w+d>=a[i]&&t--)
+        {
+        i++;
+        }
+        prev=a[i];
+        if(i<n)
+        cnt++;
+
+        }
+        return cnt;
 }
+
+    
+    
+    
+
 int main()
 {
 
@@ -73,14 +117,28 @@ int main()
     while (count <= 10000)
     {
 
-        int n = rand() %100 +1;
-        int m = rand() % 100+1;
-        string myans = FindSecondLargestElement( n,m);
-        string correctans = Brute_solution(n,m);
+        int n = rand() %10 +1;
+        int m = rand() % 10+1;
+        int d = rand() % 10+1;
+        int w = rand() % 10+1;
+        vector<int> v;
+        f(i,0,n){
+            int a=rand()%10 +1;
+            v.pb(a);
+        }
+        sort(all(v));
+        int myans = FindSecondLargestElement( n,m,d,w,v);
+        int correctans = Brute_solution(n,m,d,w,v);
         if (correctans != myans)
         {
-            cout << n << endl;
-            cout << m << endl;
+            cout<<n<<" "<<m<<" "<<d<<" "<<w<<endl;
+            for(auto x:v){
+                cout<<x<<" ";
+            }
+            cout<<endl;
+
+            cout<<correctans<<" "<<myans;
+
             break;
         }
         count++;

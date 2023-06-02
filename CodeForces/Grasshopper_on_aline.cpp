@@ -44,7 +44,42 @@ int main()
 #endif
 
     ARA_ARA
-    
+    int t;
+    cin>>t;
+    while(t--){
+        ll n,k;
+        cin>>n>>k;
+
+        vi vec(n+1,1);
+        for(int i=1;i<=n;i++){
+            if(i%k==0){
+                vec[i]=0;
+
+            }
+        }
+        int ans=n;
+        // cout<<ans;
+        vi result;
+        for(int i=n;i>0;i--){
+            // cout<<i;
+            if(ans==0){
+                break;
+            }
+            while(vec[i] and ans>=(i)){
+                ans=ans-i;
+                // cout<<i<<ans<<endl;
+                result.pb(i);
+            }
+
+        }
+        cout<<result.size()<<"\n";
+        for(auto x:result ){
+            cout<<x<<" ";
+        }
+        cout<<"\n";
+        
+        
+    }
     
     
 	

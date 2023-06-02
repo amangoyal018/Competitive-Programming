@@ -1,56 +1,114 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define ARA_ARA ios_base::sync_with_stdio(false); cin.tie(NULL);
+#define ll long long int 
+const int mod = 1e9 + 1;
+#define vi vector < int >
+#define vll vector<long long int>
+#define f(i,a,b) for(int i=a;i<b;i++)
+#define all(x) x.begin() , x.end()
+#define pb push_back
+int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 
+bool isValid(int x, int y, int n, int m){
+	if(x < 0 or x >= n)return false;
+	if(y < 0 or y >= m)return false;
+	return true;
+}
+int factorial(unsigned int n)
+{
+	if (n == 0)
+		return 1;
+	return (n * factorial(n - 1)) % mod;
+}
+int diffelements(string s){
+    int len=s.length();
+    unordered_set<char> set1;
+    for(int i=0;i<len;i++){
+        set1.insert(s[i]);
+    }
+    return set1.size();
+}
+bool sortbysec(const pair<int,int> &a,
+            const pair<int,int> &b)
+{
+    return (a.second < b.second);
+}
 
+//code start  JAI SHREE RAM
 int main()
 {
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
 
-    int t;
+    ARA_ARA
+
+    ll t;
     cin>>t;
     while(t--){
-        int n;
-        cin>>n;
+        ll m;
+        cin>>m;
+        vll ans(50001);
+        vector<vector<ll>> v;
+        f(i,0,m){
+            ll n;
+            cin>>n;
+            vll vec;
+            f(j,0,n){
 
-
-    
-        int c=1;
-        map<int,int> m;
-        for(int i=0;i<n;i++){
-            int s;
-            cin>>s;
-            for(int j=0;j<s;j++){
                 int a;
                 cin>>a;
-                m[a]=c;
+                ans[a]++;
+                vec.pb(a);
             }
-            c++;
+            v.pb(vec);
 
         }
-        vector<int> v(n,0);
-        for(auto i:m){
-            if(i.second<=n){
-                v[i.second-1]= i.first;
+        vll res;
+        bool noans=false;
+
+        for(auto x:v){
+            bool status=true;
+            for(auto y:x){
+                if(ans[y]==1){
+                    if(status){
+                        res.pb(y);
+                        status=false;
+                    }
+                }
+                ans[y]--;
+                
             }
-        }
-        int b=1;
-        for(int i=0;i<n;i++){
-            if(v[i]==0){
-                b=0;
+            if(status){
+                // cout<<-1<<"\n";
+                noans=true;
+                break;
             }
+            
         }
-        if(b==0){
-            cout<<-1<<endl;
-        }else{
-            for(int i=0;i<n;i++){
-                cout<<v[i]<<" ";
-            }
-            cout<<endl;
+        if(noans){
+            cout<<-1<<"\n";
+            continue;
         }
+        for(auto x:res){
+            cout<<x<<" ";
+        }
+        cout<<"\n";
     }
+    
+    
+    
+	
+	
+    
+    
+
+    
+    
+    
+
+
+
 }

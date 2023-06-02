@@ -44,6 +44,19 @@ int main()
 #endif
 
     ARA_ARA
+
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        f(i,0,n){
+            int a;
+            cin>>a;
+            cout<<n+1-a<<" ";
+        }
+        cout<<"\n";
+    }
     
     
     

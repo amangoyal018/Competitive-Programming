@@ -9,7 +9,7 @@ const int mod = 1e9 + 1;
 #define all(x) x.begin() , x.end()
 #define pb push_back
 int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
-
+ 
 bool isValid(int x, int y, int n, int m){
 	if(x < 0 or x >= n)return false;
 	if(y < 0 or y >= m)return false;
@@ -34,7 +34,7 @@ bool sortbysec(const pair<int,int> &a,
 {
     return (a.second < b.second);
 }
-
+ 
 //code start  JAI SHREE RAM
 int main()
 {
@@ -42,20 +42,59 @@ int main()
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
-
+ 
     ARA_ARA
-    
-    
-    
-	
-	
-    
-    
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vi v;
+        for(int i=0;i<n;i++){
+            int a;
+            cin>>a;
+            v.pb(a);
+        }
+        vi ans(3);
+        for(auto x:v){
+            if(x==0){
+                ans[0]++;
+            }else if(x==1){
+                ans[1]++;
+            }else{
+                ans[2]++;
+            }
+        }
+        int a=ans[0];
+        int c=ans[1];
+        int b=(n+1)/2;
+        if(a<=b){
+            cout<<0<<"\n";
+            continue;
+        }else if(a==n){
+            cout<<1<<"\n";
+            continue;
+        }
+        if(a+c<n){
+            cout<<1<<"\n";
 
-    
-    
-    
-
-
-
+        }else{
+            cout<<2<<"\n";
+        }
+       
+ 
+    }
 }
+    
+    
+	
+	
+    
+    
+ 
+    
+    
+    
+ 
+ 
+ 

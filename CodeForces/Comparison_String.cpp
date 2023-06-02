@@ -44,7 +44,31 @@ int main()
 #endif
 
     ARA_ARA
-    
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        int max=0;
+        int cnt=0;
+
+
+        for(int i=0;i<n-1;i++){
+            if(s[i]==s[i+1]){
+                cnt++;
+            }else{
+                cnt=0;
+
+            }
+            if(cnt>max){
+                max=cnt;
+            }
+        }
+        cout<<max+2<<"\n";
+
+    }
     
     
 	

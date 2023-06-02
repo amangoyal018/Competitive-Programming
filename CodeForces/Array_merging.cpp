@@ -42,57 +42,86 @@ int main()
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
 
+    ARA_ARA
     int t;
     cin>>t;
-    
     while(t--){
-        int n,m;
-        cin>>n>>m;
-    
-        vector<vector<int>> vec;
-        
-        for(int i=0;i<n;i++){
-            vector<int> v;
-            for(int j=0;j<m;j++){
-                int a;
-                cin>>a;
-                v.push_back(a);
-            }
-            vec.push_back(v);
+        int n;
+        cin>>n;
+        vi a;
+        vi b;
+        set<int> s;
+
+        f(i,0,n){
+            int x;
+            cin>>x;
+            a.pb(x);
+            s.insert(x);
+            
         }
-        
-        
-        
-        int chips=0;
-        for(int i=0;i<n-1;i++){
-            for(int j=i+1;j<n;j++){
-                vector<int> v1=vec[i];
-                vector<int> v2=vec[j];
-                
-                for(int i=0;i<m;i++){
-                    // cout<<v1[i]<<v2[i]<<endl;
-                    chips+=abs(v1[i]-v2[i]);
-                }
-                // cout<<chips<<endl;
-                v1.clear();
-                v2.clear();
-                
-        
-            }
+        f(i,0,n){
+            int x;
+            cin>>x;
+            b.pb(x);
+            s.insert(x);
+
         }
-        cout<<chips<<"\n";
+        vi ans1(2*n+1,0);
+        vi ans2(2*n+1,0);
+
+
+        f(i,0,n){
+            int index=i;
+            while(index<n and a[index]==a[i]){
+                index++;
+            }
+            if(index-i>ans1[a[i]]){
+                ans1[a[i]]=index-i;
+            }
+            i=index-1;
+
+        }
+        f(i,0,n){
+            int index=i;
+            while(index<n and b[index]==b[i]){
+                index++;
+            }
+            if(index-i>ans2[b[i]]){
+                ans2[b[i]]=index-i;
+            }
+            i=index-1;
+
+        }
+        int res=0;
+        f(i,1,2*n+1){
+            // cout<<"hello";s
+            res=max(res,ans1[i]+ans2[i]);
+
+        }
+        cout<<res<<"\n";
+        
+
+        
+        
+
+        
+        
+        
+        
     }
-        
     
     
     
+	
+	
     
-    return 0;
+    
 
     
+    
+    
+
 
 
 }

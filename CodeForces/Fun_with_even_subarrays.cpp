@@ -44,6 +44,26 @@ int main()
 #endif
 
     ARA_ARA
+
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vi v;
+        for(int i=0;i<n;i++){
+            int a;
+            cin>>a;
+            v.pb(a);
+        }
+    }
+    int a=v[n-1];
+    int cnt=0;
+    f(i,0,n-1){
+        if(v[i]!=a){
+            cnt++;
+        }
+    }
     
     
     

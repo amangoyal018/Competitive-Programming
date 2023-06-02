@@ -44,7 +44,54 @@ int main()
 #endif
 
     ARA_ARA
-    
+    int n;
+    cin>>n;
+    int topface;
+    cin>>topface;
+    vi v;
+    v.pb(topface);
+    v.pb(7-topface);
+    f(i,0,n){
+        int a,b;
+        cin>>a>>b;
+        if(i==0){
+            continue;
+        }
+        for(int j=1;j<=6;j++){
+            if(j==a or j==b or j==7-a or j==7-b){
+
+            }else{
+                v.pb(j);
+            }
+        }
+
+    }
+    // for(auto x:v){
+    //     cout<<x;
+    // }
+    if(n==1){
+        cout<<"YES";
+        return 0;
+    }
+    for(int i=2;i<=v.size()-4;i+=2){
+        if((v[i]!=v[i-1] and v[i]!=v[i+2]) and (v[i+1]!=v[i-1] and v[i+1]!=v[i+2])){
+            cout<<"NO";
+            return 0;
+        }else{
+            if(v[i]==v[i-1]){
+                swap(v[i],v[i+1]);
+            }
+        }
+    }
+    int a=v[2*n-2];
+    int b=v[2*n-1];
+
+    if(a!=v[2*n-3] and b!=v[2*n-3]){
+        cout<<"NO";
+        return 0;
+    }else{
+        cout<<"YES";
+    }
     
     
 	

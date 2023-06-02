@@ -44,6 +44,55 @@ int main()
 #endif
 
     ARA_ARA
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k,d,w;
+        cin>>n>>k>>d>>w;
+        vll v;
+        f(i,0,n){
+            int a;
+            cin>>a;
+            v.pb(a);
+        }
+        int dosecnt=0;
+        int cnt=0;
+        int a=v[0];
+        if(n==1){
+            cout<<1<<"\n";
+            continue;
+        }
+        f(i,0,n){
+            if(v[i]<=a+d+w){
+                cnt++;
+                if(cnt%k==0){
+                    dosecnt++;
+                    cnt=0;
+                    a=v[i+1];
+                }
+            }else{
+                if(cnt>0){
+                    dosecnt++;
+                    cnt=0;
+                }
+                // dosecnt++;                
+                a=v[i];
+                cnt=1;
+                if(cnt%k==0){
+                    dosecnt++;
+                    cnt=0;
+                }
+            }
+            // cout<<cnt<<dosecnt<<" "<<endl;
+
+        }
+        if(cnt){
+            dosecnt++;
+        }
+        cout<<dosecnt<<"\n";
+
+
+    }
     
     
     
