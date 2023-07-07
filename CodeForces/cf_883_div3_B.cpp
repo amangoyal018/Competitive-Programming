@@ -48,7 +48,7 @@ int main()
     // cin>>t;
     t=1;
     while(t--){
-        cout<<(4&6);
+        
     }
     
     

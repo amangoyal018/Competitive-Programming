@@ -45,10 +45,37 @@ int main()
 
     ARA_ARA
     int t;
-    // cin>>t;
-    t=1;
+    cin>>t;
+    // t=1;
     while(t--){
-        cout<<(4&6);
+        ll n;
+        cin>>n;
+        vll v;
+        f(i,0,n){
+            ll a;
+            cin>>a;
+            v.pb(a);
+        }
+        int cnt=0;
+        int res=v[0];
+        f(i,0,n){
+            res=(res&v[i]);
+            // int temp=(v[i]&v[i+1]);
+            // cout<<res<<" "<<i<<endl;
+            if(res==0){
+                if(i==n-1){
+                    cnt++;
+                    break;
+                }
+                cnt++;
+                res=v[i+1];
+            }
+        }
+        if(cnt<=1){
+            cout<<1<<"\n";
+        }else{
+            cout<<cnt<<"\n";
+        }
     }
     
     

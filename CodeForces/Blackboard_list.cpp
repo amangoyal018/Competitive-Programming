@@ -45,10 +45,29 @@ int main()
 
     ARA_ARA
     int t;
-    // cin>>t;
-    t=1;
+    cin>>t;
     while(t--){
-        cout<<(4&6);
+
+        int n;
+        cin>>n;
+        vll v;
+        bool status=false;
+        f(i,0,n){
+            ll a;
+            cin>>a;
+            v.pb(a);
+            if(a<0){
+                status=true;
+            }
+
+        }
+        sort(all(v));
+        if(status){
+            cout<<v[0]<<"\n";
+        }else{
+            cout<<v[n-1]<<"\n";
+        }
+        
     }
     
     

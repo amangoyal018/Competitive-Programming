@@ -45,10 +45,54 @@ int main()
 
     ARA_ARA
     int t;
-    // cin>>t;
-    t=1;
+    cin>>t;
     while(t--){
-        cout<<(4&6);
+
+        ll n;
+        cin>>n;
+        vector<double> v;
+        double mean=0;
+        f(i,0,n){
+            double a;
+            cin>>a;
+            v.pb(a);
+            mean+=a;
+        }
+        mean/=n;
+        // f(i,0,n){
+        //     v[i]=abs(v[i]-sum);
+        // }
+        // sort(all(v));
+        // int cnt=0;
+        // int ans=0;
+        // int temp=0;
+        // for(auto x:v){
+        //     cout<<x;
+        // }
+
+        // f(i,0,n-1){
+
+        //     if(v[i]==v[i+1]){
+        //         cnt++;
+        //     }else{
+        //         cnt=0;
+        //     }
+            
+        //     if(cnt==1){
+        //         temp=1;
+        //     }else if(cnt>1){
+        //         temp*=cnt;
+
+        //     }else{
+        //         ans+=temp;
+        //         temp=0;
+        //     }
+            
+        //     // cout<<temp<<endl;
+
+        // }
+        // cout<<ans+temp<<"\n";
+        
     }
     
     

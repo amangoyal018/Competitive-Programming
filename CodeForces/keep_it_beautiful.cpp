@@ -45,10 +45,52 @@ int main()
 
     ARA_ARA
     int t;
-    // cin>>t;
-    t=1;
+    cin>>t;
     while(t--){
-        cout<<(4&6);
+        int q;cin>>q;
+        vll v;
+
+        f(i,0,q){
+            ll a;
+            cin>>a;
+            v.pb(a);
+        }
+        int index=-1;
+        cout<<1;
+        int z=v[0];
+        bool status=true;
+        f(i,0,q-1){
+            if(v[i+1]>=z){
+                cout<<1;
+                z=v[i+1];
+            }else{
+                if(v[i+1]<=v[0]){
+                    cout<<1;
+                    z=v[i+1];
+                    index=i+1;
+                    break;
+                }else{
+                    cout<<0;
+                }
+                
+                
+                
+            }
+        }
+        // cout<<"\n"<<index<<"\n";
+        if(index==-1){
+            cout<<"\n";
+            continue;
+        }
+        f(i,index+1,q){
+            if(v[i]>=z and v[i]<=v[0]){
+                cout<<1;
+                z=v[i];
+            }else{
+                cout<<0;
+            }
+        }    
+        cout<<"\n";
     }
     
     

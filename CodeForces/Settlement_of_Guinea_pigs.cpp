@@ -44,6 +44,36 @@ int main()
 #endif
 
     ARA_ARA
+    int t;
+    cin>>t;
+    
+    while(t--){
+        int n;cin>>n;
+        int ans=0;
+        int cnt=0;
+        int temp=0;
+        int temp2=0;
+        f(i,0,n){
+            int a;
+            cin>>a;
+            // cout<<a;
+            if(a==1){
+                temp++;
+                temp2++;
+            }else{
+                if(temp==0){
+                    continue;
+                }
+                cnt=temp2/2+1;
+                
+                temp=0;
+            }
+            ans=max(ans,cnt+temp);
+            // cout<<temp<<" "<<ans<<" "<<cnt<<endl;
+        }
+        cout<<ans<<"\n";
+
+    }
     
     
     

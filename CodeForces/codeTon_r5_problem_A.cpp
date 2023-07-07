@@ -45,10 +45,34 @@ int main()
 
     ARA_ARA
     int t;
-    // cin>>t;
-    t=1;
+    cin>>t;
     while(t--){
-        cout<<(4&6);
+        int n,m;
+        cin>>n>>m;
+        // vll tsondu;
+        // vll tenzing;
+        ll sum1=0;
+        ll sum2=0;
+        f(i,0,n){
+            int a;
+            cin>>a;
+            // tsondu.pb(a);
+            sum1+=a;
+        }
+        f(i,0,m){
+            int a;
+            cin>>a;
+            // tenzing.pb(a);
+            sum2+=a;
+        }
+
+        if(sum1==sum2){
+            cout<<"Draw"<<"\n";
+        }else if(sum1>sum2){
+            cout<<"Tsondu"<<"\n";
+        }else{
+            cout<<"Tenzing"<<"\n";
+        }
     }
     
     

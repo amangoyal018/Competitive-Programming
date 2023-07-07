@@ -45,10 +45,31 @@ int main()
 
     ARA_ARA
     int t;
-    // cin>>t;
-    t=1;
+    cin>>t;
+    // t=1;
     while(t--){
-        cout<<(4&6);
+        ll n,k;
+        cin>>n>>k;
+        vll v;
+        f(i,0,n){
+            ll a;
+            cin>>a;
+            v.pb(a);
+        }
+        vll diff;
+        f(i,0,n-1){
+            ll b=abs(v[i+1]-v[i]);
+            diff.pb(b);
+
+        }
+        sort(all(diff));
+        
+        ll sum=0;
+        f(i,0,n-k){
+            // cout<<diff[i]<<endl;
+            sum+=diff[i];
+        }
+        cout<<sum<<"\n";
     }
     
     

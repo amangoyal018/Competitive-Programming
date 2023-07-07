@@ -45,10 +45,28 @@ int main()
 
     ARA_ARA
     int t;
-    // cin>>t;
-    t=1;
+    cin>>t;
+    // t=1;
     while(t--){
-        cout<<(4&6);
+        ll n,m;cin>>n>>m;
+        // cout<<n<<m<<endl;
+        int temp=m;
+        bool status=true;
+        while(temp){
+            cout<<temp<<endl;
+            if(temp==1){
+                cout<<"YES\n";
+                status=false;
+            }
+            if(n%temp==0){
+                break;
+            }
+            temp=n-m*(n/m);
+            m=temp;
+        }
+        if(status){
+            cout<<"NO\n";
+        }
     }
     
     
