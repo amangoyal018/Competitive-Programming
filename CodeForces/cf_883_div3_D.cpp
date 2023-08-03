@@ -48,17 +48,30 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-        ll n;
-        cin>>n;
-        ll cnt=0;
+        long double n,b,h;
+        cin>>n>>b>>h;
+        vector<long double> v;
         f(i,0,n){
-            ll a,b;
-            cin>>a>>b;
-            if(a>b){
-                cnt++;
+            long double a;
+            cin>>a;
+            v.pb(a);
+        }
+        long double temp;
+        temp=0;
+        f(i,0,n-1){
+            if(abs(v[i+1]-v[i])<h){
+                long double diff=v[i+1]-v[i];
+                long double temp2;
+                temp2=((diff)*(2*b-(2*((b*diff)/(2*h)))))/2;
+                temp+=(temp2);
+            }else{
+                temp+=((b*h)/2);
             }
         }
-        cout<<cnt<<"\n";
+        temp+=((b*h)/2);
+        cout<<setprecision(12)<<temp<<"\n";
+
+        
     }
     
     

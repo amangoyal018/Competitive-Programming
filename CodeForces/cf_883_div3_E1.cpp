@@ -48,17 +48,8 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-        ll n;
-        cin>>n;
-        ll cnt=0;
-        f(i,0,n){
-            ll a,b;
-            cin>>a>>b;
-            if(a>b){
-                cnt++;
-            }
-        }
-        cout<<cnt<<"\n";
+        
+        
     }
     
     

@@ -48,17 +48,28 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-        ll n;
-        cin>>n;
-        ll cnt=0;
+        int n,k;
+        cin>>n>>k;
+        vi  v(n);
         f(i,0,n){
-            ll a,b;
-            cin>>a>>b;
-            if(a>b){
+            cin>>v[i];
+        }
+        int temp=1;
+        int cnt=0;
+        f(i,0,n){
+            if(v[i]==temp){
                 cnt++;
+                temp++;
             }
         }
-        cout<<cnt<<"\n";
+        // cout<<cnt<<"\n";
+        int ans=n-cnt;
+        int res=ans/k;
+        if(ans%k>0){
+            res++;
+        }
+        cout<<res<<"\n";
+        
     }
     
     

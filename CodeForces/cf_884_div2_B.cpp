@@ -46,19 +46,49 @@ int main()
     ARA_ARA
     int t;
     cin>>t;
+    // int n;
+    // n=200000;
+
+    // vi v(n+1,1);
+
+    // v[1]=0;
+
+    // for(int i=1;i*i<=n;i++){
+    //     if(v[i]==1){
+    //         for(int j=i*i;j<=n;j+=i){
+    //             v[j]=0;
+
+    //         }
+    //     }
+    // }
+
+    // for(int i=1;i<=n;i++){
+    //     if(v[i]==1){
+    //         cout<<i<<" ";
+    //     }
+    // }
     // t=1;
     while(t--){
         ll n;
         cin>>n;
-        ll cnt=0;
-        f(i,0,n){
-            ll a,b;
-            cin>>a>>b;
-            if(a>b){
-                cnt++;
+        vll v(n);
+        v[0]=2;
+        v[n-1]=3;
+        v[n/2]=1;
+        ll temp=4;
+
+        f(i,1,n-1){
+            if(i==n/2){
+                continue;
             }
+            v[i]=temp++;
         }
-        cout<<cnt<<"\n";
+        f(i,0,n){
+            cout<<v[i]<<" ";
+        }
+        cout<<"\n";
+
+        
     }
     
     

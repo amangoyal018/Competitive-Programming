@@ -34,7 +34,15 @@ bool sortbysec(const pair<int,int> &a,
 {
     return (a.second < b.second);
 }
+//for ordering the vector of pair while sorting
+bool customCompare(pair<int,int> pair1, pair<int, int> pair2) {
+    if (pair1.first == pair2.first)
+    {
+        return pair1.second < pair2.second;
+    }
 
+    return pair1.first > pair2.first;
+}
 //code start  JAI SHREE RAM
 int main()
 {
@@ -48,17 +56,29 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-        ll n;
+
+        int n;
         cin>>n;
-        ll cnt=0;
+        vi v;;
         f(i,0,n){
-            ll a,b;
-            cin>>a>>b;
-            if(a>b){
-                cnt++;
+            int a;
+            cin>>a;
+            v.pb(a);
+        }
+        sort(all(v));
+        bool ans=true;
+        f(i,1,n){
+            int diff=v[i]-v[i-1];
+            if(diff>=2){
+                ans=false;
             }
         }
-        cout<<cnt<<"\n";
+        if(ans){
+            cout<<"YES\n";
+        }else{
+            cout<<"NO\n";
+        }
+        
     }
     
     

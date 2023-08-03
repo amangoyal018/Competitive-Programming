@@ -5,7 +5,7 @@ using namespace std;
 const int mod = 1e9 + 1;
 #define vi vector < int >
 #define vll vector<long long int>
-#define f(i,a,b) for(int i=a;i<b;i++)
+#define f(i,a,b) for(ll i=a;i<b;i++)
 #define all(x) x.begin() , x.end()
 #define pb push_back
 int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
@@ -50,15 +50,39 @@ int main()
     while(t--){
         ll n;
         cin>>n;
-        ll cnt=0;
+        vll v(n);
         f(i,0,n){
-            ll a,b;
-            cin>>a>>b;
-            if(a>b){
-                cnt++;
+            // ll a;
+            cin>>v[i];
+            // cout<<v[i]<<"\n";
+
+        }
+        ll max1=v[0];
+        f(i,0,n){
+            if(v[i]>max1){
+                max1=v[i];
             }
         }
-        cout<<cnt<<"\n";
+        // cout<<max1;
+        ll odd=0,even=0;
+        f(i,0,n){
+            if(v[i]>=0){
+                if(i%2==0){
+                    // cout<<v[i]<<" ";
+                    even+=v[i];
+                }else{
+                    odd+=v[i];
+                }
+            }
+        }
+        // cout<<even<<" "<<odd;
+        if(max1>=0){
+            cout<<max(odd,even);
+        }else{
+            cout<<max1;
+        } 
+        cout<<"\n";
+        
     }
     
     

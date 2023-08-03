@@ -34,68 +34,64 @@ bool sortbysec(const pair<int,int> &a,
 {
     return (a.second < b.second);
 }
+bool customCompare(pair<int,int> pair1, pair<int, int> pair2) {
+    if (pair1.first == pair2.first)
+    {
+        return pair1.second < pair2.second;
+    }
+
+    return pair1.first > pair2.first;
+}
 
 //code start  JAI SHREE RAM
 
-int  FindSecondLargestElement(int n,int k,int d,int w,vector<int> v){
-    int dosecnt=0;
-    int cnt=0;
-    int a=v[0];
-    if(n==1){
-        return 1;
-        
-    }
-    f(i,0,n){
-        if(v[i]<=a+d+w){
-            cnt++;
-            if(cnt%k==0){
-                dosecnt++;
-                cnt=0;
-                a=v[min(i+1,n-1)];
-            }
-        }else{
-            if(cnt>0){
-                
-                dosecnt++;
-                cnt=0;
-            }
-            // dosecnt++;                
-            a=v[i];
-            cnt=1;
-            if(cnt%k==0){
-                dosecnt++;
-                cnt=0;
+vector<int>  FindSecondLargestElement(int n,int k,vector<int> v){
+        // int n,k;
+        // cin>>n>>k;
+        // vll v;
+        vector<pair<int,int>> vp;
+        for(auto &x:v){
+            if(k!=x){
+                x%=k;
             }
         }
-        // cout<<cnt<<dosecnt<<" "<<a<<endl;
-
-    }
-    if(cnt){
-        dosecnt++;
-    }
-    return dosecnt;
+        
+        f(i,0,n){
+            pair<int,int> p;
+            p={v[i],i+1};
+            vp.pb(p);
+        }
+        sort(vp.begin(),vp.end(),customCompare);
+        // sort(vp.rbegin(),vp.rend());
+        // for(auto x:vp){
+        //     cout<<x.first<<" "<<x.second<<"\n";
+        // }
+        vector<int> res;
+        f(i,0,n){
+            res.pb(vp[i].second);
+        }
+        // cout<<"\n";
+        return res;
 
 }
 
-int Brute_solution(int n,int k,int d,int w,vector<int> a)
+vector<int> Brute_solution(int n,int k,vector<int> a)
 {
-        a.pb(a[n-1]);
-        int cnt=1;
-        int prev=a[0];
-        for(int i=1;i<n;i++)
-        {
-
-        int t=k-1;
-        while(prev+w+d>=a[i]&&t--)
-        {
-        i++;
-        }
-        prev=a[i];
-        if(i<n)
-        cnt++;
-
-        }
-        return cnt;
+    // int n, k;
+    // cin >> n >> k;
+    // vector<int> a(n);
+    for (auto &x : a) {
+    // cin >> x;
+        x %= k;
+        if (!x) x = k;
+    }
+    vector<int> ord(n);
+    iota(ord.begin(), ord.end(), 0);
+    stable_sort(ord.begin(), ord.end(), [&](int i, int j) {
+    return a[i] > a[j];
+    });
+    for (auto &x : ord)x+=1;
+    return ord;
 }
 
     
@@ -118,26 +114,26 @@ int main()
     {
 
         int n = rand() %10 +1;
-        int m = rand() % 10+1;
-        int d = rand() % 10+1;
-        int w = rand() % 10+1;
+        int k = rand() % 10+1;
+        // int d = rand() % 10+1;
+        // int w = rand() % 10+1;
         vector<int> v;
         f(i,0,n){
             int a=rand()%10 +1;
             v.pb(a);
         }
-        sort(all(v));
-        int myans = FindSecondLargestElement( n,m,d,w,v);
-        int correctans = Brute_solution(n,m,d,w,v);
-        if (correctans != myans)
+        // sort(all(v));
+        // vector<int> myans = FindSecondLargestElement( n,k,v);
+        // vector<int> correctans = Brute_solution(n,k,v);
+        if (Brute_solution(n,k,v) != FindSecondLargestElement( n,k,v))
         {
-            cout<<n<<" "<<m<<" "<<d<<" "<<w<<endl;
+            cout<<n<<k<<endl;
             for(auto x:v){
                 cout<<x<<" ";
             }
             cout<<endl;
 
-            cout<<correctans<<" "<<myans;
+            // cout<<correctans<<" "<<myans;
 
             break;
         }

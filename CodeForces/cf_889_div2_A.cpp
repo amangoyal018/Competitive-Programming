@@ -50,15 +50,21 @@ int main()
     while(t--){
         ll n;
         cin>>n;
+    
         ll cnt=0;
-        f(i,0,n){
-            ll a,b;
-            cin>>a>>b;
-            if(a>b){
+        f(i,1,n+1){
+            ll a;
+            cin>>a;
+            if(a==i){
                 cnt++;
             }
         }
-        cout<<cnt<<"\n";
+        ll res=cnt/2;
+        if(cnt%2!=0){
+            res++;
+        }
+        cout<<res<<"\n";
+        
     }
     
     

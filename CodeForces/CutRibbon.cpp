@@ -45,20 +45,35 @@ int main()
 
     ARA_ARA
     int t;
-    cin>>t;
-    // t=1;
+    // cin>>t;
+    t=1;
     while(t--){
-        ll n;
-        cin>>n;
-        ll cnt=0;
-        f(i,0,n){
-            ll a,b;
-            cin>>a>>b;
-            if(a>b){
-                cnt++;
-            }
+        int n,a,b,c;
+        cin>>n>>a>>b>>c;
+        int x=min(a,min(b,c));
+        int y=max(a,min(b,c));
+        int z=a+b+c-x-y;
+        // cout<<x<<y<<z<<"\n";
+        int cnt=0;
+
+        int p=n/x;
+        if(p>0){
+            cnt+=p;
+            n-=x*p;
         }
-        cout<<cnt<<"\n";
+        int q=n/z;
+        if(q>0){
+            cnt+=q;
+            n-=z*q;
+        }
+        int r=n/y;
+        if(r>0){
+            cnt+=r;
+            n-=y*r;
+        }
+        cout<<cnt;
+
+        
     }
     
     

@@ -48,17 +48,12 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-        ll n;
-        cin>>n;
-        ll cnt=0;
-        f(i,0,n){
-            ll a,b;
-            cin>>a>>b;
-            if(a>b){
-                cnt++;
-            }
-        }
-        cout<<cnt<<"\n";
+        ll b,c,h;
+        cin>>b>>c>>h;
+        // ll a=b-1;
+        ll ans=min(c+h,b-1);
+        cout<<2*ans+1<<"\n";
+
     }
     
     

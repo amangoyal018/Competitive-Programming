@@ -50,15 +50,18 @@ int main()
     while(t--){
         ll n;
         cin>>n;
-        ll cnt=0;
-        f(i,0,n){
-            ll a,b;
-            cin>>a>>b;
-            if(a>b){
-                cnt++;
+        ll cnt=-1;
+        ll temp=0;
+        f(i,1,1002){
+            if(n%i==0){
+                temp++;
+            }else{
+                temp=0;
             }
+            cnt=max(cnt,temp);
         }
         cout<<cnt<<"\n";
+        
     }
     
     

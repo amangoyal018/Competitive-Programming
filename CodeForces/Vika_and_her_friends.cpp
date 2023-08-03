@@ -48,17 +48,24 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-        ll n;
-        cin>>n;
-        ll cnt=0;
-        f(i,0,n){
+        ll n,m,k;
+        cin>>n>>m>>k;
+        ll x,y;
+        cin>>x>>y;
+        ll sum=0;
+        f(i,0,k){
             ll a,b;
             cin>>a>>b;
-            if(a>b){
-                cnt++;
+            if((abs(a-x)+abs(b-y))%2==0){
+                sum++;
             }
+
         }
-        cout<<cnt<<"\n";
+        if(sum){
+            cout<<"NO\n";
+        }else{
+            cout<<"YES\n";
+        }
     }
     
     

@@ -50,15 +50,44 @@ int main()
     while(t--){
         ll n;
         cin>>n;
-        ll cnt=0;
+        vll v1;
+        vll v2;
+
         f(i,0,n){
-            ll a,b;
-            cin>>a>>b;
-            if(a>b){
-                cnt++;
+            ll a;
+            cin>>a;
+            v1.pb(a);
+        }
+        f(i,0,n){
+            ll a;
+            cin>>a;
+            v2.pb(a);
+        }
+        
+        int min1=v1[0];
+        int min2=v2[0];
+        for(auto x:v1){
+            if(x<min1){
+                min1=x;
             }
         }
-        cout<<cnt<<"\n";
+        for(auto x:v2){
+            if(x<min2){
+                min2=x;
+            }
+        }
+        f(i,0,n){
+            v1[i]-=min1;
+            v2[i]-=min2;
+        }
+        ll moves=0;
+        f(i,0,n){
+            ll a=max(v1[i],v2[i]);
+            ll b=min(v1[i],v2[i]);
+            moves+=b;
+            moves+=(a-b);
+        }
+        cout<<moves<<"\n";
     }
     
     
