@@ -50,22 +50,30 @@ int main()
     while(t--){
         ll n,m;cin>>n>>m;
         // cout<<n<<m<<endl;
-        int temp=m;
-        bool status=true;
-        while(temp){
-            cout<<temp<<endl;
-            if(temp==1){
-                cout<<"YES\n";
-                status=false;
-            }
-            if(n%temp==0){
-                break;
-            }
-            temp=n-m*(n/m);
-            m=temp;
+        if(n==1 or m==1){
+            cout<<"YES\n";
+            continue;
         }
-        if(status){
+        vll v;
+        ll ans;
+        for(ll i=1;i*i<=n;i++){
+            if(n%i==0){
+                if(i!=1){
+                    ans=min(i,ans);
+                    break;
+
+                }else{
+                    ans=n/i;
+                    
+
+                }
+            }
+            
+        }
+        if(ans<=m){
             cout<<"NO\n";
+        }else{
+            cout<<"YES\n";
         }
     }
     

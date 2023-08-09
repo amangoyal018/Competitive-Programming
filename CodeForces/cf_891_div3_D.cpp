@@ -45,30 +45,63 @@ int main()
 
     ARA_ARA
     int t;
-    // cin>>t;
-    t=1;
+    cin>>t;
+    // t=1;
     while(t--){
-        int n,a,b,c;
-        cin>>n>>a>>b>>c;
-        int x,y,z;
-        int ans=-1;
-        int k=-1;
+        ll n;
+        cin>>n;
 
-        for(int i=0;i<=n;i++){
-            for(int j=0;j<=n;j++){
-                if((n-a*i-b*j)%c==0 and (n-a*i-b*j)>=0){
-                    k=(n-a*i-b*j)/c;
-                }else{
-                    continue;
-                }
-                ans=max(ans,i+j+k);
-                // cout<<i<<" "<<" "<<j<<" "<<k<<"\n";
+        vll a(n);
 
-            }
-            // break;
+        vll b(n);
+
+        f(i,0,n){
+            cin>>a[i];
         }
-        cout<<ans;
+        f(i,0,n){
+            cin>>b[i];
+        }
+        vll ans;
 
+        vector<pair<int,int>> v(n);
+        f(i,0,n){
+            pair<int,int> p={a[i]-b[i],i+1};
+            v[i]=p;
+        }
+        // for(auto x:v){
+        //     cout<<x.first<<" "<<x.second<<"\n";
+        // }
+        sort(v.rbegin(),v.rend());
+        for(auto x:v){
+            cout<<x.first<<" "<<x.second<<"\n";
+        }
+        ll m=v[0].first;
+        ll cnt=0;
+        for(auto x:v){
+            if(x.first==m){
+                cnt++;
+                ans.pb(x.second);
+            }else{
+                break;
+            }
+
+        }
+        // for(auto &x:ans){
+        //     // cout<<x;
+        //     ll z=x;
+        //     x=a[z];
+        // }
+        cout<<cnt<<"\n";
+        sort(all(ans));
+        f(i,0,cnt){
+            cout<<ans[i]<<" ";
+        }
+        cout<<"\n";
+
+
+
+
+        
         
     }
     

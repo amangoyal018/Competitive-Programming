@@ -45,30 +45,41 @@ int main()
 
     ARA_ARA
     int t;
-    // cin>>t;
-    t=1;
+    cin>>t;
+    // t=1;
     while(t--){
-        int n,a,b,c;
-        cin>>n>>a>>b>>c;
-        int x,y,z;
-        int ans=-1;
-        int k=-1;
 
-        for(int i=0;i<=n;i++){
-            for(int j=0;j<=n;j++){
-                if((n-a*i-b*j)%c==0 and (n-a*i-b*j)>=0){
-                    k=(n-a*i-b*j)/c;
-                }else{
-                    continue;
-                }
-                ans=max(ans,i+j+k);
-                // cout<<i<<" "<<" "<<j<<" "<<k<<"\n";
+        ll n;
+        cin>>n;
 
+        vll v(n);
+        int a;
+        cin>>a;
+        v[0]=a;
+
+        int mindiff=INT32_MAX;
+        int temp;
+        int s=v[0];
+        bool ans=true;
+        f(i,1,n){
+            int x;
+            cin>>x;
+            v[i]=x;
+            temp=v[i]-v[i-1];
+            mindiff=min(temp,mindiff);
+            if(v[i]<s){
+                ans=false;
             }
-            // break;
+            s=v[i];
+            
         }
-        cout<<ans;
+        if(!ans){
+            cout<<0<<"\n";
+            continue;
+        }
+        cout<<mindiff/2+1<<"\n";
 
+        
         
     }
     

@@ -11,15 +11,15 @@ const int mod = 1e9 + 1;
 int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 
 bool isValid(int x, int y, int n, int m){
-	if(x < 0 or x >= n)return false;
-	if(y < 0 or y >= m)return false;
-	return true;
+    if(x < 0 or x >= n)return false;
+    if(y < 0 or y >= m)return false;
+    return true;
 }
 int factorial(unsigned int n)
 {
-	if (n == 0)
-		return 1;
-	return (n * factorial(n - 1)) % mod;
+  if (n == 0)
+    return 1;
+  return (n * factorial(n - 1)) % mod;
 }
 int diffelements(string s){
     int len=s.length();
@@ -45,37 +45,51 @@ int main()
 
     ARA_ARA
     int t;
-    // cin>>t;
-    t=1;
+    cin>>t;
+    // t=1;
     while(t--){
-        int n,a,b,c;
-        cin>>n>>a>>b>>c;
-        int x,y,z;
-        int ans=-1;
-        int k=-1;
 
-        for(int i=0;i<=n;i++){
-            for(int j=0;j<=n;j++){
-                if((n-a*i-b*j)%c==0 and (n-a*i-b*j)>=0){
-                    k=(n-a*i-b*j)/c;
-                }else{
-                    continue;
-                }
-                ans=max(ans,i+j+k);
-                // cout<<i<<" "<<" "<<j<<" "<<k<<"\n";
-
+        ll n;
+        cin>>n;
+        vll status(n+1,0);
+        vector<pair<int,int>> v(n+1);
+        f(i,0,n){
+            int a;
+            cin>>a;
+            pair<int,int> p={a,i+1};
+            if(a%2==0){
+                status[i+1]=1;
             }
-            // break;
+            v[i+1]=p;
+            
         }
-        cout<<ans;
+        bool ans=true;
+        sort(all(v));
 
+        f(i,1,n+1){
+            // cout<<v[i].first<<" "<<v[i].second;
+            // cout<<"\n";
+            if(v[i].first%2==0){
+                if(status[i]){
+                continue;
+                }else{
+                ans=false;
+                break;
+                }
+            }
+        }
+        if(ans){
+        cout<<"YES\n";
+        }else{
+        cout<<"NO\n";
+        }
         
     }
     
     
     
-	
-	
+  
+  
     
     
 

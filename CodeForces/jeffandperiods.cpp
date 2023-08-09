@@ -1,84 +1,53 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define ARA_ARA ios_base::sync_with_stdio(false); cin.tie(NULL);
+#define ll long long int 
+const int mod = 1e9 + 1;
+#define vi vector < int >
+#define vll vector<long long int>
+#define f(i,a,b) for(int i=a;i<b;i++)
+#define all(x) x.begin() , x.end()
+#define pb push_back
+int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
+
+bool isValid(int x, int y, int n, int m){
+	if(x < 0 or x >= n)return false;
+	if(y < 0 or y >= m)return false;
+	return true;
+}
+int factorial(unsigned int n)
+{
+	if (n == 0)
+		return 1;
+	return (n * factorial(n - 1)) % mod;
+}
+int diffelements(string s){
+    int len=s.length();
+    unordered_set<char> set1;
+    for(int i=0;i<len;i++){
+        set1.insert(s[i]);
+    }
+    return set1.size();
+}
+bool sortbysec(const pair<int,int> &a,
+            const pair<int,int> &b)
+{
+    return (a.second < b.second);
+}
+
+//code start  JAI SHREE RAM
+
 int main()
 {
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    int n;
+    ARA ARA
+    ll n;
     cin>>n;
 
-    vector<int> v;
-
-    for(int i=0;i<n;i++){
-        int a;
-        cin>>a;
-        v.push_back(a); 
-    }
-
-    unordered_set<int> set1;
-    int valid=0;
-
-    for(auto x:v){
-        set1.insert(x);
-    }
-    vector<int> dup;
-    for(auto x:set1){
-        dup.push_back(x);
-    }
-    sort(dup.begin(),dup.end());
-    vector<int> ans;
-
-
-    for(auto x:dup){
-        int stat=1;
-        
-        vector<int> vec;
-        for(int i=0;i<n;i++){
-            if(x==v[i]){
-                vec.push_back(i+1);
-            }
-        }
-        if(vec.size()==1){
-            valid++;
-            ans.push_back(x);
-            ans.push_back(0);
-            continue;
-
-        }
-        int cd;
-
-        cd=vec[1]-vec[0];
-        for(int i=1;i<vec.size()-1;i++){
-            if(2*vec[i]==vec[i-1] + vec[i+1]){
-                continue;
-            }else{
-                stat=0;
-
-            }
-
-        }
-        if(stat==0){
-            continue;
-        }else{
-            valid++;
-            ans.push_back(x);
-            ans.push_back(cd);
-        }
-
-        
-        
-    }
-    cout<<valid<<endl;
-
     
-    for(int i=0;i<valid*2;i+=2){
-        cout<<ans[i]<<" "<<ans[i+1]<<endl;
-
-    }
 
 }

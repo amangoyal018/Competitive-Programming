@@ -45,31 +45,38 @@ int main()
 
     ARA_ARA
     int t;
-    // cin>>t;
-    t=1;
+    cin>>t;
+    // t=1;
     while(t--){
-        int n,a,b,c;
-        cin>>n>>a>>b>>c;
-        int x,y,z;
-        int ans=-1;
-        int k=-1;
-
-        for(int i=0;i<=n;i++){
-            for(int j=0;j<=n;j++){
-                if((n-a*i-b*j)%c==0 and (n-a*i-b*j)>=0){
-                    k=(n-a*i-b*j)/c;
-                }else{
-                    continue;
-                }
-                ans=max(ans,i+j+k);
-                // cout<<i<<" "<<" "<<j<<" "<<k<<"\n";
-
-            }
-            // break;
-        }
-        cout<<ans;
-
+        ll n;
+        cin>>n;
         
+
+        vll v;
+        ll cnt1=0;
+        ll sum=0;
+        f(i,0,n){
+            ll a;
+            cin>>a;
+            if(a==1){
+                cnt1++;
+            }else{
+                sum+=a-1;
+            }
+            v.pb(a);
+            
+        }
+        
+        if(n==1){
+            cout<<"NO\n";
+            continue;
+        }
+        if(cnt1>sum){
+            cout<<"NO\n";
+        }else{
+            cout<<"YES\n";
+        }
+
     }
     
     

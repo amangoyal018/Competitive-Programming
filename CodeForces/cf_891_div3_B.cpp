@@ -45,30 +45,65 @@ int main()
 
     ARA_ARA
     int t;
-    // cin>>t;
-    t=1;
+    cin>>t;
+    // t=1;
     while(t--){
-        int n,a,b,c;
-        cin>>n>>a>>b>>c;
-        int x,y,z;
-        int ans=-1;
-        int k=-1;
+        // ll x;
+        // cin>>x;
 
-        for(int i=0;i<=n;i++){
-            for(int j=0;j<=n;j++){
-                if((n-a*i-b*j)%c==0 and (n-a*i-b*j)>=0){
-                    k=(n-a*i-b*j)/c;
-                }else{
+        string temp;
+        cin>>temp;
+        // temp=to_string(x);
+
+        bool roundoff=false;
+        
+        ll n=temp.length();
+        vll v(n+1,0);
+        int i=1;
+        for(auto x:temp){
+            ll a=(x-'0');
+            v[i]=a;
+            // cout<<v[i];
+            i++;
+
+        }
+        int index=-1;
+        for(int j=n;j>=1;j--){
+            if(v[j]<5){
+                continue;
+
+            }else{
+                v[j]=0;
+                roundoff=true;
+                v[j-1]++;
+                index=j;
+                // break;
+            }
+        }
+        if(index==-1){
+            cout<<temp<<"\n";
+            continue;
+        }
+
+        for(int p=index;p<=n;p++){
+            v[p]=0;
+
+        }
+        int z=1;
+        for(auto x:v){
+            if(z==1){
+                if(x==0){
                     continue;
                 }
-                ans=max(ans,i+j+k);
-                // cout<<i<<" "<<" "<<j<<" "<<k<<"\n";
-
             }
-            // break;
-        }
-        cout<<ans;
+            
+            cout<<x;
+            z++;
 
+        }
+        cout<<"\n";
+
+        
         
     }
     
