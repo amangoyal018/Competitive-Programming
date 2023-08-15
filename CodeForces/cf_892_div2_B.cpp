@@ -48,7 +48,34 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-        
+        int n;
+        cin>>n;
+        vector<vector<int>> v;
+        ll sum=0;
+        vector<pair<int,int>> p;
+
+        f(i,0,n){
+            int m;
+            cin>>m;
+
+            vi vec;
+            f(i,0,m){
+                int a;
+                cin>>a;
+                vec.pb(a);
+            }
+            sort(all(vec));
+            pair<int,int> pa={vec[0],vec[1]};
+            sum+=vec[1];
+            p.pb(pa);
+            v.pb(vec);
+
+        }
+        sort(all(p));
+        sum+=p[0].first;
+        sort(all(p),sortbysec);
+        sum-=p[0].second;
+        cout<<sum<<"\n";
 
         
         

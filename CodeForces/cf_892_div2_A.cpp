@@ -48,7 +48,53 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
+        ll n;
+        cin>>n;
+
+        vll a(n);
+        f(i,0,n){
+            cin>>a[i];
+
+        }
+        sort(all(a));
+        vll b,c;
+        if(n==1){
+            cout<<-1<<"\n";
+            continue;
+        }else{
+            if(a[0]==a[n-1]){
+                cout<<-1<<"\n";
+                continue;
+
+            }else{
+                bool status=true;
+                b.pb(a[0]);
+                // int temp=0;
+                f(i,1,n){
+                    if(status and a[i]==a[i-1]){
+                        b.pb(a[i]);
+                    }else{
+                        status=false;
+                        c.pb(a[i]);
+                    }
+                }
+                cout<<b.size()<<" "<<c.size()<<"\n";
+                for(auto x:b){
+                    cout<<x<<" ";
+                }
+                cout<<"\n";
+                for(auto x:c){
+                    cout<<x<<" ";
+                }
+                cout<<"\n";
+
+            }
+
+        }
+            
         
+
+
 
         
         

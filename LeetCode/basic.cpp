@@ -35,6 +35,38 @@ bool sortbysec(const pair<int,int> &a,
     return (a.second < b.second);
 }
 
+
+
+
+
+vector<int> twoSum(vector<int>& nums, int target) {
+
+        int n=nums.size();
+        map<int,int> m;
+        for(int i=0;i<n;i++){
+            m[nums[i]]=i+1;
+            // cout<<m[3];  
+        }
+        vector<int> ans;
+        for(int i=0;i<n;i++){
+            if((m[target-nums[i]])>0){
+                if((target-nums[i])==nums[i]){
+                    continue;
+
+                }
+                ans.push_back(i);
+                ans.push_back(m[target-nums[i]]-1);
+                break;
+            }
+
+        }
+        return ans;
+
+        
+
+
+    
+}
 //code start  JAI SHREE RAM
 int main()
 {
@@ -44,15 +76,12 @@ int main()
 #endif
 
     ARA_ARA
-    int t;
-    cin>>t;
-    // t=1;
-    while(t--){
-        
+    vector<int> v={3,3};
+    vector<int> res;
 
-        
-        
-        
+    res=twoSum(v,6);
+    for(auto x:res){
+        cout<<x<<" ";
     }
     
     

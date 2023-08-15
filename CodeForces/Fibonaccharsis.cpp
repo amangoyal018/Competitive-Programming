@@ -5,7 +5,7 @@ using namespace std;
 const int mod = 1e9 + 1;
 #define vi vector < int >
 #define vll vector<long long int>
-#define f(i,a,b) for(int i=a;i<b;i++)
+#define f(i,a,b) for(long long int i=a;i<b;i++)
 #define all(x) x.begin() , x.end()
 #define pb push_back
 int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
@@ -52,8 +52,30 @@ int main()
         cin>>n>>k;
         ll cnt=0;
         f(i,1,n+1){
-            
+            // cout<<"HEllo";  
+            bool status=true;
+            int last=n;
+            int sec_last=i;
+            // cout<<last<<" "<<sec_last;
+            for(int j=1;j<=k-2;j++){
+                int element=last-sec_last;
+                // cout<<element;
+                last=sec_last;
+                sec_last=element;
+                if(last<sec_last){
+                    status=false;
+                    break;
+                }
+                if(last<0 or sec_last<0){
+                    status=false;
+                    break;
+                }
+            }
+            if(status){
+                cnt++;
+            }
         }
+        cout<<cnt<<"\n";
 
 
         

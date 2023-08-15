@@ -48,6 +48,28 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
+        string s;
+        cin>>s;
+        ll n=s.length();
+        if(n%2!=0){
+            cout<<"NO\n";
+            continue;
+        }
+        n/=2;
+        bool ans=true;
+
+        f(i,0,n){
+            if(s[i]!=s[n+i]){
+                ans=false;
+                break;
+            }
+        }
+        if(ans){
+            cout<<"YES\n";
+        }else{
+            cout<<"NO\n";
+        }
+
         
 
         
