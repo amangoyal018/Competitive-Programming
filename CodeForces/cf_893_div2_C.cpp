@@ -48,6 +48,37 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
+        ll n;
+        cin>>n;
+        if(n==1){
+            cout<<1<<"\n";
+            continue;
+
+        }else if(n==2){
+            cout<<1<<" "<<2<<"\n";
+            continue;
+
+        }
+        vector<int> v(n+1,0);
+        cout<<1<<" ";
+        v[1]=1;
+
+        for(int i=2;i<=n;i++){
+            int x=i;
+            if(v[x]>0){
+                continue;
+            }
+            while(x<=n){
+                cout<<x<<" ";
+                v[x]=1;
+                x*=2;
+
+            }
+
+
+
+        }
+        cout<<"\n";
         
 
         

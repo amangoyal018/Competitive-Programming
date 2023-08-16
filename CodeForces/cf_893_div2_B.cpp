@@ -48,6 +48,36 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
+        ll n,m,d;
+        cin>>n>>m>>d;
+
+        vi v(n+1,0);
+        vi vec(m);
+        map<int,int> m;
+
+        f(i,0,m){
+            cin>>vec[i];
+            m[vec[i]]=1;    
+        }
+        int cnt=-1;
+        for(int i=1;i<=n;i++){
+            cnt++;
+            if(cnt==d){
+                cnt=0;
+                v[i]++;
+            }
+            if(i==1){
+                v[i]++;
+                cnt=0;
+            }
+            if(m[v[i]]){
+                v[i]++;
+                cnt=0;
+            }
+
+
+
+        }
         
 
         

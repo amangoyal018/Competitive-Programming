@@ -48,7 +48,22 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-        
+        ll a,b,c;
+        cin>>a>>b>>c;
+        if(c%2==0){
+            a+=c/2;
+            b+=c/2;
+
+        }else{
+            a+=c/2;
+            a++;
+            b+=c/2;
+        }
+        if(a>b){
+            cout<<"First\n";
+        }else{
+            cout<<"Second\n";
+        }
 
         
         
