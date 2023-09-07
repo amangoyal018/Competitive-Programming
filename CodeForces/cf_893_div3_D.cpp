@@ -48,8 +48,6 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-
-        
         
 
         

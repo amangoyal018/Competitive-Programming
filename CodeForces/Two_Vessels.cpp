@@ -49,6 +49,15 @@ int main()
     // t=1;
     while(t--){
 
+        double a,b,c;cin>>a>>b>>c;
+
+        double temp = (abs(b-a))/2;
+
+        cout<<ceil(temp/c)<<"\n";
+
+        
+        
+
         
         
 

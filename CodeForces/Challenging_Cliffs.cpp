@@ -49,7 +49,24 @@ int main()
     // t=1;
     while(t--){
 
-        
+        int n;
+        cin>>n;
+
+        vi v(n);
+
+        f(i,0,n){
+            cin>>v[i];
+        }
+        int begin=-1;
+        int end=-1;
+        int mindiff=INT_MAX;
+        sort(all(v));
+        f(i,0,n-1){
+            int diff=v[i+1]-v[i];
+            if(diff<=)
+        }
+
+
         
 
         

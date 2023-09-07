@@ -49,6 +49,33 @@ int main()
     // t=1;
     while(t--){
 
+        ll n;
+        cin>>n;
+
+        vll v(n);
+
+        unordered_map<ll,ll> m;
+
+        ll ans=0;
+
+        f(i,0,n){
+            cin>>v[i];
+            v[i]-=i;
+            
+            if(m[v[i]]>0){
+                ans+=m[v[i]];
+                m[v[i]]++;
+
+            }else{
+                m[v[i]]++;
+            }
+
+
+        }
+        cout<<ans<<"\n";
+
+
+
         
         
 

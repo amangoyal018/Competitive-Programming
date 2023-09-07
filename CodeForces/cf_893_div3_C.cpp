@@ -48,9 +48,45 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
+        int n;
+        cin>>n;
+
+        vi v;
+        int max1=INT_MIN;
+        f(i,0,n){
+            int a;
+            cin>>a;
+            v.pb(a);
+            max1=max(max1,a);
+        }
+        if(max1==n){
+            // cout<<max1;     
+            vi a(n+1,0);
+            for(int i=0;i<n;i++){
+                int temp=v[i]-1;
+                a[0]++;
+                a[v[i]]--;
+
+
+            }
+            vi p(n);
+            p[0]=a[0];
+            for(int i=1;i<n;i++){
+                p[i]=p[i-1]+a[i];
+            }
+            if(p==v){
+                cout<<"YES\n";
+
+            }else{
+                cout<<"NO\n";
+            }
+        }else{
+            cout<<"NO\n";
+
+        }
 
         
-        
+
 
         
         

@@ -49,8 +49,38 @@ int main()
     // t=1;
     while(t--){
 
+        int n;
+        cin>>n;
+        vi v(n);
+        f(i,0,n){
+            cin>>v[i];
+        }
+        if(n==1){
+            cout<<1<<"\n";
+            cout<<v[0]<<"\n";
+            continue;
+        }
+        int cnt=n;
+        f(i,0,n-1){
+            if(v[i]>v[i+1]){
+                cnt++;
+            }
+
+        }
+        cout<<cnt<<"\n";
         
-        
+        for(int i=0;i<n-1;i++){
+            if(v[i+1]<v[i]){
+                cout<<v[i]<<" 1"<<" ";
+                
+                
+            }else{
+                cout<<v[i]<<" ";
+            }
+
+        }
+        cout<<v[n-1]<<" ";
+        cout<<"\n";
 
         
         
