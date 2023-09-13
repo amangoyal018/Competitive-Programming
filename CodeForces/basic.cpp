@@ -34,6 +34,17 @@ bool sortbysec(const pair<int,int> &a,
 {
     return (a.second < b.second);
 }
+bool prime(int n)
+{
+if (n <= 1)
+return false;
+for (int i = 2; i <= sqrt(n); i++){
+
+        if (n % i == 0)
+        return false;
+}
+    return true;
+}
 
 //code start  JAI SHREE RAM
 int main()
@@ -49,7 +60,6 @@ int main()
     // t=1;
     while(t--){
 
-        
         
 
         

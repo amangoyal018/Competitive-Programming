@@ -5,10 +5,10 @@ using namespace std;
 const int mod = 1e9 + 1;
 #define vi vector < int >
 #define vll vector<long long int>
-#define f(i,a,b) for(int i=a;i<b;i++)
+#define f(i,a,b) for(ll i=a;i<b;i++)
 #define all(x) x.begin() , x.end()
 #define pb push_back
-int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
+ll gcd(ll x, ll y) {return y == 0 ? x : gcd(y, x % y);}
 
 bool isValid(int x, int y, int n, int m){
 	if(x < 0 or x >= n)return false;
@@ -34,6 +34,17 @@ bool sortbysec(const pair<int,int> &a,
 {
     return (a.second < b.second);
 }
+bool prime(int n)
+{
+if (n <= 1)
+return false;
+for (int i = 2; i <= sqrt(n); i++){
+
+        if (n % i == 0)
+        return false;
+}
+    return true;
+}
 
 //code start  JAI SHREE RAM
 int main()
@@ -48,18 +59,33 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-        int n;
-        cin>>n;
 
-        vector<pair<int,int>> v;
-        f(i,0,n){
-            int a,b;
-            cin>>a>>b;
-            pair<int,int> p = {a,b};
-            v.pb(p);
-        }
-        
-        
+        ll n,x,y;
+        cin>>n>>x>>y;
+
+        ll ans = 0;
+        ll max1 = n;
+        ll min1 = 1;
+
+
+        ll lcm = x*y/gcd(x,y);
+        // cout<<lcm;
+
+        ll b = n/x;
+        ll a = n/y;
+        ll c = n/lcm;
+        a-=c;
+        b-=c;
+        // cout<<b;
+
+        ll sum1 = a*(a+1)/2;
+
+        ll sum2 = (b + 2*b*n - b*b)/2;
+
+        cout<<(sum2-sum1)<<"\n";
+
+
+
 
         
         

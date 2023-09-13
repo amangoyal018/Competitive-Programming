@@ -34,6 +34,17 @@ bool sortbysec(const pair<int,int> &a,
 {
     return (a.second < b.second);
 }
+bool prime(int n)
+{
+if (n <= 1)
+return false;
+for (int i = 2; i <= sqrt(n); i++){
+
+        if (n % i == 0)
+        return false;
+}
+    return true;
+}
 
 //code start  JAI SHREE RAM
 int main()
@@ -48,22 +59,29 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
+
         int n;
         cin>>n;
-
-        vector<pair<int,int>> v;
+        vector<int> v(n);
         f(i,0,n){
-            int a,b;
-            cin>>a>>b;
-            pair<int,int> p = {a,b};
-            v.pb(p);
+            int a;
+            cin>>a;
+            v.pb(a);
         }
-        
-        
 
-        
-        
-        
+
+        if(n&1){
+            cout<<4<<"\n";
+            cout<<2<<" "<<n<<"\n";
+            cout<<2<<" "<<n<<"\n";
+            cout<<1<<" "<<2<<"\n";
+            cout<<1<<" "<<2<<"\n";
+        }else{
+            cout<<2<<"\n";
+            cout<<1<<" "<<n<<"\n";
+            cout<<1<<" "<<n<<"\n";
+        }
+
     }
     
     

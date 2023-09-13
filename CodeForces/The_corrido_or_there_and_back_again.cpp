@@ -55,9 +55,21 @@ int main()
         f(i,0,n){
             int a,b;
             cin>>a>>b;
+            if(b&1){
+                b++;
+            }
             pair<int,int> p = {a,b};
             v.pb(p);
         }
+
+        int ans = INT_MAX;
+
+        f(i,0,n){
+            int temp = (v[i].second-2)/2;
+            ans = min(ans , v[i].first + temp);
+
+        }
+        cout<<ans<<"\n";
         
         
 

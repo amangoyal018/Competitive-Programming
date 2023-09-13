@@ -34,6 +34,14 @@ bool sortbysec(const pair<int,int> &a,
 {
     return (a.second < b.second);
 }
+bool isPrime(int n){
+    for(int i=2;i<=sqrt(n);i++){
+        if(n%i==0){
+            return false;
+        }
+    }
+    return true;
+}
 
 //code start  JAI SHREE RAM
 int main()
@@ -48,16 +56,32 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-        int n;
-        cin>>n;
 
-        vector<pair<int,int>> v;
-        f(i,0,n){
-            int a,b;
-            cin>>a>>b;
-            pair<int,int> p = {a,b};
-            v.pb(p);
+
+        ll l,r;
+        cin>>l>>r;
+        if(r<=3 or (r-l==0 and isPrime(r))) {
+            cout<<-1<<"\n";
+        }else if( (abs(l - r) >= 1) or (r%2==0)){
+            // cout<<"hello";
+            ll a=4;
+            for(ll i=max(a,l);i<=r;i++){
+                if(i%2==0){
+                    cout<<2<<" "<<i-2<<"\n";
+                    break;
+                }
+            }
+        }else{
+            for(ll i = 2; i*i<=r;i++){
+                if(r%i==0){
+                    ll temp = r/i;
+                    cout<<temp<<" "<<temp*(i-1)<<"\n";
+                    break;
+                }
+            }
+
         }
+
         
         
 
