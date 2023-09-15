@@ -1,3 +1,6 @@
-Bob
-Alice
-Alice
+YES
+25 5 30
+YES
+39 13 52
+YES
+147 7 154

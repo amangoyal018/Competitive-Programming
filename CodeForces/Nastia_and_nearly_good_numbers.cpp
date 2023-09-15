@@ -59,8 +59,17 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
+        ll a,b;
+        cin>>a>>b;
 
-        
+        if(b==1){
+            cout<<"NO\n";
+            continue;
+        }
+
+        cout<<"YES\n";
+        cout<<a*(2*b-1)<<" "<<a<<" "<<a*b*2<<"\n";
+
 
         
 
