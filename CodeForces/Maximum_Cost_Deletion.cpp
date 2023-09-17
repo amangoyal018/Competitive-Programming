@@ -60,14 +60,34 @@ int main()
     // t=1;
     while(t--){
 
+        int n;
+        cin>>n;
 
+        int a,b;
+        cin>>a>>b;
 
+        string s;
+        cin>>s;
+        int cnt1=0;
+        int cnt0=0;
+        f(i,0,n){
+            if(s[i]=='1'){
+                cnt1++;
+            }else{
+                cnt0++;
+            }
+        }
 
+        
 
+        
+        
 
+        
 
-
-
+        
+        
+        
     }
     
     
