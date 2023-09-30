@@ -59,42 +59,29 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-
         int n;
         cin>>n;
 
-        int a,b;
-        cin>>a>>b;
+        if(n==1){
+            cout<<"NO\n";
+            continue;
+        }
 
-        string s;
-        cin>>s;
-        int cnt = 0;
-        f(i,1,n){
-            if(s[i]!=s[i-1]){
-                cnt++;
+        while(n>1){
+            if(n%2==0){
+                n/=2;
+            }else{
+                break;
             }
         }
-        cnt++;
-        int temp = cnt/2;
-        temp++;
-
-        if(b<0){
-            cout<<(a*n+b*temp)<<"\n";
+        if(n==1){
+            cout<<"YES\n";
 
         }else{
-            cout<<(a+b)*n<<"\n";
+            cout<<"NO\n";
         }
 
-        
 
-        
-        
-
-        
-
-        
-        
-        
     }
     
     

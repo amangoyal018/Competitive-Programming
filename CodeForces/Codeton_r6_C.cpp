@@ -60,41 +60,40 @@ int main()
     // t=1;
     while(t--){
 
-        int n;
-        cin>>n;
+        ll n,k,x;
+        cin>>n>>k>>x;
 
-        int a,b;
-        cin>>a>>b;
-
-        string s;
-        cin>>s;
-        int cnt = 0;
-        f(i,1,n){
-            if(s[i]!=s[i-1]){
-                cnt++;
-            }
+        if(k>n or k>x+1){
+            cout<<-1<<"\n";
+            continue;
         }
-        cnt++;
-        int temp = cnt/2;
-        temp++;
 
-        if(b<0){
-            cout<<(a*n+b*temp)<<"\n";
+
+        ll sum=0;
+
+        sum+=k*(k-1)/2;
+        // cout<<sum<<'\n';
+
+        ll rem = n-k;
+        // cout<<rem;
+
+        if(k==x){
+            // cout<<sum; 
+            sum+=rem*(x-1);
+
 
         }else{
-            cout<<(a+b)*n<<"\n";
+            sum+=rem*x;
         }
+        cout<<sum<<"\n";
 
-        
 
-        
-        
 
-        
 
-        
-        
-        
+
+
+
+
     }
     
     

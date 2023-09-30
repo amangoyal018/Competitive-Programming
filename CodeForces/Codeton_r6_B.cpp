@@ -60,41 +60,40 @@ int main()
     // t=1;
     while(t--){
 
-        int n;
+        int n,m;
+        // cin>>n>>m;
+        // vi v1(n);
+        // vi v2(m);
+
+        // f(i,0,n){
+        //     cin>>v1[i];
+        // }
+        // f(i,0,m){
+        //     cin>>v2[i];
+        // }
         cin>>n;
 
-        int a,b;
-        cin>>a>>b;
+        vi vec;
 
-        string s;
-        cin>>s;
-        int cnt = 0;
-        f(i,1,n){
-            if(s[i]!=s[i-1]){
-                cnt++;
+        for(int i=1;i<32;i++){
+            if((n>>(i-1) & 1) == 1){
+                vec.pb(1);
+            }else{
+                vec.pb(0);
             }
         }
-        cnt++;
-        int temp = cnt/2;
-        temp++;
 
-        if(b<0){
-            cout<<(a*n+b*temp)<<"\n";
-
-        }else{
-            cout<<(a+b)*n<<"\n";
+        for(auto x:vec){
+            cout<<x<<"\n";
         }
 
-        
 
-        
-        
 
-        
 
-        
-        
-        
+
+
+
+
     }
     
     

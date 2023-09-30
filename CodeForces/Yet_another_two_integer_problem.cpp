@@ -60,41 +60,16 @@ int main()
     // t=1;
     while(t--){
 
-        int n;
-        cin>>n;
-
-        int a,b;
-        cin>>a>>b;
-
-        string s;
-        cin>>s;
-        int cnt = 0;
-        f(i,1,n){
-            if(s[i]!=s[i-1]){
-                cnt++;
-            }
-        }
-        cnt++;
-        int temp = cnt/2;
-        temp++;
-
-        if(b<0){
-            cout<<(a*n+b*temp)<<"\n";
-
-        }else{
-            cout<<(a+b)*n<<"\n";
-        }
-
         
 
-        
-        
 
-        
 
-        
-        
-        
+
+
+
+
+
+
     }
     
     

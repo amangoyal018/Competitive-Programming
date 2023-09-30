@@ -63,38 +63,52 @@ int main()
         int n;
         cin>>n;
 
-        int a,b;
-        cin>>a>>b;
+        if(n==2){
+            cout<<-1<<"\n";
+            continue;
+        }
 
-        string s;
-        cin>>s;
-        int cnt = 0;
-        f(i,1,n){
-            if(s[i]!=s[i-1]){
-                cnt++;
+        int arr[n][n]; 
+        int cnt=1;
+        int temp=n+1;
+        int temp2=n+2;
+
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i==j){
+                    arr[i][j]=cnt;
+                    cnt++;
+                }else{
+                    if(i<j){
+                        arr[i][j]=temp2;
+                        temp2+=2;
+                    }else{
+                        arr[i][j]=temp;
+                        temp+=2;
+
+                    }
+                }
             }
         }
-        cnt++;
-        int temp = cnt/2;
-        temp++;
 
-        if(b<0){
-            cout<<(a*n+b*temp)<<"\n";
-
-        }else{
-            cout<<(a+b)*n<<"\n";
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                cout<<arr[i][j]<<" ";
+            }
+            cout<<"\n";
         }
 
         
 
-        
-        
 
-        
 
-        
-        
-        
+
+
+
+
+
+
     }
     
     

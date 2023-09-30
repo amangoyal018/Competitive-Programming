@@ -59,42 +59,38 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-
         int n;
         cin>>n;
+        int k;
+        cin>>k;
 
-        int a,b;
-        cin>>a>>b;
-
-        string s;
-        cin>>s;
-        int cnt = 0;
-        f(i,1,n){
-            if(s[i]!=s[i-1]){
-                cnt++;
+        // int temp = k/n;
+        // int rem = k%n;
+        int ans = k/n;
+        if(ans==0){
+            if(n%k==0){
+                cout<<1<<"\n";
+                continue;
+            }else{
+                cout<<2<<"\n";
+                continue;
             }
         }
-        cnt++;
-        int temp = cnt/2;
-        temp++;
-
-        if(b<0){
-            cout<<(a*n+b*temp)<<"\n";
+        if(k%n==0){
+            cout<<ans<<"\n";    
 
         }else{
-            cout<<(a+b)*n<<"\n";
+            cout<<ans+1<<"\n";
         }
 
-        
 
-        
-        
 
-        
 
-        
-        
-        
+
+
+
+
+
     }
     
     
