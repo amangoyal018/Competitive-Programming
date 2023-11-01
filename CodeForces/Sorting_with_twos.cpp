@@ -49,7 +49,29 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
-    
+    int n;
+    cin>>n;
+
+    vi v(n);
+    f(i,0,n){
+        cin>>v[i];
+    }
+    bool res = true;
+    f(i,0,n-1){
+        if(v[i]>v[i+1]){
+            if(ceil(log2(i+1))==floor(log2(i+1))){
+                continue;
+            }else{
+                res = false;
+                break;
+            }
+        }
+    }
+    if(res){
+        cout<<"YES\n";
+    }else{
+        cout<<"NO\n";
+    }
 
 
 

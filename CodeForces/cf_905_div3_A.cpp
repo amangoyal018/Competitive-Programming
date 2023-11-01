@@ -49,8 +49,37 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
-    
 
+    int n;
+    cin>>n;
+
+    vi v;
+
+    f(i,0,4){
+        int x = n%10;
+        if(x==0){
+            x=10;
+        }
+        v.pb(x);
+        n/=10;
+
+    }
+    reverse(all(v));
+
+
+    int curr = 1;
+    int ans = 0;
+
+    f(i,0,4){
+        ans  += abs(v[i]-curr);
+        curr=v[i];
+        // cout<<ans<<"\n";
+        
+    }
+    cout<<ans+4<<"\n";
+
+
+    
 
 
 }

@@ -60,7 +60,22 @@ int main()
     // t=1;
     while(t--){
 
-        
+        ll a,b;
+        cin>>a>>b;
+        ll temp = abs(b - a);
+        ll i =10;
+        ll res =0;
+        while(temp>0){
+            if(temp/i){
+                ll temp2 = temp/i;
+                temp-=temp2*i;
+                res+=temp2;
+            }
+            i--;
+
+        }
+        cout<<res<<"\n";
+
 
 
 

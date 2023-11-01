@@ -34,43 +34,52 @@ bool sortbysec(const pair<int,int> &a,
 {
     return (a.second < b.second);
 }
+bool prime(int n)
+{
+if (n <= 1)
+return false;
+for (int i = 2; i <= sqrt(n); i++){
+
+        if (n % i == 0)
+        return false;
+}
+    return true;
+}
 
 
 
+void solve(){
+    
 
-int minimumSum(vector<int>& nums) {
-        int ans = 151;
-        int n = nums.size();
-        int res = 151 ;
-        for(int i = 0 ; i<n ;i++){
-            int temp = nums[i];
-            for(int j=i+1;j<n;j++){
-                
-                if(nums[j]<=temp){
-                    continue;
-                }
-                // cout<<nums[j]<<" ";
-                for(int k=j+1;k<n;k++){
-                    if(nums[k]>=nums[j]){
-                        continue;
-                    }
-                    // cout<<nums[k];
-                    res=nums[i]+nums[j]+nums[k];
-                    // cout<<nums[i]<<" "<<nums[j]<<" "<<nums[k]<<" "<<ans<<" "<<res<<"\n";
-                    
-                }
-                ans = min(ans , res);
-                cout<<ans;
-                break;
-            }
-            
-        }
-        
-        if(ans==151){
-            return -1;
-        }
-        return ans;
+    int n;
+    cin>>n;
+    vector<string> v;
+    f(i,0,n){
+        string s;
+        cin>>s;
+        v.pb(s);
     }
+    ll ans = 0;
+    f(i,0,n/2){
+        f(j,i,n-i-1){
+            char a = v[i][j];
+            char b = v[j][n-1-i];
+            char c = v[n-j-1][i];
+            char d = v[n-i-1][n-j-1];
+
+            char x = max({a,b,c,d});
+
+            ans += 4*x - a - b - c - d;
+
+
+        }
+
+    }
+    cout<<ans<<"\n";
+
+
+}
+
 //code start  JAI SHREE RAM
 int main()
 {
@@ -80,21 +89,12 @@ int main()
 #endif
 
     ARA_ARA
-    vector<int> v={1,3,1,2};
-    int x = minimumSum(v);
-    // cout<<x<<" ";
-    
-    
-    
-	
-	
-    
-    
+    int t;
+    cin>>t;
+    // t=1;
+    while(t--){
 
+        solve();
+    }
     
-    
-    
-
-
-
 }

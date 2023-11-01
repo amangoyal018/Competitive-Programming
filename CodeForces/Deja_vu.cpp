@@ -49,6 +49,79 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
+    ll n,q;
+    cin>>n>>q;
+    // cout<<n<<" "<<q<<"\n";
+
+    vll a(n);
+    vll x(q);
+    f(i,0,n){
+        cin>>a[i];
+    }
+    f(i,0,q){
+        cin>>x[i];
+    }
+
+    f(i,1,q){
+        if(x[i]>x[i-1]){
+            x[i]=x[i-1];
+        }
+    }
+
+    vi v1(31);
+    f(i,0,q){
+        v1[x[i]]=1;
+    }
+    vi v2(31);
+    f(i,0,31){
+        if(v1[i]==0){
+            if(i!=0){
+            v2[i]+=v2[i-1];
+            }
+            continue;
+        }
+        v2[i]= round(pow(2,v1[i]*(i-1)));
+        if(i!=0){
+            v2[i]+=v2[i-1];
+        }
+    }
+    // for(auto x:v1){
+    //     cout<<x<<" ";
+    // }
+    // cout<<"\n";
+    // for(auto x:v2){
+    //     cout<<x<<" ";
+    // }
+    // cout<<"\n";
+    
+    
+    f(i,0,n){
+        if(a[i]%2!=0){
+            cout<<a[i]<<" ";
+            continue;
+        }
+        ll temp = a[i];
+        ll cnt = 0;
+        while(temp%2==0){
+            temp/=2;
+            cnt++;
+        }
+        while(v1[cnt]!=1){
+            cnt--;
+            if(cnt==-1){
+                break;
+            }
+        }
+        // cout<<cnt<<"\n";
+        if(cnt==-1){
+            cout<<a[i]<<" ";
+            continue;
+        }
+        // cout<<cnt<<"\n";
+        cout<<a[i]+v2[cnt]<<" ";
+    }
+    cout<<"\n";
+
     
 
 
