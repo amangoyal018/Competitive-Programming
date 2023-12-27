@@ -49,35 +49,7 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
-    int n,k;
-    cin>>n>>k;
-
-
-
-    string s;
-    cin>>s;
-
-    vi v(26);
-    f(i,0,n){
-        v[s[i]-'a']++;
-    }
-    int cnt = 0;
-    f(i,0,26){
-        if(v[i]%2!=0){
-            cnt++;
-        }
-    }
-    cnt--;
-    if(cnt<=k){
-        cout<<"YES\n";
-    }else{
-        cout<<"NO\n";
-    }
-
-
-
-
-
+    
 
 
 

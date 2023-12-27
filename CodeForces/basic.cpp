@@ -50,9 +50,6 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
     
-
-
-
 }
 
 //code start  JAI SHREE RAM

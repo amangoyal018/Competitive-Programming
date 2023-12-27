@@ -52,32 +52,27 @@ void solve(){
     int n,k;
     cin>>n>>k;
 
-
-
-    string s;
-    cin>>s;
-
-    vi v(26);
+    vi v(n);
     f(i,0,n){
-        v[s[i]-'a']++;
+        cin>>v[i];
     }
-    int cnt = 0;
-    f(i,0,26){
-        if(v[i]%2!=0){
-            cnt++;
+    bool ans = true;
+    f(i,0,n-1){
+        if(v[i]<=v[i+1]){
+            continue;
+        }else{
+            ans = false;
         }
     }
-    cnt--;
-    if(cnt<=k){
+    if(ans){
         cout<<"YES\n";
-    }else{
-        cout<<"NO\n";
+        return;
     }
-
-
-
-
-
+    if(k==1){
+        cout<<"NO\n";
+        return;
+    }
+    cout<<"YES\n";
 
 
 

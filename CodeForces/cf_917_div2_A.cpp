@@ -49,34 +49,45 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
-    int n,k;
-    cin>>n>>k;
+    int n;
+    cin>>n;
 
+    vi v(n);
+    int neg=0;
+    int pos=0;
 
+    int min_e=INT_MAX;
+    int p1=-1;
+    int max_e=INT_MIN;
+    int p2=-1;
 
-    string s;
-    cin>>s;
-
-    vi v(26);
     f(i,0,n){
-        v[s[i]-'a']++;
-    }
-    int cnt = 0;
-    f(i,0,26){
-        if(v[i]%2!=0){
-            cnt++;
+        cin>>v[i];
+        if(v[i]<0){
+            neg++;
+        }else if(v[i]>0){
+            pos++;
         }
+        min_e = min(min_e,v[i]);
+        if(min_e == v[i]){
+            p1=i;
+        }
+        max_e = max(max_e,v[i]);
+        if(max_e==v[i]){
+            p2=i;
+        }
+
     }
-    cnt--;
-    if(cnt<=k){
-        cout<<"YES\n";
+    if(pos+neg!=n){
+        cout<<0<<"\n";
+        return;
+    }
+    if(neg==0 or neg%2==0){
+        cout<<1<<"\n";
+        cout<<1<<" "<<0<<"\n";
     }else{
-        cout<<"NO\n";
+        cout<<0<<'\n';
     }
-
-
-
-
 
 
 

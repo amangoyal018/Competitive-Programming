@@ -49,34 +49,23 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
-    int n,k;
-    cin>>n>>k;
-
-
-
-    string s;
-    cin>>s;
-
-    vi v(26);
-    f(i,0,n){
-        v[s[i]-'a']++;
+    ll n,m,i,j;
+    cin>>n>>m>>i>>j;
+    
+    // ll upper_d = i-1;
+    // ll lower_d = n-i;
+    // ll left_d = j-1;
+    // ll right_d = m-i;
+    ll x1=1,y1=1,x2=n,y2=m;
+    if(i==x1 and j==y1){
+        x1=n;
+        y1=m;
+    }    
+    if(i==x2 and j==y2){
+        x2=1;
+        y2=1;
     }
-    int cnt = 0;
-    f(i,0,26){
-        if(v[i]%2!=0){
-            cnt++;
-        }
-    }
-    cnt--;
-    if(cnt<=k){
-        cout<<"YES\n";
-    }else{
-        cout<<"NO\n";
-    }
-
-
-
-
+    cout<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<"\n";    
 
 
 

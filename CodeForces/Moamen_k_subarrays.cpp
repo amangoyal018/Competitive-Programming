@@ -49,35 +49,36 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
-    int n,k;
+    int n , k;
     cin>>n>>k;
 
-
-
-    string s;
-    cin>>s;
-
-    vi v(26);
+    vi v(n);
     f(i,0,n){
-        v[s[i]-'a']++;
+        cin>>v[i];
     }
-    int cnt = 0;
-    f(i,0,26){
-        if(v[i]%2!=0){
+    vi v2 = v;
+    sort(all(v2));
+
+    unordered_map<int,int> m;
+
+    f(i,0,n){
+        m[v2[i]]=i+1;
+    }
+    int cnt = 1;
+    f(i,0,n-1){
+        int diff = m[v[i+1]]-m[v[i]];
+        if(diff == 1){
+            continue;
+        }else{
             cnt++;
         }
     }
-    cnt--;
+    // cout<<cnt<<"\n";
     if(cnt<=k){
         cout<<"YES\n";
     }else{
         cout<<"NO\n";
     }
-
-
-
-
-
 
 
 

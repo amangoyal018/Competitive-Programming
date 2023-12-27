@@ -45,47 +45,48 @@ bool customCompare(pair<int,int> pair1, pair<int, int> pair2) {
 
 //code start  JAI SHREE RAM
 
-bool  FindSecondLargestElement(int n,vector<int> v){
-        int max1=INT_MIN;
-        f(i,0,n){
-            int a=v[i];
-            max1=max(max1,a);
-        }
-        if(max1==n){
-            return true;
+string  FindSecondLargestElement(int n,int k,vector<int> v){
+
+    vi v2 = v;
+    sort(all(v2));
+
+    unordered_map<int,int> m;
+
+    f(i,0,n){
+        m[v2[i]]=i+1;
+    }
+    int cnt = 0;
+    f(i,0,n-1){
+        int diff = m[v[i+1]]-m[v[i]];
+        if(diff == 1){
+            continue;
         }else{
-            return false;
+            cnt++;
         }
+    }
+    // cout<<cnt<<"\n";
+    if(cnt<=k){
+        return "YES";
+    }else{
+        return "NO";
+    }
 
 }
 
-bool Brute_solution(int n,vector<int> a)
+string Brute_solution(int n,int k,vector<int> v1)
 {
     
-    vector<ll> v;
-    if(a[0]!=n)
-    return false;
-    else
-    {
-        vector<ll> x(n+1,0);
-        for(ll i=0;i<n;i++)
-        {
-            x[0]++;
-            x[a[i]]--;
-        }
-        for(ll i=0;i<n-1;i++)
-        x[i+1]=x[i+1]+x[i];
-        ll i;
-        for(i=0;i<n;i++)
-        {
-            if(x[i]!=a[i])
-            break;
-        }
-        if(i==n)
-        return true;
-        else
-        return false;
-    }
+		vector<pair<int, int>> v(n);
+		for (int i = 0; i < n; i++) {
+			v[i].first = v1[i];
+			v[i].second = i;
+		}
+		sort(v.begin(), v.end());
+		int ans = 1;
+		for (int i = 1; i < n; i++)
+			if (v[i - 1].second + 1 != v[i].second)
+				ans++;
+		return  (ans <= k ? "YES" : "NO");
     
 }
 
@@ -109,21 +110,28 @@ int main()
     {
 
         int n = rand() %10 +1;
-        // int k = rand() % 10+1;
+        int k = rand() % 10+1;
         // int d = rand() % 10+1;
         // int w = rand() % 10+1;
+
+        unordered_set<int> s;
         vector<int> v;
-        f(i,0,n){
-            int a=rand()%10 +1;
-            v.pb(a);
+        while(true){
+            int a = rand()%10 +1;
+            s.insert(a);
+            if(s.size()==n){
+                break;
+            }
         }
-        sort(all(v),greater<int>());
+        v.assign(s.begin(),s.end());
+        // sort(all(v),greater<int>());
         // sort(all(v));
         // vector<int> myans = FindSecondLargestElement( n,k,v);
         // vector<int> correctans = Brute_solution(n,k,v);
-        if (Brute_solution(n,v) != FindSecondLargestElement( n,v))
+        if (Brute_solution(n,k,v) != FindSecondLargestElement( n,k,v))
         {
             cout<<n<<endl;
+            cout<<k<<endl;
             for(auto x:v){
                 cout<<x<<" ";
             }

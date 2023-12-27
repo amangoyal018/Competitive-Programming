@@ -46,6 +46,7 @@ for (int i = 2; i <= sqrt(n); i++){
     return true;
 }
 
+
 //code start  JAI SHREE RAM
 int main()
 {
@@ -62,24 +63,29 @@ int main()
         int n;
         cin>>n;
 
-        if(n==1){
-            cout<<"NO\n";
-            continue;
-        }
-
-        while(n>1){
-            if(n%2==0){
-                n/=2;
-            }else{
-                break;
+        if(n%4==0){
+            int a = n/4;
+            int b = sqrt(a);
+            b*=b;
+            if(b==a){
+                cout<<"YES\n";
+                continue;
             }
-        }
-        if(n==1){
-            cout<<"YES\n";
+            
 
-        }else{
-            cout<<"NO\n";
         }
+        if(n%2==0){
+
+            int a = n/2;
+            int b = sqrt(a);
+            b*=b;
+            if(b==a){
+                cout<<"YES\n";
+                continue;
+            }
+
+        }
+        cout<<"NO\n";
 
 
     }

@@ -34,42 +34,72 @@ bool sortbysec(const pair<int,int> &a,
 {
     return (a.second < b.second);
 }
+int numDecodings(string s) {
+        if(s.find('0')!=string::npos){
+            if(s.find("00")!=string::npos){
+                return 0;
+            }
+            if(s.find("30")!=string::npos){
+                return 0;
+            }
+            if(s.find("40")!=string::npos){
+                return 0;
+            }
+            if(s.find("50")!=string::npos){
+                return 0;
+            }
+            if(s.find("60")!=string::npos){
+                return 0;
+            }
+            if(s.find("70")!=string::npos){
+                return 0;
+            }
+            if(s.find("80")!=string::npos){
+                return 0;
+            }
+            if(s.find("90")!=string::npos){
+                return 0;
+            }
+            if(s[0]=='0'){
+                return 0;
+            }
+        }
+        int ans = 1;
+        for(int i=1;i<s.size();i++){
+            if(s[i]=='0'){
+                if(i>1){
+                    if(s[i-2]=='1' or s[i-1]=='2'){
+                        ans--;
+                    }
+                }
+                continue;
+            }
+            if(s[i-1]!='1' and s[i-1]!='2'){
+                continue;
+            }
+            if(s[i-1]=='1'){
+                if(i-2>=0){ 
+                    if(s[i-2]==s[i]){
+                        ans++;
+                    }
+                }
+                ans++;
+            }else{
 
-
-
-
-int minimumSum(vector<int>& nums) {
-        int ans = 151;
-        int n = nums.size();
-        int res = 151 ;
-        for(int i = 0 ; i<n ;i++){
-            int temp = nums[i];
-            for(int j=i+1;j<n;j++){
-                
-                if(nums[j]<=temp){
+                if(s[i]-'0'<=6){
+                    if(i-2>=0){
+                        if(s[i-2]==s[i]){
+                            ans++;
+                        }
+                    }
+                    ans++;
+                }else{
                     continue;
                 }
-                // cout<<nums[j]<<" ";
-                for(int k=j+1;k<n;k++){
-                    if(nums[k]>=nums[j]){
-                        continue;
-                    }
-                    // cout<<nums[k];
-                    res=nums[i]+nums[j]+nums[k];
-                    // cout<<nums[i]<<" "<<nums[j]<<" "<<nums[k]<<" "<<ans<<" "<<res<<"\n";
-                    
-                }
-                ans = min(ans , res);
-                cout<<ans;
-                break;
             }
-            
-        }
-        
-        if(ans==151){
-            return -1;
         }
         return ans;
+
     }
 //code start  JAI SHREE RAM
 int main()
@@ -80,9 +110,10 @@ int main()
 #endif
 
     ARA_ARA
-    vector<int> v={1,3,1,2};
-    int x = minimumSum(v);
+    
     // cout<<x<<" ";
+    string s = "222";
+    cout<<numDecodings(s);
     
     
     

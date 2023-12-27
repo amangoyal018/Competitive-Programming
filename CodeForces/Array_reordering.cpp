@@ -9,6 +9,7 @@ using namespace std;
 #define all(x) x.begin() , x.end()
 #define pb push_back
 int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
+// ll gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 
 bool isValid(int x, int y, int n, int m){
 	if(x < 0 or x >= n)return false;
@@ -49,35 +50,35 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
-    int n,k;
-    cin>>n>>k;
-
-
-
-    string s;
-    cin>>s;
-
-    vi v(26);
+    int n;
+    cin>>n;
+    vi v;
+    int e=0;
+    int o=0;
     f(i,0,n){
-        v[s[i]-'a']++;
-    }
-    int cnt = 0;
-    f(i,0,26){
-        if(v[i]%2!=0){
-            cnt++;
+        int a;
+        cin>>a;
+        if(a&1){
+            v.pb(a);
+            o++;
+        }else{
+            e++;
         }
     }
-    cnt--;
-    if(cnt<=k){
-        cout<<"YES\n";
-    }else{
-        cout<<"NO\n";
+    int ans = 0;
+    ans += o*e;
+    ans += (e*(e-1))/2;
+    int m = v.size();
+    f(i,0,m){
+        f(j,i+1,m){
+            if(gcd(v[i],v[j])>1){
+                ans++;
+            }
+
+        }
     }
-
-
-
-
-
+    cout<<ans<<"\n";
+    
 
 
 

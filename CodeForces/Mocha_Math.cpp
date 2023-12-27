@@ -49,38 +49,19 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
-    int n,k;
-    cin>>n>>k;
+    
+    int n;
+    cin>>n;
+    int max_e = INT_MIN;
+    int min_e = INT_MAX;
+    vi v(n);
 
-
-
-    string s;
-    cin>>s;
-
-    vi v(26);
     f(i,0,n){
-        v[s[i]-'a']++;
+        cin>>v[i];
+        max_e = max(max_e,v[i]);
+        min_e = min(min_e,v[i]);
     }
-    int cnt = 0;
-    f(i,0,26){
-        if(v[i]%2!=0){
-            cnt++;
-        }
-    }
-    cnt--;
-    if(cnt<=k){
-        cout<<"YES\n";
-    }else{
-        cout<<"NO\n";
-    }
-
-
-
-
-
-
-
-
+    cout<<(min_e&max_e)<<"\n";
 }
 
 //code start  JAI SHREE RAM
@@ -96,7 +77,6 @@ int main()
     cin>>t;
     // t=1;
     while(t--){
-
         solve();
     }
     
