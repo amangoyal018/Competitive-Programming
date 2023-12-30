@@ -49,8 +49,16 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
+        int n;
+        cin>>n;
 
-    
+        int q  = n/2020;
+        n -= q*2020;
+        if(n<=q){
+            cout<<"YES\n";
+        }else{
+            cout<<"NO\n";
+        }
 }
 
 //code start  JAI SHREE RAM

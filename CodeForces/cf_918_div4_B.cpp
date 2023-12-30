@@ -49,8 +49,25 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
-
-    
+    int cnt = 3;
+    f(i,0,3){
+        string s;
+        cin>>s;
+        if(s.find('?')!=string::npos){
+            if(s.find('A')==string::npos){
+                cout<<'A'<<"\n";
+                continue;
+            }
+            if(s.find('B')==string::npos){
+                cout<<'B'<<"\n";
+                continue;
+            }
+            if(s.find('C')==string::npos){
+                cout<<'C'<<"\n";
+                continue;
+            }
+        }
+    }
 }
 
 //code start  JAI SHREE RAM

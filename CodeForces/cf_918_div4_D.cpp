@@ -49,8 +49,35 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
+    int n;
+    cin>>n;
 
-    
+    string s;
+    cin>>s;
+    int v = 0;
+    int c = 0;
+    bool status = true;
+    f(i,0,n){
+        cout<<s[i];
+        if(s[i]=='a' or s[i]=='e'){
+            
+            if(i+1==n){
+                // cout<<s[i+1];
+                break;
+            }
+            if(i+2==n){
+                cout<<s[i+1];
+                break;
+            }
+            if(s[i+2]=='a' or s[i+2]=='e'){
+                cout<<".";
+            }else{
+                cout<<s[i+1]<<".";
+                i++;
+            }
+        }
+    }
+    cout<<"\n";
 }
 
 //code start  JAI SHREE RAM

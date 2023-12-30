@@ -49,6 +49,18 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
+    ll n;
+    cin>>n;
+    ll res = 0;
+
+    if(n<=6){
+        cout<<15<<"\n";
+    }else{
+        n-=5;
+        n/=2;
+
+        cout<<15+n*5<<"\n";
+    }
 
     
 }

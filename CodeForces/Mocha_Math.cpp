@@ -59,9 +59,13 @@ void solve(){
     f(i,0,n){
         cin>>v[i];
         max_e = max(max_e,v[i]);
-        min_e = min(min_e,v[i]);
+
     }
-    cout<<(min_e&max_e)<<"\n";
+    int res=INT_MAX;
+    for(auto x:v){
+        max_e = (max_e & x);
+    }
+    cout<<max_e<<"\n";
 }
 
 //code start  JAI SHREE RAM

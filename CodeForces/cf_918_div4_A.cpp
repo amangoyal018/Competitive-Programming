@@ -49,8 +49,18 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
+    int a,b,c;
+    cin>>a>>b>>c;
 
-    
+    if(a==b){
+        cout<<c<<"\n";
+    }else{
+        if(a==c){
+            cout<<b<<"\n";
+        }else{
+            cout<<a<<"\n";
+        }
+    }
 }
 
 //code start  JAI SHREE RAM

@@ -49,8 +49,21 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
+    int n;
+    cin>>n;
 
-    
+    vll v(n);
+    ll sum=0;
+    f(i,0,n){
+        cin>>v[i];
+        sum+=v[i];
+    }
+    if (ceil((double)sqrt(sum)) == floor((double)sqrt(sum))){
+        cout<<"YES\n";
+    }else{
+        cout<<"NO\n";
+    }
+
 }
 
 //code start  JAI SHREE RAM

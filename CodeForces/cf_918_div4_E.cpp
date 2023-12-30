@@ -49,8 +49,39 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
+        ll n;
+        cin>>n;
 
-    
+        vll v(n);
+
+        f(i,0,n){
+            cin>>v[i];
+        }
+        set<ll> s;
+        
+        bool status = false;
+
+        ll ps = 0;
+        s.insert(ps);
+        f(i,0,n){
+            // cin>>v[i];
+            if(i&1){
+                ps-=v[i];
+            }else{
+                ps+=v[i];   
+            }
+            if(s.find(ps)!=s.end()){
+                cout<<"YES\n";
+                status = true;
+                break;
+            }else{
+                s.insert(ps);
+            }
+        }
+        if(!status){
+            cout<<"NO\n";
+        }
+        
 }
 
 //code start  JAI SHREE RAM
