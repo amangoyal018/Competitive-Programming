@@ -50,7 +50,38 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
-    
+    int n,k;
+    cin>>n>>k;
+
+    bool res = false;
+
+    int product = 2023;
+
+
+    f(i,0,n){
+        int a;
+        cin>>a;
+        // cout<<a<<"\n";
+
+        if(product%a==0){
+            product/=a;
+        }else{
+            res = true;
+            continue;;
+        }
+    }
+    if(res){
+        cout<<"NO\n";
+        return;
+    }else{
+        cout<<"YES\n";
+        f(i,0,k-1){
+            cout<<1<<" ";
+        }
+        cout<<product<<"\n";
+        return;
+    }
+
 }
 
 //code start  JAI SHREE RAM
@@ -62,7 +93,7 @@ int main()
 #endif
 
     ARA_ARA
-    ll t;
+    int t;
     cin>>t;
     // t=1;
     while(t--){

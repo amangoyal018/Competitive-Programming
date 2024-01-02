@@ -50,7 +50,20 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
-    
+    int n;
+    cin>>n;
+
+    ll sum=0;
+    f(i,0,n){
+        int a;
+        cin>>a;
+        sum+=a;
+    }
+    if(sum%n == 0){
+        cout << 0 << "\n";
+    }else{
+        cout << (n - sum%n)*(sum%n) << "\n";
+    }
 }
 
 //code start  JAI SHREE RAM

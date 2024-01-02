@@ -50,7 +50,16 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
-    
+    int n,k;
+    cin>>n>>k;
+
+    for(int i=n;i>k+1;i--){
+        cout<<i<<" ";
+    }
+    for(int i=1;i<=k+1;i++){
+        cout<<i<<" ";
+    }
+    cout<<"\n";
 }
 
 //code start  JAI SHREE RAM

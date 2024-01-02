@@ -50,6 +50,42 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
+    int n;
+    cin>>n;
+
+    int odd = 0,even = 0;
+
+    ll sum = 0;
+    f(i,0,n){
+        int a;
+        cin>>a;
+
+        sum+=a;
+        if(a&1){
+            odd++;
+        }else{
+            even++;
+        }
+
+        ll temp = sum;
+        if(i==0 or (odd==0)){
+            cout<<temp<<" ";
+            continue;
+        }
+
+        int x = odd%3;
+        int y = odd/3;
+        temp -=y;
+        if(x==1){
+            cout<<temp-1<<" ";
+        }else{
+            cout<<temp<<" ";
+        }
+
+
+
+    }
+        cout<<"\n";
     
 }
 

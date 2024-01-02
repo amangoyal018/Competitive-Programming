@@ -8,7 +8,8 @@ using namespace std;
 #define f(i,a,b) for(int i=a;i<b;i++)
 #define all(x) x.begin() , x.end()
 #define pb push_back
-int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
+// int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
+int gcd(ll x, ll y) {return y == 0 ? x : gcd(y, x % y);}
 
 bool isValid(int x, int y, int n, int m){
 	if(x < 0 or x >= n)return false;
@@ -49,6 +50,26 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
+    ll a,b;
+    cin>>a>>b;
+    // ll divisor = 2;
+    // ll y = a*b;
+    // while (y > 1) {
+    //     if (y % divisor == 0) {
+    //         y /= divisor;
+    //         break;
+    //     } else {
+    //         divisor++;
+    //     }
+    // }
+    ll g = gcd(a,b);
+    int x = (a*b/g);
+
+    
+    if(x==b){
+        x*=(b/a);
+    }
+    cout<<x<<"\n";
 
     
 }

@@ -50,8 +50,69 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
-    
+    int n;
+    cin>>n;
+
+    string s;
+    cin>>s;
+
+    vi v(n);
+    int cntr = 0;
+    int cntb = 0;
+    int index = INT_MAX;
+    f(i,0,n){
+        if(s[i]=='R'){
+            v[i] = 1;
+            cntr++;
+            index = min(index,i);
+        }else if(s[i]=='B'){
+            v[i] = 2;
+            cntb++;
+            index = min(index,i);
+        }
+    }
+    if(cntr==0 and cntb==0){
+        int ans = 0;
+        f(i,0,n){
+            if(ans){
+                cout<<'B';
+            }else{
+                cout<<'R';
+            }
+            ans = 1 - ans;
+        }
+        cout<<"\n";
+        return;
+    }
+
+    if(index > 0){
+        int pos = v[index];
+        for(int i = index - 1 ; i >= 0 ; i--){
+            pos = 3 - pos;
+            v[i] = pos;
+        }
+    }
+    int temp = v[index];
+    for(int i = index+1;i<n;i++){
+        if(v[i]>0){
+            temp = v[i];
+            continue;
+        }
+        temp = 3 - temp;
+        v[i] = temp;
+    }
+    for(auto x:v){
+        if(x==1){
+            cout<<'R';
+        }else{
+            cout<<'B';
+        }
+    }
+    cout<<"\n";
+    return;
+
 }
+
 
 //code start  JAI SHREE RAM
 int main()
