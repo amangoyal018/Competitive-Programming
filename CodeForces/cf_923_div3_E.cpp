@@ -50,7 +50,61 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
+    ll n,k;
+    cin>>n>>k;
+
+    vi v(k,0);
+    int remainder = n%k;
+    int q = n/k;
+
+    int start = 1;
+    int end = n;
+
+    for(int i=0;i<k;i+=1){
+
+        if(i&1){
+            v[i] = end;
+            end-=q;
+            if(remainder){
+                end--;
+                remainder--;
+            }
+        }else{
+            v[i] = start;
+            start+=q;
+            if(remainder){
+                start++;
+                remainder--;
+            }
+        }
+    }
+    for(auto x:v){
+        cout<<x<<" ";
+    }
+
+    int cnt = n-k;
+    int index = 0;
     
+    while(cnt){
+        if(index&1){
+            v[index]--;
+            cout<<v[index]<<" ";  
+        }else{
+            v[index]++;
+            cout<<v[index]<<" ";  
+        }
+        index++;
+        index = index%k;
+
+        cnt--;
+    }
+    cout<<"\n";
+
+    
+    
+    
+
+
 }
 
 //code start  JAI SHREE RAM

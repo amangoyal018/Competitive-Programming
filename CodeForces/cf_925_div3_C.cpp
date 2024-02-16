@@ -51,6 +51,41 @@ for (int i = 2; i <= sqrt(n); i++){
 void solve(){
 
     
+    ll n;
+    cin>>n;
+
+    vll v(n);
+    f(i,0,n){
+        cin>>v[i];
+    }
+    ll cnt1 = 1;
+    int first = v[0];
+    int last = v[n-1];
+    f(i,1,n){
+        if(v[i]==first){
+            cnt1++;
+        }else{
+            break;
+        }
+    }
+    ll cnt2 = 0;
+    for(int i=n-1;i>=0;i--){
+        if(v[i] == last){
+            cnt2++;
+        }else{
+            break;
+        }
+    }
+    ll res;
+    if(first == last ){
+        res = n - min(n,cnt1+cnt2);
+    }else{
+        res = min(n-cnt1,n-cnt2);
+    }
+    cout<<res<<"\n";
+    
+    
+
 }
 
 //code start  JAI SHREE RAM

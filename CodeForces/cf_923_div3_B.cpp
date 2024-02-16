@@ -50,7 +50,40 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
-    
+    ll n;
+    cin>>n;
+
+    vll v(n);
+    f(i,0,n){
+        cin>>v[i];
+    }
+    vll indexes;
+    f(i,0,n-1){
+        // cout<<v[i]<<"\n";
+        if(v[i]!=v[i+1]){
+            indexes.pb(i);
+        }
+    }
+    int q;
+    cin>>q;
+    f(i,0,q){
+        ll l,r;
+        cin>>l>>r;
+        // cout<<l-1<<" ";
+        //lb gives size of the vector if found nothing
+        int lb = lower_bound(indexes.begin(),indexes.end(),l-1) - indexes.begin();
+        // cout<<lb<<" ";
+        if(lb==indexes.size()){
+            cout<<"-1 -1\n";
+            continue;
+        }
+        if(indexes[lb]<r-1){
+            cout<<indexes[lb]+1<<" "<<indexes[lb]+2<<"\n";
+        }else{
+            cout<<"-1 -1\n";
+        }
+    }
+    cout<<"\n";
 }
 
 //code start  JAI SHREE RAM

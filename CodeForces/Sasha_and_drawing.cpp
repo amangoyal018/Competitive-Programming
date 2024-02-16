@@ -51,6 +51,16 @@ for (int i = 2; i <= sqrt(n); i++){
 void solve(){
 
     
+    ll n,k;cin>>n>>k;
+
+    if(k<=4*n-4){
+        cout<<(k+1)/2<<"\n";
+    }else if(k==4*n-3){
+        cout<<k/2 + 1<<"\n";
+    }else{
+        cout<<k/2 + 1<<"\n";
+    }
+
 }
 
 //code start  JAI SHREE RAM

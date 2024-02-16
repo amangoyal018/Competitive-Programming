@@ -51,6 +51,32 @@ for (int i = 2; i <= sqrt(n); i++){
 void solve(){
 
     
+    ll n;
+    cin>>n;
+
+    vll v(n);
+
+    ll s = 0;
+    f(i,0,n){
+        cin>>v[i];
+        s+=v[i];
+    }
+    s/=n;
+    ll last = v[n-1];
+    ll sum = 0;
+    f(i,0,n-1){
+        sum+=v[i];
+        if(sum>=(s*(i+1))){
+            continue;
+        }else{
+            cout<<"NO\n";
+            return;
+        }
+    }
+    cout<<"YES\n";
+
+
+
 }
 
 //code start  JAI SHREE RAM

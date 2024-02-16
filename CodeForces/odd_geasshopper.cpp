@@ -49,7 +49,33 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
+    ll pos,jumps;
+    cin>>pos>>jumps;
 
+    if(pos&1){
+        if(jumps%4==0){
+            cout<<pos<<"\n";
+        }else if(jumps%4==1){
+            cout<<pos+jumps<<"\n";
+        }else if(jumps%4==2){
+            cout<<pos-1<<"\n";
+        }else{
+            cout<<pos-jumps-1<<"\n";
+        }
+        return;
+    
+    }
+
+    
+    if(jumps%4==0){
+        cout<<pos<<"\n";
+    }else if(jumps%4==1){
+        cout<<pos-jumps<<"\n";
+    }else if(jumps%4==2){
+        cout<<pos+1<<"\n";
+    }else{
+        cout<<pos+jumps+1<<"\n";
+    }
     
 }
 

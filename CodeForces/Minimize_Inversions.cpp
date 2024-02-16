@@ -45,11 +45,39 @@ for (int i = 2; i <= sqrt(n); i++){
 }
     return true;
 }
+bool sortbysum(const pair<int,int> &a,
+            const pair<int,int> &b)
+{
+    return (a.first+a.second < b.first+b.second);
+}
 
 
 
 void solve(){
 
+
+    int n;
+    cin>>n;
+
+    vector<pair<int,int>> v(n);
+
+    f(i,0,n){
+        cin>>v[i].first;
+    }
+    
+    f(i,0,n){
+        cin>>v[i].second;
+    }
+
+    sort(all(v),sortbysum);
+    f(i,0,n){
+        cout<<v[i].first<<" ";
+    }
+    cout<<"\n";
+    f(i,0,n){
+        cout<<v[i].second<<" ";
+    }
+    cout<<"\n";
     
 }
 

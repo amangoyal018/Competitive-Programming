@@ -50,7 +50,32 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
-    
+    ll n;
+    cin>>n;
+
+    string s;
+    cin>>s;
+
+    int index1=-1;
+    int index2 =-1;
+
+    bool status1 = true;
+    bool status2 = true;
+
+    f(i,0,n){
+        if(s[i]=='B' and status1){
+            index1 = i+1;
+            status1 = false;
+            // continue;
+        }
+        if(s[i]=='B'){
+            index2 = i+1;
+        }
+
+    }
+
+    cout<<index2-index1+1<<"\n";
+
 }
 
 //code start  JAI SHREE RAM

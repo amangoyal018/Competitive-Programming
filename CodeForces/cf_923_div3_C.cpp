@@ -49,7 +49,62 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
+    ll n,m,k;
+    cin>>n>>m>>k;
 
+    vll v(k+1,0);
+
+    f(i,0,n){
+        ll a;
+        cin>>a;
+
+        if(a<=k){
+            v[a] = 1;
+            // cout<<"hello"<<a<<"\n";
+        }
+    }
+    
+     
+    f(i,0,m){
+        ll a;
+        cin>>a;
+        // cout<<a<<" ";
+
+        if(a<=k){
+            if(v[a]==1 or v[a]==3){
+                // cout<<a<<"\n";
+                v[a]=3;
+                continue;
+            }
+            v[a] = 2;
+        }
+    }
+    ll cnt1 = 0;
+    ll cnt2 = 0;
+    ll cnt3 = 0;
+    f(i,1,k+1){
+        if(v[i] == 0){
+            cout<<"NO\n";
+            return;
+        }
+        if(v[i] == 1){
+            cnt1++;
+        }
+        if(v[i] == 2){
+            cnt2++;
+        }
+        if(v[i] == 3){
+            cnt3++;
+        }
+    }
+    // cout<<cnt3<<"\n";
+    ll ans1 = min(cnt1,k/2);
+    ll ans2 = min(cnt2,k/2);
+    if(ans1 + ans2 + cnt3 == k){
+        cout<<"YES\n";
+    }else{
+        cout<<"NO\n";
+    }
     
 }
 

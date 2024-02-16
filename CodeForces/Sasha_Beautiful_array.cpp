@@ -50,7 +50,17 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
+    ll n;
+    cin>>n;
+    vll v(n);
+    f(i,0,n){
+        cin>>v[i];
+    }
+    sort(all(v));
+    cout<<v[n-1] - v[0]<<"\n";
     
+
+
 }
 
 //code start  JAI SHREE RAM

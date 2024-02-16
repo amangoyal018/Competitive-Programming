@@ -50,7 +50,24 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
-    
+    int n;
+    cin>>n;
+    vi vec(n);
+
+    f(i,0,n){
+        cin>>vec[i];
+    }
+    sort(all(vec));
+    vec.erase(unique(all(vec)), vec.end());
+    int ans = INT_MIN;
+    f(i,0,vec.size()){
+        ans = max(ans , lower_bound(all(vec),vec[i] + n) - vec.begin() - i);
+    }
+    cout<<ans<<"\n";
+
+
+
+
 }
 
 //code start  JAI SHREE RAM

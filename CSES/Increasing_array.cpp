@@ -49,7 +49,21 @@ for (int i = 2; i <= sqrt(n); i++){
 
 
 void solve(){
+    int n;
+    cin>>n;
 
+    vi v(n);
+    ll ans = 0;
+    f(i,0,n){
+        cin>>v[i];
+    }
+    f(i,1,n){
+        if(v[i]<v[i-1]){
+            ans += (v[i-1] - v[i]);
+            v[i] = v[i-1];
+        }
+    }
+    cout<<ans<<"\n";
     
 }
 
@@ -63,8 +77,8 @@ int main()
 
     ARA_ARA
     ll t;
-    cin>>t;
-    // t=1;
+    // cin>>t;
+    t=1;
     while(t--){
 
         solve();

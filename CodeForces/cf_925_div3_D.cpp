@@ -50,7 +50,48 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
-    
+    ll n,x,y;
+    cin>>n>>x>>y;
+
+    vll v(n);
+
+    f(i,0,n){
+        cin>>v[i];
+    }
+
+    map<pair<ll,ll>,ll> m;
+
+    ll rem1 = v[0]%x;
+    ll rem2 = v[0]%y;
+
+    pair<ll,ll> p = {rem1,rem2};
+    m[p]++;
+
+    ll ans = 0;
+
+    f(i,1,n){
+        ll currRemX = v[i] % x;
+        
+        ll needX = x - currRemX;
+        if(needX == x){
+            needX = 0;
+        }
+        ll currRemY = v[i] % y;
+        pair<ll,ll> tp ={needX,currRemY};
+        ans += m[tp];
+
+        p = {currRemX,currRemY};
+        m[p]++;
+
+    }
+    cout<<ans<<"\n";
+
+
+
+
+
+
+
 }
 
 //code start  JAI SHREE RAM

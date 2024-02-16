@@ -50,7 +50,33 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
+    ll k,x,a;cin>>k>>x>>a;
+
+    ll curr = 1;
+
+    // cout<<curr<<" ";
+    f(i,2,x+1){
+        ll temp = (curr/(k-1)) + 1;
+        curr += temp;
+        if(curr >= a){
+            cout<<"NO\n";
+            return;
+        }   
+
+    }
+    if(curr >= a){
+        cout<<"NO\n";
+        return;
+    }
+    if((a-curr)*k > a){
+        cout<<"YES\n";
+    }else{
+        cout<<"NO\n";
+    }
+
     
+
+
 }
 
 //code start  JAI SHREE RAM

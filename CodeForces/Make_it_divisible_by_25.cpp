@@ -52,16 +52,103 @@ void solve(){
 
     string s;
     cin>>s;
-
+    //check 00 25 50 75
     int n = s.length();
-    string temp;
-    for(int i = n-1 ; i >0 ; i--){
-        temp = s.substr(i-1,2);
-        cout<<temp<<"\n";
-        if(temp == "00" or temp == "25" or temp == "50" or temp == "75"){
-            brea
+    reverse(s.begin(),s.end());
+    // cout<<s<<"\n";
+
+    int ans = INT_MAX;
+    
+    //to check 00
+    int index1 = -1;
+    int index2 = -1;
+    bool status1 = true;
+    bool status2 = true;
+    f(i,0,n){
+        if(s[i]=='0' and status1){
+            index1=i;
+            status1 = false;
+            continue;
+        }
+        if(s[i]=='0' and status2){
+            if(status1){
+                continue;
+            }
+            index2=i;
+            status2 = false;
         }
     }
+    if(index2!=-1 and index1!=-1){
+        ans = min(index2-1,ans);
+    }
+    //to check 75
+    index1 = -1;
+    index2 = -1;
+    status1 = true;
+    status2 = true;
+    f(i,0,n){
+        if(s[i]=='5' and status1){
+            index1=i;
+            status1 = false;
+            continue;
+        }
+        if(s[i]=='7' and status2){
+            if(status1){
+                continue;
+            }
+            index2=i;
+            status2 = false;
+        }
+    }
+    if(index2!=-1 and index1!=-1){
+        ans = min(index2-1,ans);     
+    }
+    //to check 50 
+    index1 = -1;
+    index2 = -1;
+    status1 = true;
+    status2 = true;
+    f(i,0,n){
+        if(s[i]=='0' and status1){
+            index1=i;
+            status1 = false;
+            continue;
+        }
+        if(s[i]=='5' and status2){
+            if(status1){
+                continue;
+            }
+            index2=i;
+            status2 = false;
+        }
+    }
+    if(index2!=-1 and index1!=-1){
+        ans = min(index2-1,ans);     
+    }
+    //to check 25 
+    index1 = -1;
+    index2 = -1;
+    status1 = true;
+    status2 = true;
+    f(i,0,n){
+        if(s[i]=='5' and status1){
+            index1=i;
+            status1 = false;
+            continue;
+        }
+        if(s[i]=='2' and status2){
+            if(status1){
+                continue;
+            }
+            index2=i;
+            status2 = false;
+        }
+    }
+    if(index2!=-1 and index1!=-1){
+        ans = min(index2-1,ans);     
+    }
+
+    cout<<ans<<"\n";
     
 }
 

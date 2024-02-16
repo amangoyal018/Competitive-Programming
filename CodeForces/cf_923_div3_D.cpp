@@ -50,6 +50,26 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
+    int n;
+    cin>>n;
+
+    vll v(26);
+
+    string s = "abcdefghijklmnopqrstuvwxyz";
+
+    f(i,0,n){
+        ll a;
+        cin>>a;
+
+        f(i,0,26){
+            if(v[i] == a){
+                cout<<s[i];
+                v[i]++;
+                break;
+            }
+        }
+    }
+    cout<<"\n";
     
 }
 

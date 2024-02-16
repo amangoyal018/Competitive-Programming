@@ -51,6 +51,29 @@ for (int i = 2; i <= sqrt(n); i++){
 void solve(){
 
     
+    int n;
+    cin>>n;
+    string s = "abcdefghijklmnopqrstuvwxyz";
+    if(n>52){
+        cout<<s[n-52-1]<<"";
+        n -= n-52;
+    }else{
+        cout<<"a"<<"";
+        n--;
+    }
+    if(n>26){
+        cout<<s[n-26-1]<<"";
+        n-= n -26;
+
+    }else{
+        cout<<"a"<<"";
+        n--;
+    }
+    cout<<s[n-1]<<"\n";
+
+
+
+
 }
 
 //code start  JAI SHREE RAM

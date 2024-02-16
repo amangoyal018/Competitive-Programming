@@ -50,6 +50,24 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
+    string s;
+    cin >> s;
+    
+    int cnt = 1;
+
+    int ans = 1;
+
+    int n = s.size();
+
+    for(int i = 1;i<n;i++){
+        if(s[i]==s[i-1]){
+            cnt++;
+        }else{
+            cnt = 1;
+        }
+        ans =  max(ans , cnt);
+    }
+    cout << ans;
     
 }
 
@@ -63,8 +81,8 @@ int main()
 
     ARA_ARA
     ll t;
-    cin>>t;
-    // t=1;
+    // cin>>t;
+    t=1;
     while(t--){
 
         solve();

@@ -50,7 +50,10 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
-    
+    int n,m;
+    cin>>n>>m;
+
+    cout<<n*(m/2)<<"\n";
 }
 
 //code start  JAI SHREE RAM

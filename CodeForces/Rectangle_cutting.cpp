@@ -50,7 +50,28 @@ for (int i = 2; i <= sqrt(n); i++){
 
 void solve(){
 
-    
+    ll a,b;
+    cin>>a>>b;
+
+    if((a&1 and b&1 )){
+        cout<<"NO\n";
+        return;
+    }
+    if(a&1){
+        if(b/2 == a){
+            cout<<"NO\n";
+            return;
+        }
+    }
+    if(b&1){
+        if(a/2 == b){
+            cout<<"NO\n";
+            return;
+        }
+    }
+    cout<<"YES\n";
+
+
 }
 
 //code start  JAI SHREE RAM

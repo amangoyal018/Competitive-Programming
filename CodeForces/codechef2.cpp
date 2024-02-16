@@ -2,7 +2,7 @@
 using namespace std;
 #define ARA_ARA ios_base::sync_with_stdio(false); cin.tie(NULL);
 #define ll long long int 
-// const int mod = 1e9 + 7;
+const ll mod = 998244353;
 #define vi vector < int >
 #define vll vector<long long int>
 #define f(i,a,b) for(int i=a;i<b;i++)
@@ -15,12 +15,12 @@ bool isValid(int x, int y, int n, int m){
 	if(y < 0 or y >= m)return false;
 	return true;
 }
-// int factorial(unsigned int n)
-// {
-// 	if (n == 0)
-// 		return 1;
-// 	return (n * factorial(n - 1)) % mod;
-// }
+int factorial(ll n)
+{
+	if (n == 0)
+		return 1;
+	return (n * factorial(n - 1)) % mod;
+}
 int diffelements(string s){
     int len=s.length();
     unordered_set<char> set1;
@@ -45,12 +45,44 @@ for (int i = 2; i <= sqrt(n); i++){
 }
     return true;
 }
+#define ull unsigned long long
+#define MODULO 998244353
+
+ull PowMod(ull n)
+{
+    ull ret = 1;
+    ull a = 2;
+    while (n > 0) {
+        if (n & 1) ret = ret * a % MODULO;
+        a = a * a % MODULO;
+        n >>= 1;
+    }
+    return ret;
+}
 
 
 
 void solve(){
 
+    ull k,n;
+    cin>>k>>n;
+
+    // k slots
+    // n numbers
+
+    n = PowMod(n);
     
+    // cout<<n<<"\n";
+    ull ans = (factorial(n)/factorial(n-k+1))%998244353;
+    ans *= (k*(k-1)/2)%998244353;
+    cout<<ans<<"\n";
+    
+
+    
+
+
+
+
 }
 
 //code start  JAI SHREE RAM
