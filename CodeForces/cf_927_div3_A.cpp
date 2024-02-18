@@ -53,12 +53,31 @@ bool isPrime(int n)
 
 
 void solve(){
+    int n;
+    cin>>n;
 
-    char a = '9';
-    char b = '1';
+    string s;
+    cin>>s;
 
-    char c = char( (a - '0') + (b - '0') + '0');
-    cout<<c;
+    int index = -1;
+    int cnt = 0;
+    f(i,0,n){
+        if(s[i]==s[i+1] and s[i] == '*'){
+            index = i;
+            break;
+        }
+        
+    }
+    if(index == -1){
+        index = n-1;
+    }
+    f(i,0,index +1){
+        if(s[i] == '@'){
+            cnt++;
+        }
+    }
+    cout<<cnt<<"\n";
+    
 
 }
 

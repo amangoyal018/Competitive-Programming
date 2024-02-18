@@ -51,14 +51,29 @@ bool isPrime(int n)
     return true; 
 } 
 
+int countBits(ll n){
+    int res = 0;
+    while(n>0){
+        n = (n&(n-1));
+        res++;
+    }
+    return res;
+}
 
 void solve(){
 
-    char a = '9';
-    char b = '1';
+    ll n;
+    cin>>n;
 
-    char c = char( (a - '0') + (b - '0') + '0');
-    cout<<c;
+    ll cnt = countBits(n);
+    if(cnt%3==1){
+        cout<<"ALICE\n";
+    }else if(cnt%3==2){
+        cout<<"BOB\n";
+    }else{
+        cout<<"POLYCARP\n";
+    }   
+
 
 }
 

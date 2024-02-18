@@ -54,12 +54,26 @@ bool isPrime(int n)
 
 void solve(){
 
-    char a = '9';
-    char b = '1';
+    ll n,m;
+    cin>>n>>m;
 
-    char c = char( (a - '0') + (b - '0') + '0');
-    cout<<c;
+    vll v(m);
 
+    f(i,0,n){
+        ll a,b,c;
+        cin>>a>>b>>c;
+
+        v[a-1]+=c;
+        if(b<m){
+            v[b]-=c;
+        }
+    }
+    cout<<v[0]<<" ";
+    f(i,1,m){
+        v[i]+=v[i-1];
+        cout<<v[i]<<" ";
+    }
+    cout<<"\n";
 }
 
 //code start  JAI SHREE RAM

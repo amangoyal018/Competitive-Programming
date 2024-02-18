@@ -54,11 +54,48 @@ bool isPrime(int n)
 
 void solve(){
 
-    char a = '9';
-    char b = '1';
+    ll q;
+    cin>>q;
 
-    char c = char( (a - '0') + (b - '0') + '0');
-    cout<<c;
+    map<ll,ll> m1; // for storing ball and its frequency
+    map<ll,ll> m2; // for s
+
+    ll max_cnt = 0;
+    ll min_cnt = INT_MAX;
+
+    f(i,0,q){
+        ll a;
+        cin>>a;
+
+        if(a==1 or a==2){
+            ll b;
+            cin>>b;
+
+            if(a==1){
+                if(m1[b] != 0){
+                    m2[m1[b]] --;
+                }
+                m1[b]++;
+                m2[m1[b]]++;
+
+                max_cnt = max ( max_cnt , m1[b]);
+                min_cnt = min ( min_cnt , m1[b]);
+            }else{
+
+            }
+
+            
+            
+
+
+        }else{
+            if(a==3){
+                cout << m2[max_cnt] <<"\n";
+            }else{
+                cout<< m2[min_cnt] <<"\n";
+            }
+        }
+    }
 
 }
 
@@ -72,8 +109,8 @@ int main()
 
     ARA_ARA
     ll t;
-    cin>>t;
-    // t=1;
+    // cin>>t;
+    t=1;
     while(t--){
 
         solve();

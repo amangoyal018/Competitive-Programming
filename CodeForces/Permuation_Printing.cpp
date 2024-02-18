@@ -54,11 +54,37 @@ bool isPrime(int n)
 
 void solve(){
 
-    char a = '9';
-    char b = '1';
+    int n;
+    cin >> n;
 
-    char c = char( (a - '0') + (b - '0') + '0');
-    cout<<c;
+    if(n&1){
+        int even = 2;
+        int odd = n;
+
+        while(odd>0){
+            cout<<odd<<" ";
+            odd-=2;
+            if(even<n){
+                cout<<even<<" ";
+                even+=2;
+            }
+        }
+
+    }else{
+        int even = n;
+        int odd = 1;
+
+        while(even>0){
+            cout<<even<<" ";
+            even-=2;
+            if(odd<n){
+                cout<<odd<<" ";
+                odd+=2;
+            }
+        }
+    }
+    cout<<"\n";
+    
 
 }
 

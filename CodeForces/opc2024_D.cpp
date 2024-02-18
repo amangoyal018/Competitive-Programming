@@ -54,12 +54,42 @@ bool isPrime(int n)
 
 void solve(){
 
-    char a = '9';
-    char b = '1';
+    vector<vector<int>> v;
+    int n,m;
+    cin>>n>>m;
 
-    char c = char( (a - '0') + (b - '0') + '0');
-    cout<<c;
-
+    f(i,0,n){
+        vi vec;
+        f(i,0,m){
+            int a;
+            cin>>a;
+            vec.pb(a);
+        }
+        v.pb(vec);
+    }
+    f(i,0,n){
+        f(j,0,m){
+            if(isValid(i-1,j-1,n,m)){
+                if(v[i-1][j-1] > v[i][j]){
+                    cout<<"NO\n";
+                    return;
+                }
+            }
+            if(isValid(i-1,j,n,m)){
+                if(v[i-1][j] > v[i][j]){
+                    cout<<"NO\n";
+                    return;
+                }
+            }
+            if(isValid(i-1,j+1,n,m)){
+                if(v[i-1][j+1] > v[i][j]){
+                    cout<<"NO\n";
+                    return;
+                }
+            }
+        }
+    }
+    cout<<"YES\n";
 }
 
 //code start  JAI SHREE RAM
@@ -72,8 +102,8 @@ int main()
 
     ARA_ARA
     ll t;
-    cin>>t;
-    // t=1;
+    // cin>>t;
+    t=1;
     while(t--){
 
         solve();
