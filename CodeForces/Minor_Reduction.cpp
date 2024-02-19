@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-using namespace chrono;
 #define ARA_ARA ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr); 
 #define ll long long int 
-const int mod = 1e9 + 7;
+// const int mod = 1e9 + 7;
 #define vi vector < int >
 #define vll vector<long long int>
 #define vvi vector<vector<int>>
@@ -11,10 +10,6 @@ const int mod = 1e9 + 7;
 #define f(i,a,b) for(int i=a;i<b;i++)
 #define all(x) x.begin() , x.end()
 #define pb push_back
-#define MAX(x) *max_element(all(x))
-#define MIN(x) *min_element(all(x))
-#define SUM(x) accumulate(all(x), 0LL)
-#define FIND(x, y) binary_search(all(x), y)
 int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 int lcm(int x, int y) {return x / gcd(x, y) * y;}
 
@@ -23,12 +18,12 @@ bool isValid(int x, int y, int n, int m){
 	if(y < 0 or y >= m)return false;
 	return true;
 }
-int factorial(int n)
-{
-	if (n == 0)
-		return 1;
-	return (n * factorial(n - 1)) % mod;
-}
+// int factorial(unsigned int n)
+// {
+// 	if (n == 0)
+// 		return 1;
+// 	return (n * factorial(n - 1)) % mod;
+// }
 int diffelements(string s){
     int len=s.length();
     unordered_set<char> set1;
@@ -54,13 +49,55 @@ bool isPrime(int n)
         if (!(n % i) or !(n % (i + 2))) 
             return false;
     return true; 
-}
-bool ispow2(int x){return (x ? !(x & (x - 1)) : 0);} 
+} 
 
 
 void solve(){
 
+    string s;
+    cin>>s;
+
+    int n = s.size();
+
+    int min_2digit = 0;
+    int min_1digit = INT_MAX;
+    int index_2digit = -1;
+    int index_1digit = -1;
+
+    for(int i = 0 ; i < n-1 ;i++){
+        int a  = (s[i] - '0');
+        int b  = (s[i+1] - '0');
+        if(a+b>9){
+            min_2digit = a+b;
+            if(a+b == min_2digit){
+                index_2digit = i;
+            } 
+        }
+        
+    }
+    if(index_2digit == -1){
+        int a  = (s[0] - '0');
+        int b  = (s[1] - '0');
+        cout<<a+b;
+        f(i,2,n){
+            cout<<s[i];
+        }
+        cout<<"\n";
+        return;
+    }
+
+    f(i,0,n){
+        if(i == index_2digit){
+            cout<<min_2digit;
+            i++;
+            continue;
+        }else{
+            cout<<s[i];
+        }
+    }
+    cout<<"\n";
 }
+    
 
 //code start  JAI SHREE RAM
 int main()
@@ -71,7 +108,6 @@ int main()
 #endif
 
     ARA_ARA
-    auto start = high_resolution_clock::now();
     ll t;
     cin>>t;
     // t=1;
@@ -79,7 +115,5 @@ int main()
 
         solve();
     }
-    auto time =  duration_cast<microseconds>(high_resolution_clock::now() - start).count() / 1000;
-    cerr << "Time: " << time << " ms!" << endl;
     
 }

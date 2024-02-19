@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-using namespace chrono;
 #define ARA_ARA ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr); 
 #define ll long long int 
-const int mod = 1e9 + 7;
+// const int mod = 1e9 + 7;
 #define vi vector < int >
 #define vll vector<long long int>
 #define vvi vector<vector<int>>
@@ -11,10 +10,6 @@ const int mod = 1e9 + 7;
 #define f(i,a,b) for(int i=a;i<b;i++)
 #define all(x) x.begin() , x.end()
 #define pb push_back
-#define MAX(x) *max_element(all(x))
-#define MIN(x) *min_element(all(x))
-#define SUM(x) accumulate(all(x), 0LL)
-#define FIND(x, y) binary_search(all(x), y)
 int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 int lcm(int x, int y) {return x / gcd(x, y) * y;}
 
@@ -23,12 +18,12 @@ bool isValid(int x, int y, int n, int m){
 	if(y < 0 or y >= m)return false;
 	return true;
 }
-int factorial(int n)
-{
-	if (n == 0)
-		return 1;
-	return (n * factorial(n - 1)) % mod;
-}
+// int factorial(unsigned int n)
+// {
+// 	if (n == 0)
+// 		return 1;
+// 	return (n * factorial(n - 1)) % mod;
+// }
 int diffelements(string s){
     int len=s.length();
     unordered_set<char> set1;
@@ -54,11 +49,54 @@ bool isPrime(int n)
         if (!(n % i) or !(n % (i + 2))) 
             return false;
     return true; 
-}
-bool ispow2(int x){return (x ? !(x & (x - 1)) : 0);} 
+} 
 
 
 void solve(){
+
+    ll k,n,m;cin>>k>>n>>m;
+    // cout<<n;
+    vll v1(n);
+    vll v2(m);
+
+    f(i,0,n){
+        cin>>v1[i];
+    }
+    f(i,0,m){
+        cin>>v2[i];
+    }
+    ll a = 0 , b = 0;
+
+    vll ans;
+    while(a<n or b<m){
+        if(a<n and v1[a] == 0){
+            ans.pb(v1[a]);
+            a++;
+            k++;
+        }else if(b<m and v2[b] == 0){
+            ans.pb(v2[b]);
+            b++;
+            k++;
+        }else if(a<n and v1[a] <= k){
+            ans.pb(v1[a]);
+            a++;
+        }else if(b<m and v2[b] <= k){
+            ans.pb(v2[b]);
+            b++;
+        }else{
+            // cout<<"hello";
+            break;
+        }
+    }
+    if(ans.size() == n + m){
+        for(auto x: ans){
+            cout<<x<<" ";
+        }
+        cout<<'\n';
+    }else{
+        cout<<-1<<"\n";
+    }
+    
 
 }
 
@@ -71,7 +109,6 @@ int main()
 #endif
 
     ARA_ARA
-    auto start = high_resolution_clock::now();
     ll t;
     cin>>t;
     // t=1;
@@ -79,7 +116,5 @@ int main()
 
         solve();
     }
-    auto time =  duration_cast<microseconds>(high_resolution_clock::now() - start).count() / 1000;
-    cerr << "Time: " << time << " ms!" << endl;
     
 }

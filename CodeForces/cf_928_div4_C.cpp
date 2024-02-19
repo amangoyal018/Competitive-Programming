@@ -3,7 +3,7 @@ using namespace std;
 using namespace chrono;
 #define ARA_ARA ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr); 
 #define ll long long int 
-const int mod = 1e9 + 7;
+// const int mod = 1e9 + 7;
 #define vi vector < int >
 #define vll vector<long long int>
 #define vvi vector<vector<int>>
@@ -11,10 +11,6 @@ const int mod = 1e9 + 7;
 #define f(i,a,b) for(int i=a;i<b;i++)
 #define all(x) x.begin() , x.end()
 #define pb push_back
-#define MAX(x) *max_element(all(x))
-#define MIN(x) *min_element(all(x))
-#define SUM(x) accumulate(all(x), 0LL)
-#define FIND(x, y) binary_search(all(x), y)
 int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 int lcm(int x, int y) {return x / gcd(x, y) * y;}
 
@@ -23,12 +19,12 @@ bool isValid(int x, int y, int n, int m){
 	if(y < 0 or y >= m)return false;
 	return true;
 }
-int factorial(int n)
-{
-	if (n == 0)
-		return 1;
-	return (n * factorial(n - 1)) % mod;
-}
+// int factorial(unsigned int n)
+// {
+// 	if (n == 0)
+// 		return 1;
+// 	return (n * factorial(n - 1)) % mod;
+// }
 int diffelements(string s){
     int len=s.length();
     unordered_set<char> set1;
@@ -55,10 +51,15 @@ bool isPrime(int n)
             return false;
     return true; 
 }
-bool ispow2(int x){return (x ? !(x & (x - 1)) : 0);} 
+vll v(2e5+1);
+
 
 
 void solve(){
+
+    ll n;
+    cin >> n;
+    cout<<v[n]<<"\n";
 
 }
 
@@ -74,7 +75,18 @@ int main()
     auto start = high_resolution_clock::now();
     ll t;
     cin>>t;
+    v[1] = 1;
+    f(i,2,2e5+1){
+        string s = to_string(i);
+        ll sum = 0;
+        for(auto x:s){
+            int temp = (x - '0');
+            sum+=temp;
+        }
+        v[i] = v[i-1] + sum;
+    } 
     // t=1;
+    
     while(t--){
 
         solve();

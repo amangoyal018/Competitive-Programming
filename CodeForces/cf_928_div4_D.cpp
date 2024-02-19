@@ -3,7 +3,7 @@ using namespace std;
 using namespace chrono;
 #define ARA_ARA ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr); 
 #define ll long long int 
-const int mod = 1e9 + 7;
+// const int mod = 1e9 + 7;
 #define vi vector < int >
 #define vll vector<long long int>
 #define vvi vector<vector<int>>
@@ -11,10 +11,6 @@ const int mod = 1e9 + 7;
 #define f(i,a,b) for(int i=a;i<b;i++)
 #define all(x) x.begin() , x.end()
 #define pb push_back
-#define MAX(x) *max_element(all(x))
-#define MIN(x) *min_element(all(x))
-#define SUM(x) accumulate(all(x), 0LL)
-#define FIND(x, y) binary_search(all(x), y)
 int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 int lcm(int x, int y) {return x / gcd(x, y) * y;}
 
@@ -23,12 +19,12 @@ bool isValid(int x, int y, int n, int m){
 	if(y < 0 or y >= m)return false;
 	return true;
 }
-int factorial(int n)
-{
-	if (n == 0)
-		return 1;
-	return (n * factorial(n - 1)) % mod;
-}
+// int factorial(unsigned int n)
+// {
+// 	if (n == 0)
+// 		return 1;
+// 	return (n * factorial(n - 1)) % mod;
+// }
 int diffelements(string s){
     int len=s.length();
     unordered_set<char> set1;
@@ -54,11 +50,48 @@ bool isPrime(int n)
         if (!(n % i) or !(n % (i + 2))) 
             return false;
     return true; 
-}
-bool ispow2(int x){return (x ? !(x & (x - 1)) : 0);} 
+} 
 
 
 void solve(){
+
+    int n;
+    cin>>n;
+
+    map<vector<int>,int> m;
+    int cnt = 0;
+    f(i,0,n){
+        int a;
+        cin>>a;
+
+        vector<int> v(31,0); //bit representation
+        vector<int> need(31,1); // search for its opp
+        int pos = 30;
+        while(a>0){
+            if(a&1){
+                v[pos] = 1;
+                need[pos] = 0;
+            }
+            pos--;
+            a = a>>1;
+        }
+        // for(auto x:v){
+        //     cout<<x<<" ";
+        // }
+        // cout << "\n";
+        // for(auto x:need){
+        //     cout<<x<<" ";
+        // }
+        // cout << "\n";
+        // cout << "\n";
+        if(m[need] > 0){
+            m[need]--;
+        }else{
+            cnt++;
+            m[v]++;
+        }
+    }
+    cout<<cnt<<"\n";
 
 }
 
@@ -69,9 +102,9 @@ int main()
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
+    auto start = high_resolution_clock::now();
 
     ARA_ARA
-    auto start = high_resolution_clock::now();
     ll t;
     cin>>t;
     // t=1;
