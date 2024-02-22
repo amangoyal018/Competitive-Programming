@@ -50,7 +50,16 @@ bool isPrime(int n)
         if (!(n % i) or !(n % (i + 2))) 
             return false;
     return true; 
-} 
+}
+struct VectorHasher {
+    int operator()(const vector<int> &V) const {
+        int hash = V.size();
+        for(auto &i : V) {
+            hash ^= i + 0x9e3779b9 + (hash << 6) + (hash >> 2);
+        }
+        return hash;
+    }
+}; 
 
 
 void solve(){
@@ -58,7 +67,7 @@ void solve(){
     int n;
     cin>>n;
 
-    map<vector<int>,int> m;
+    unordered_map < vector<int>,int,VectorHasher> m;
     int cnt = 0;
     f(i,0,n){
         int a;
