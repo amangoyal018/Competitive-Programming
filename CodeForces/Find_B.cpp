@@ -82,7 +82,20 @@ struct VectorHasher {
 
 
 void solve(){
-    
+    int n,q;cin>>n>>q;
+
+    set<int> s;
+    vi v;
+
+    f(i,0,n){
+        int a;
+        cin>>a;
+        s.insert(a);
+        v.pb(i + 1 - s.size());
+    }
+    for(auto x:v){
+        cout<<x<<" ";
+    }
 }
 
 //code start  JAI SHREE RAM

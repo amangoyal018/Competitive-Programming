@@ -82,7 +82,45 @@ struct VectorHasher {
 
 
 void solve(){
-    
+
+     ll n,k;
+     cin>>n>>k;
+
+     vector<pair<ll,ll>> v(n);
+
+     f(i,0,n){
+        cin>>v[i].first;
+     }
+     f(i,0,n){
+        ll a;
+        cin>>a;
+        a = abs(a);
+        v[i].second = a;
+     }
+     sort(all(v),sortbysec);
+     f(i,0,n-1){
+        if(v[i].second == v[i+1].second ){
+            v[i].first+=v[i+1].first;
+            v[i+1].first=v[i].first;
+        }
+     }
+    //  for(auto x:v){
+    //     cout<<x.first<<" "<<x.second<<"\n";
+    //  }
+
+     ll neg = 0;
+     f(i,0,n){
+        if(i>0 and v[i].second == v[i-1].second ){
+            continue;
+        }
+        ll power = v[i].second*k - neg;
+        if(power < v[i].first){
+            cout<<"NO\n";
+            return;
+        }
+        neg+=v[i].first; 
+     }
+     cout<<"YES\n";
 }
 
 //code start  JAI SHREE RAM

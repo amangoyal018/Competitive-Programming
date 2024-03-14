@@ -82,7 +82,25 @@ struct VectorHasher {
 
 
 void solve(){
-    
+
+    int n;
+    cin>>n;
+
+    int pos = -1;
+    int ans = 0;
+
+    f(i,0,n){
+        int a;
+        cin>>a;
+
+        if(a==1 and pos == -1){
+            pos = i+1;
+        }else if(a==1){
+            ans = max(i-pos,0);
+            pos++;
+        }
+    }
+    cout<<ans<<"\n";
 }
 
 //code start  JAI SHREE RAM
