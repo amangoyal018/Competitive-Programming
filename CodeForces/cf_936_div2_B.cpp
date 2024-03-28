@@ -19,15 +19,15 @@ int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 int lcm(int x, int y) {return x / gcd(x, y) * y;}
 
 bool isValid(int x, int y, int n, int m){
-    if(x < 0 or x >= n)return false;
-    if(y < 0 or y >= m)return false;
-    return true;
+	if(x < 0 or x >= n)return false;
+	if(y < 0 or y >= m)return false;
+	return true;
 }
 int factorial(int n)
 {
-    if (n == 0)
-        return 1;
-    return (n * factorial(n - 1)) % mod;
+	if (n == 0)
+		return 1;
+	return (n * factorial(n - 1)) % mod;
 }
 int diffelements(string s){
     int len=s.length();
@@ -78,12 +78,56 @@ struct VectorHasher {
         }
         return hash;
     }
-}; 
+};
+ll maxSubArraySum(vector<ll> v, int n)
+{
+    ll max_so_far = LLONG_MIN, max_ending_here = 0;
+ 
+    for (int i = 0; i < n; i++) {
+        max_ending_here = max_ending_here + v[i];
+        if (max_so_far < max_ending_here)
+            max_so_far = max_ending_here;
+ 
+        if (max_ending_here < 0)
+            max_ending_here = 0;
+    }
+    return max_so_far;
+}
 
 
 
 void solve(){
     
+    ll n,k;
+    cin>>n>>k;
+
+    vll v(n);
+    ll sum = 0;
+    f(i,0,n){
+        cin>>v[i];
+        sum += v[i];
+    }
+
+    ll max_s = maxSubArraySum(v,n);
+
+    
+    if(max_s >= 0){
+        ll res = max_s % mod;
+        while(k--){
+            res =  ((res)%mod + (res)%mod)%mod;
+        }
+        ll temp = (res%mod - max_s%mod + sum%mod)%mod;
+        if(temp<0){
+            temp+=mod;
+        }
+        cout <<temp<< "\n";
+    }else{
+        
+        sum = sum%mod;
+        sum+=mod;
+        cout << (sum)%mod << "\n";
+    }
+
    
     
 }

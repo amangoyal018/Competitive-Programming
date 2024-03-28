@@ -19,15 +19,15 @@ int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 int lcm(int x, int y) {return x / gcd(x, y) * y;}
 
 bool isValid(int x, int y, int n, int m){
-    if(x < 0 or x >= n)return false;
-    if(y < 0 or y >= m)return false;
-    return true;
+	if(x < 0 or x >= n)return false;
+	if(y < 0 or y >= m)return false;
+	return true;
 }
 int factorial(int n)
 {
-    if (n == 0)
-        return 1;
-    return (n * factorial(n - 1)) % mod;
+	if (n == 0)
+		return 1;
+	return (n * factorial(n - 1)) % mod;
 }
 int diffelements(string s){
     int len=s.length();
@@ -84,6 +84,66 @@ struct VectorHasher {
 
 void solve(){
     
+    int n;
+    cin>>n;
+
+    vi v(n);
+    vi freq(n);
+    f(i,0,n){
+        cin>>v[i];
+        if(v[i] < n){
+            freq[v[i]]++;
+        }
+    }
+
+    int mex;
+    f(i,0,n){
+        if(freq[i] == 0){
+            mex = i;
+            break;
+        }
+        if(i==n-1){
+            mex = n;
+        }
+    }
+
+    vi first(mex,0);
+    int cnt = 0;
+
+    int index = -1;
+
+    f(i,0,n){
+        if(v[i]<mex){
+            if(first[v[i]] == 0){
+                first[v[i]] = 1;
+                cnt++;
+            }
+        }
+        if(cnt == mex){
+            index = i+1;
+            break;
+        }
+    }
+    f(i,index,n){
+        if(v[i]<mex){
+            if(first[v[i]] == 1){
+                first[v[i]] = 2;
+            }
+        }
+    }
+    f(i,0,mex){
+        if(first[i] == 2){
+            continue;
+        }else{
+            cout << -1 << "\n";
+            return;
+        }
+    }
+    cout<<2<<"\n";
+    cout<<1<<" "<<index<<"\n";
+    cout<<index+1<<" "<<n<<"\n";
+
+
    
     
 }

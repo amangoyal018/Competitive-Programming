@@ -19,15 +19,15 @@ int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 int lcm(int x, int y) {return x / gcd(x, y) * y;}
 
 bool isValid(int x, int y, int n, int m){
-    if(x < 0 or x >= n)return false;
-    if(y < 0 or y >= m)return false;
-    return true;
+	if(x < 0 or x >= n)return false;
+	if(y < 0 or y >= m)return false;
+	return true;
 }
 int factorial(int n)
 {
-    if (n == 0)
-        return 1;
-    return (n * factorial(n - 1)) % mod;
+	if (n == 0)
+		return 1;
+	return (n * factorial(n - 1)) % mod;
 }
 int diffelements(string s){
     int len=s.length();
@@ -83,6 +83,76 @@ struct VectorHasher {
 
 
 void solve(){
+    
+    ll n;
+    cin>> n;
+
+    string s;
+    cin>>s;
+
+    vll v;
+    // v.pb(0);
+
+    ll cnt1 = 0;
+
+    for(auto x:s){
+        v.pb((x-'0'));
+        if(x=='1'){
+            cnt1++;
+        }
+    }
+    f(i,1,n){
+        v[i] += v[i-1];
+    }
+
+    ll ans_index = -1;
+
+    double dist = INT_MAX;
+
+    ll ones = cnt1;
+    ll zeros = n - cnt1;
+
+    ll t = ceil((double)(n)/2);
+    if(t<=ones){
+        dist = ((double)n/2);
+        ans_index = 0;
+    }
+
+    f(i,0,n){
+        
+        ll left1 = v[i];
+        
+        ll left0 = (i+1) - left1;
+        ll right1 = cnt1 - left1;
+        ll right0 = n - i - 1 - right1;
+
+        ll pos = i+1;
+
+        // cout << left0;
+
+        int req_zeros = ceil((double)pos/2);
+
+        int req_ones = ceil((double)(n-pos)/2);
+        // cout << req_ones;
+
+        if(req_zeros <= left0 and req_ones <= right1){
+            // cout<<"hello";
+            double temp = abs( (double)n/2 - (i+1));
+            if(temp < dist){
+                // cout<<"ji";
+                ans_index = i+1;
+                // cout<<ans_index << temp <<'\n';
+                dist = temp;
+            }
+        }
+        // break;
+
+    }
+    // if(ans_index == -1){
+    //     ans_index = 0;
+    // }
+    cout << ans_index << "\n";
+
     
    
     

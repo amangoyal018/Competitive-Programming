@@ -19,15 +19,15 @@ int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 int lcm(int x, int y) {return x / gcd(x, y) * y;}
 
 bool isValid(int x, int y, int n, int m){
-    if(x < 0 or x >= n)return false;
-    if(y < 0 or y >= m)return false;
-    return true;
+	if(x < 0 or x >= n)return false;
+	if(y < 0 or y >= m)return false;
+	return true;
 }
 int factorial(int n)
 {
-    if (n == 0)
-        return 1;
-    return (n * factorial(n - 1)) % mod;
+	if (n == 0)
+		return 1;
+	return (n * factorial(n - 1)) % mod;
 }
 int diffelements(string s){
     int len=s.length();
@@ -81,9 +81,80 @@ struct VectorHasher {
 }; 
 
 
-
 void solve(){
     
+    int n,k;
+    cin>>n>>k;
+
+    vi v1;
+    vi v2;
+
+    set<int> s1;
+    set<int> s2;
+
+    f(i,0,n){
+        int a;
+        cin>>a;
+        
+        if(s1.count(a) == 0){
+            s1.insert(a);
+        }else{
+            s1.erase(a);
+            v1.pb(a);
+        }
+    }
+    f(i,0,n){
+        int a;
+        cin>>a;
+        
+        if(s2.count(a) == 0){
+            s2.insert(a);
+        }else{
+            s2.erase(a);
+            v2.pb(a);
+        }
+    }
+    vi  ans1,ans2;
+    vi rem1,rem2;
+
+    rem1.assign(all(s1));
+    rem2.assign(all(s2));
+
+    sort(all(rem1));
+    sort(all(rem2));
+    
+    k = 2*k;
+    while(k){
+        if(k>1 and v1.size()>0){
+            int temp1 = v1[v1.size()-1];
+            v1.pop_back();
+            int temp2 = v2[v2.size()-1];
+            v2.pop_back();
+
+            ans1.pb(temp1);
+            ans1.pb(temp1);
+            ans2.pb(temp2);
+            ans2.pb(temp2);
+            k-=2;
+        }else{
+            int temp1 = rem1[rem1.size()-1];
+            rem1.pop_back();
+            int temp2 = rem2[rem2.size()-1];
+            rem2.pop_back();
+            ans1.pb(temp1);
+            ans2.pb(temp2);
+            k--;
+
+        }
+    }
+    for(auto x:ans1){
+        cout<<x<<" ";
+    }
+    cout<<"\n";    
+    for(auto x:ans2){
+        cout<<x<<" ";
+    }    
+    cout<<"\n";    
    
     
 }

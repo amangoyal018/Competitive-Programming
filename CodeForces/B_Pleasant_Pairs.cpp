@@ -83,17 +83,42 @@ struct VectorHasher {
 
 
 void solve(){
+    int n;
+    cin>>n;
     
+    vector<pair<ll,ll>> v(n);
+
+    f(i,0,n){
+        cin>>v[i].first;
+        v[i].second = i+1;
+    }
+    sort(all(v));
+
+    int cnt = 0;
+    f(i,0,n){
+        f(j,0,i){
+            if(v[i].first * v[j].first > 2 *n){
+                break;
+            }else{
+                if(v[i].second + v[j].second == v[i].first * v[j].first){
+                    cnt++;
+                    index = i+ 1;
+                    
+                }
+            }
+        }
+    }
+    cout << cnt << '\n';
    
     
 }
 //code start  JAI SHREE RAM
 int main()
 {
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
 
     ARA_ARA
     auto start = high_resolution_clock::now();
@@ -105,6 +130,6 @@ int main()
         solve();
     }
     auto time =  duration_cast<microseconds>(high_resolution_clock::now() - start).count() / 1000;
-    cerr << "Time: " << time << " ms!" << endl;
+    // cerr << "Time: " << time << " ms!" << endl;
     
 }

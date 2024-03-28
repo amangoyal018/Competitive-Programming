@@ -19,15 +19,15 @@ int gcd(int x, int y) {return y == 0 ? x : gcd(y, x % y);}
 int lcm(int x, int y) {return x / gcd(x, y) * y;}
 
 bool isValid(int x, int y, int n, int m){
-    if(x < 0 or x >= n)return false;
-    if(y < 0 or y >= m)return false;
-    return true;
+	if(x < 0 or x >= n)return false;
+	if(y < 0 or y >= m)return false;
+	return true;
 }
 int factorial(int n)
 {
-    if (n == 0)
-        return 1;
-    return (n * factorial(n - 1)) % mod;
+	if (n == 0)
+		return 1;
+	return (n * factorial(n - 1)) % mod;
 }
 int diffelements(string s){
     int len=s.length();
@@ -84,6 +84,59 @@ struct VectorHasher {
 
 void solve(){
     
+    int n;
+    cin>>n;
+
+    vi v(n);
+
+    f(i,0,n){
+        cin>>v[i];
+    }
+
+    // vi m;
+    // vi mi;
+    // f(i,0,n){
+    //     int temp = v[i];
+
+    //     int max_digit = 0;
+    //     int min_digit = 9;
+
+    //     while(temp){
+    //         int digit = temp%10;
+    //         max_digit = max ( max_digit , digit);
+    //         min_digit = min ( min_digit , digit);
+    //         temp/=10;
+    //     }
+    //     m.pb(max_digit);
+    //     mi.pb(min _digit);
+    // }
+
+    for(int i = n-2 ; i >=0 ; i-- ){
+        if(v[i] > v[i+1]){
+            string s = to_string(v[i]);
+            bool isSorted = false;
+
+            f(i,0,s.size()-1){
+                if((s[i]-'0') <= (s[i+1] - '0')){
+                    isSorted = true;
+                }else{
+                    isSorted = false;
+                    break;
+                }
+            }
+            if(!isSorted or v[i]%10 > v[i+1]){
+                cout<<"NO\n";
+                return;
+            }else{
+                v[i] = (s[0] - '0');
+            }
+        }
+
+        
+    }
+    cout << "YES\n";
+
+
    
     
 }

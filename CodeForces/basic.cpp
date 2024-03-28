@@ -81,10 +81,12 @@ struct VectorHasher {
 }; 
 
 
+
 void solve(){
     
+   
+    
 }
-
 //code start  JAI SHREE RAM
 int main()
 {
