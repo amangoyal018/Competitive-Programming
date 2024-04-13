@@ -109,17 +109,18 @@ int main()
     while (count <= 10000)
     {
 
-        int n = rand() %10 +1;
-        int k = rand() % 10+1;
+        int n = rand() %11 +1;
+        int k = 3;
         // int d = rand() % 10+1;
         // int w = rand() % 10+1;
 
-        unordered_set<int> s;
+        // unordered_set<int> s;
         vector<int> v;
         while(true){
-            int a = rand()%10 +1;
+            int a = rand()%n +1;
+            if()
             s.insert(a);
-            if(s.size()==n){
+            if(v.size()==n){
                 break;
             }
         }
