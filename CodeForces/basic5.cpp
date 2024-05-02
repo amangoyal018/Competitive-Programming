@@ -83,37 +83,21 @@ struct VectorHasher {
 
 
 void solve(){
-    ll n,k;
-    cin>>n>>k;
-    vector<ll> v(n);
-    for(int i=0;i<n;i++){
+    
+    ll n;
+    cin>>n;
+    vll v(n);
+    f(i,0,n){
         cin>>v[i];
     }
-    sort(v.begin(),v.end());
-    ll ans = v[n-1]- v[0];
-
-    ll max1 = v[n-1];
-    f(i,0,n){
-        ll temp = max1 - v[i];
-        ll q = temp/k;
-        ll num1 = v[i] + q*k;
-        ll num2 = num1 + k;
-        ll d1 = abs(num1- max1);
-        ll d2 = abs(num2 - max1);
-
-        if(d1 <= d2){
-            v[i] = num1;
-        }else{
-            v[i] = num2;
-            max1 = v[i];
-        }
-        cout << v[i] << " ";
-    }      
-    cout << "\n";  
-
     sort(all(v));
-    cout<<min(v[n-1] - v[0],ans)<<"\n";
-   
+    ll ans=0;
+
+    for(int i=0;i<n;i++){
+        ans = max ( ans + v[i] , ans * v[i]);
+        ans = ans %mod;
+    }
+    cout << ans % mod<< "\n";
     
 }
 //code start  JAI SHREE RAM
