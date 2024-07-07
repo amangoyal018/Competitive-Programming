@@ -83,21 +83,19 @@ struct VectorHasher {
 
 
 void solve(){
-    int n,m;cin>>n>>m;
-    int a = 0;
-    int b = 0;
+    int n;
+    cin>>n;
 
-    string s1,s2;cin>>s1>>s2;
-
-    while(a<n and b<m){
-        if(s1[a] == s2[b]){
-            a++;
-            b++;
-        }else{
-            b++;
-        }
+    
+    cout << "1 1\n";
+    cout << "1 2\n";
+    
+    f(i,2,n){
+        cout << i+1 << " " << i+1 <<"\n";
     }
-    cout<<a<<"\n";
+    cout << "\n";
+
+
    
     
 }

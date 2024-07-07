@@ -83,7 +83,27 @@ struct VectorHasher {
 
 
 void solve(){
-    
+    int n;cin>>n;
+    int num = 1e9;
+    vi v;
+    f(i,0,n-1){
+        int x;cin>>x;
+        v.pb(x);
+    }
+    reverse(all(v));
+
+    vi ans;
+    ans.pb(num);
+
+    f(i,0,n-1){
+        num-=v[i];
+        ans.pb(num);
+    }
+    reverse(all(ans));
+    for(auto x:ans){
+        cout<<x<<" ";
+    }
+    cout << "\n";
    
     
 }

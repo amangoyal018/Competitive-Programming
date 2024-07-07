@@ -83,7 +83,20 @@ struct VectorHasher {
 
 
 void solve(){
-    
+    int x;
+    cin>>x;
+
+    int max1 = INT_MIN;
+    int ans  = 1;
+    for(int i=1;i<x;i++){
+        int temp = gcd(x,i) + i;
+        if(temp > max1){
+            max1 = temp;
+            ans = i;
+        }
+    }
+    cout << ans << "\n";
+
    
     
 }

@@ -83,22 +83,36 @@ struct VectorHasher {
 
 
 void solve(){
-    int n,m;cin>>n>>m;
-    int a = 0;
-    int b = 0;
+    
+    ll n;
+    cin>>n;
 
-    string s1,s2;cin>>s1>>s2;
-
-    while(a<n and b<m){
-        if(s1[a] == s2[b]){
-            a++;
-            b++;
-        }else{
-            b++;
+    vll v(n);
+    f(i,0,n){
+        cin>>v[i];
+    }
+    vll prefix(n);
+    prefix[0] = v[0];
+    f(i,1,n){
+        prefix[i] = prefix[i-1] + v[i];
+    }
+    map<ll,ll> mp;
+    mp[0]++;
+    ll ans = 0;
+    f(i,0,n){
+        mp[v[i]]++;
+        if(prefix[i] % 2 == 0){
+            ll temp = prefix[i]/2;
+            // cout << temp;
+            if(mp.count(temp) == 1){
+                ans++;
+                // cout << i;
+            }
         }
     }
-    cout<<a<<"\n";
-   
+    cout <<ans << "\n";
+
+
     
 }
 //code start  JAI SHREE RAM

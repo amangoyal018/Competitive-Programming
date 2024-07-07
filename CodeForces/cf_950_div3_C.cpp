@@ -83,22 +83,52 @@ struct VectorHasher {
 
 
 void solve(){
-    int n,m;cin>>n>>m;
-    int a = 0;
-    int b = 0;
+    
+    ll n;
+    cin>>n;
 
-    string s1,s2;cin>>s1>>s2;
+    vll v1(n);
+    vll v2(n);
+    f(i,0,n){
+        cin>>v1[i];
+    }
+    f(i,0,n){
+        cin>>v2[i];
+    }
+    ll m;
+    cin>>m;
 
-    while(a<n and b<m){
-        if(s1[a] == s2[b]){
-            a++;
-            b++;
+    vll v3(m);
+    map<ll,ll> mp;
+    f(i,0,m){
+        cin>>v3[i];
+        mp[v3[i]]++;
+    }
+    //last m condition
+    bool cond = false;
+    f(i,0,n){
+        if(v1[i] == v2[i]){
+            if(v1[i] == v3[m-1]){
+                cond = true;
+            }
         }else{
-            b++;
+            if(mp[v2[i]] == 0){
+                // cout << mp[v2[i]];
+                cout << "NO\n";
+                return;
+            }else{
+                mp[v2[i]]--;
+            }
+            if(v2[i] == v3[m-1]){
+                cond = true;
+            }
         }
     }
-    cout<<a<<"\n";
-   
+    if(cond){
+        cout << "YES\n";
+    }else{
+        cout << "NO\n";
+    }
     
 }
 //code start  JAI SHREE RAM

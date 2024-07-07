@@ -83,6 +83,79 @@ struct VectorHasher {
 
 
 void solve(){
+    ll n,k,pos1,pos2;
+    cin>>n>>k>>pos1>>pos2;
+
+    vll p(n);
+    vll v(n);
+
+    f(i,0,n){
+        cin>>p[i];
+    }
+    f(i,0,n){
+        cin>>v[i];
+    }
+
+    ll idx1 = pos1 - 1;
+    vll vec1(n);
+    f(i,0,n){
+
+        ll element = v[idx1];
+        idx1 = p[idx1] - 1;
+        vec1[i] = element;
+        // if(i>0){
+        //     vec1[i] += vec1[i-1];
+        // }
+
+        // cout << element <<"\n";
+    }
+    
+    ll idx2 = pos2 - 1;
+    vll vec2(n);
+    f(i,0,n){
+        ll element = v[idx2];
+        idx2 = p[idx2] - 1;
+        vec2[i] = element;
+        // if(i>0){
+        //     vec2[i] += vec2[i-1];
+        // }
+    }
+    ll vec1sum = 0;
+    ll vec2sum = 0;
+    ll sum1 = 0;
+    ll sum2 = 0;
+
+    // for(auto x:vec2){
+    //     cout << x << " ";
+    // }
+    // cout << "\n";
+
+    f(i,0,min(n,k)){
+        vec1sum+=vec1[i];
+        vec2sum+=vec2[i];
+        ll temp1 = vec1sum + (k - i - 1)*vec1[i];
+        ll temp2 = vec2sum + (k - i - 1)*vec2[i];
+
+
+        sum1 = max(sum1 , temp1);
+        sum2 = max(sum2,temp2);
+        // cout << temp2 << " ";  
+    }
+    // cout << "\n";
+
+    if(sum1 > sum2){
+        cout << "Bodya\n";
+    }else if(sum1<sum2){
+        cout << "Sasha\n";
+    }else{
+        cout << "Draw\n";
+    }
+    
+
+    
+    
+
+
     
    
     

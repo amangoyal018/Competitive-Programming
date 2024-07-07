@@ -83,23 +83,90 @@ struct VectorHasher {
 
 
 void solve(){
-    int n,m;cin>>n>>m;
-    int a = 0;
-    int b = 0;
+    
+    int n;
+    cin >> n;
 
-    string s1,s2;cin>>s1>>s2;
-
-    while(a<n and b<m){
-        if(s1[a] == s2[b]){
-            a++;
-            b++;
+    vi v(n);
+    f(i,0,n){
+        cin>>v[i];
+    }
+    int a=0;
+    int b=2;
+    int index = -1;
+    while(b<n){
+        int t1 = gcd(v[a],v[b-1]);
+        int t2 = gcd(v[b-1],v[b]);
+        // cout << t1 << " " << t2 << "\n";
+        if(t1>t2){
+            index = a;
+            break; 
         }else{
+            a++;
             b++;
         }
     }
-    cout<<a<<"\n";
-   
+    if(index == -1){
+        cout << "YES\n";
+        return;
+    }
+    vi v1 = v;
+    v1.erase(v1.begin() + index + 0);
+    bool b1 = true;
+    a=0;
+    b=2;
+    while(b<n-1){
+        int t1 = gcd(v1[a],v1[b-1]);
+        int t2 = gcd(v1[b-1],v1[b]);
+        if(t1>t2){
+            b1 = false;
+            break;
+        }else{
+            a++;
+            b++;
+        }
+    }
     
+
+    vi v2 = v;
+    v2.erase(v2.begin() + index + 1);
+    bool b2 = true;
+    a=0;
+    b=2;
+    while(b<n-1){
+        int t1 = gcd(v2[a],v2[b-1]);
+        int t2 = gcd(v2[b-1],v2[b]);
+        if(t1>t2){
+            b2 = false;
+            break;
+        }else{
+            a++;
+            b++;
+        }
+    }
+    
+    vi v3 = v;
+    v3.erase(v3.begin() + index + 2);
+    bool b3 = true;
+    a=0;
+    b=2;
+    while(b<n-1){
+        int t1 = gcd(v3[a],v3[b-1]);
+        int t2 = gcd(v3[b-1],v3[b]);
+        if(t1>t2){
+            b3 = false;
+            break;
+        }else{
+            a++;
+            b++;
+        }
+    }
+
+    if(b1 or b2 or b3){
+        cout << "YES\n";
+    }else{
+        cout << "NO\n";
+    }
 }
 //code start  JAI SHREE RAM
 int main()

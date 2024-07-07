@@ -83,21 +83,42 @@ struct VectorHasher {
 
 
 void solve(){
-    int n,m;cin>>n>>m;
-    int a = 0;
-    int b = 0;
+    
+    map<char,ll> mp;
 
-    string s1,s2;cin>>s1>>s2;
+    ll n,m;
+    cin>>n>>m;
 
-    while(a<n and b<m){
-        if(s1[a] == s2[b]){
-            a++;
-            b++;
-        }else{
-            b++;
-        }
+    string s;
+    cin>>s;
+
+    for(auto x:s){
+        mp[x]++;
     }
-    cout<<a<<"\n";
+    ll ans = 0;
+    if(mp['A'] <= m){
+        ans+=m-mp['A'];
+    }
+    if(mp['B'] <= m){
+        ans+=m-mp['B'];
+    }
+    if(mp['C'] <= m){
+        ans+=m-mp['C'];
+    }
+    if(mp['D'] <= m){
+        ans+=m-mp['D'];
+    }
+    if(mp['E'] <= m){
+        ans+=m-mp['E'];
+    }
+    if(mp['F'] <= m){
+        ans+=m-mp['F'];
+    }
+    if(mp['G'] <= m){
+        ans+=m-mp['G'];
+    }
+    cout<<ans<<"\n";
+
    
     
 }

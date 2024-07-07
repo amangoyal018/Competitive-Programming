@@ -83,21 +83,66 @@ struct VectorHasher {
 
 
 void solve(){
-    int n,m;cin>>n>>m;
-    int a = 0;
-    int b = 0;
-
-    string s1,s2;cin>>s1>>s2;
-
-    while(a<n and b<m){
-        if(s1[a] == s2[b]){
-            a++;
-            b++;
-        }else{
-            b++;
+    ll n,m;
+    cin>>n>>m;
+    string s;
+    cin>>s;
+    ll cnt = 0;
+    for(auto x:s){
+        if(x=='1'){
+            cnt++;
         }
     }
-    cout<<a<<"\n";
+    ll len = n*m;
+    ll cnt1 = cnt*m;
+    if(cnt1 == 0){
+        cout << n*m <<"\n";
+        return;
+    }
+    if(cnt1&1){
+        cout <<0 <<"\n";
+        return;
+    }
+    ll need = cnt1/2;
+    // cout << need << cnt << "\n";
+    if((need % cnt) == 0){
+        ll ans = 1;
+        int i=0;
+        while(i<n){
+            if(s[i] == '0'){
+                break;
+            }
+            i++;
+        }
+        while(i<n){
+            if(s[i] == '0'){
+                ans++;
+            }else{
+                break;
+            }
+            i++;
+        }
+        cout << ans  << "\n";
+    }else{
+        ll rem = need % cnt;
+        ll i = 0;
+        while(rem > 0 and i<n){
+            if( s[i] == '1' ){
+                rem--;
+            }
+            i++;
+        }
+        ll ans = 1;
+        while(i<n){
+            if(s[i] == '0'){
+                ans++;
+            }else{
+                break;
+            }
+            i++;
+        }
+        cout << ans <<"\n"; 
+    }
    
     
 }

@@ -83,23 +83,43 @@ struct VectorHasher {
 
 
 void solve(){
-    int n,m;cin>>n>>m;
-    int a = 0;
-    int b = 0;
+    
+    ll n,f,k;
+    cin>>n>>f>>k;
 
-    string s1,s2;cin>>s1>>s2;
-
-    while(a<n and b<m){
-        if(s1[a] == s2[b]){
-            a++;
-            b++;
-        }else{
-            b++;
+    vll v(n);
+    ll num;
+    f(i,0,n){
+        cin>>v[i];
+        if(i+1 == f){
+            num = v[i];
         }
     }
-    cout<<a<<"\n";
-   
-    
+    // cout << num;
+    ll cnt = 0;
+    f(i,0,n){
+        if(v[i] == num){
+            cnt++;
+        }
+    }
+    sort(all(v),greater<int>());
+    ll index = -1;
+    f(i,0,n){
+        // cout << v[i];
+        if(num == v[i]){
+            index = i+1;
+            break;
+        }
+    }
+    ll max1 = index + cnt - 1;
+    // cout << index;
+    if(k<index){
+        cout << "NO\n";
+    }else if(k>=max1){
+        cout<<"YES\n";
+    }else{
+        cout << "MAYBE\n";
+    }
 }
 //code start  JAI SHREE RAM
 int main()
