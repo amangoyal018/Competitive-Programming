@@ -42,11 +42,6 @@ bool sortbysec(const pair<int,int> &a,
 {
     return (a.second < b.second);
 }
-bool customsec(const pair<int,int> &a,
-            const pair<int,int> &b)
-{
-    return (a.first > b.first);
-}
 bool isPrime(int n) 
 {   
     if (n < 2)
@@ -88,10 +83,56 @@ struct VectorHasher {
 
 
 void solve(){
-    string curr = "amsn";
+    int n,q;
+    cin>>n>>q;
 
+    string s1,s2;
+    cin>>s1>>s2;
 
-    cout << (curr + "1").size();
+    vector<vector<int>> v1(n,vi(26,0));
+    vector<vector<int>> v2(n,vi(26,0));
+    
+    f(i,0,n){
+        v1[i][s1[i] - 'a']++;
+    }
+    f(i,1,n){
+        f(j,0,26){
+            v1[i][j] += v1[i-1][j];
+        }
+    }
+    f(i,0,n){
+        v2[i][s2[i] - 'a']++;
+    }
+    f(i,1,n){
+        f(j,0,26){
+            v2[i][j] += v2[i-1][j];
+        }
+    }
+
+    f(i,0,q){
+        int l,r;
+        cin>>l>>r;
+        vi temp1(26,0);
+        vi temp2(26,0);
+        f(i,0,26){
+            temp1[i] = v1[r - 1][i];
+            if(l>1){
+                temp1[i]-= v1[l - 2][i];
+            }
+            temp2[i] = v2[r - 1][i];
+            if(l>1){
+                temp2[i]-= v2[l - 2][i];
+            }
+        }
+        int res = 0;
+        f(i,0,26){
+            if(temp1[i] != temp2[i]){
+                res += abs(temp1[i] - temp2[i]);
+            }
+        }
+        cout << res/2 <<"\n";
+    }
+
    
     
 }

@@ -42,11 +42,6 @@ bool sortbysec(const pair<int,int> &a,
 {
     return (a.second < b.second);
 }
-bool customsec(const pair<int,int> &a,
-            const pair<int,int> &b)
-{
-    return (a.first > b.first);
-}
 bool isPrime(int n) 
 {   
     if (n < 2)
@@ -88,10 +83,73 @@ struct VectorHasher {
 
 
 void solve(){
-    string curr = "amsn";
+    int n,m;
+    cin>>n>>m;
 
+    vector<vector<int>> v1;
+    vector<vector<int>> v2;
 
-    cout << (curr + "1").size();
+    f(i,0,n){
+        string s;
+        cin>>s;
+        vi v(m);
+        f(j,0,m){
+            if(s[j]=='0'){v[j]=0;}
+            if(s[j]=='1'){v[j]=1;}
+            if(s[j]=='2'){v[j]=2;}
+        }
+        v1.pb(v);
+    }
+    f(i,0,n){
+        string s;
+        cin>>s;
+        vi v(m);
+        f(j,0,m){
+            if(s[j]=='0'){v[j]=0;}
+            if(s[j]=='1'){v[j]=1;}
+            if(s[j]=='2'){v[j]=2;}
+        }
+        v2.pb(v);
+    }
+    // for(auto x:v2){
+    //     for(auto y:x){
+    //         cout << y << " ";
+
+    //     }
+    //     cout << "\n";
+    // }
+    f(i,0,n){
+        f(j,0,m){
+            
+            // cout << i  << j << "\n";
+            if(v1[i][j] == v2[i][j]){
+                continue;
+            }
+            if(i+1 < n and j+1 < m){
+                
+                if((v1[i][j] + 2)%3  == v2[i][j]){
+                    v1[i][j] = (v1[i][j] + 2)%3;
+                    v1[i+1][j+1] = (v1[i+1][j+1] + 2)%3;
+                    v1[i][j+1] = (v1[i][j+1] + 1)%3;
+                    v1[i+1][j] = (v1[i+ 1][j] + 1)%3;
+                }else if((v1[i][j] + 1)%3  == v2[i][j]){
+                    v1[i][j] = (v1[i][j] + 1)%3;
+                    v1[i+1][j+1] = (v1[i+1][j+1] + 1)%3;
+                    v1[i][j+1] = (v1[i][j+1] + 2)%3;
+                    v1[i+1][j] = (v1[i+ 1][j] + 2)%3;
+                }else{
+                    // cout << i << j << "\n";
+                    cout << "NO\n";
+                    return;
+                }
+            }else{
+                cout << "NO\n";
+                return;
+            }
+            
+        }
+    }
+    cout << "YES\n";
    
     
 }

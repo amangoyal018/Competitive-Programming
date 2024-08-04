@@ -42,11 +42,6 @@ bool sortbysec(const pair<int,int> &a,
 {
     return (a.second < b.second);
 }
-bool customsec(const pair<int,int> &a,
-            const pair<int,int> &b)
-{
-    return (a.first > b.first);
-}
 bool isPrime(int n) 
 {   
     if (n < 2)
@@ -88,10 +83,49 @@ struct VectorHasher {
 
 
 void solve(){
-    string curr = "amsn";
+    
+    int n;
+    cin>>n;
+
+    vi v1(n);
+    vi v2(n);
+    f(i,0,n){
+        cin>>v1[i];
+    }
+
+    f(i,0,n){
+        cin>>v2[i];
+    }
+
+    vi v11 = v1;
+    vi v22 = v2;
+    sort(all(v11));
+    sort(all(v22));
+    if(v11!=v22){
+        cout << "NO\n";
+    }else{
+        unordered_map<int, int> m;
+        f(i,0,n){
+            m[v2[i]] = i;
+        }                                                                                                                                                                                                                                                                        
+        int pairs = 0;
+        for (int i = 0; i < n; ++i) {
+            if (v1[i] != v2[i]) {
+                pairs++;
+                int index = m[v1[i]];
+                swap(v2[i], v2[index]);
+                m[v2[index]] = index;
+                m[v1[i]] = i;
+            }
+        }
+        if(pairs % 2 == 0){
+            cout << "YES\n";
+        }else{
+            cout << "NO\n";
+        }
+    }
 
 
-    cout << (curr + "1").size();
    
     
 }
