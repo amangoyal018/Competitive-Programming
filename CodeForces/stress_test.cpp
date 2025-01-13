@@ -45,109 +45,97 @@ bool customCompare(pair<int,int> pair1, pair<int, int> pair2) {
 
 //code start  JAI SHREE RAM
 
-ll  FindSecondLargestElement(ll n,ll m,vector<ll> v){
+ll  FindSecondLargestElement(ll n,vector<ll> v){
 
-    vector<vector<ll>> vec;
-    map<ll, ll> freqMap;
+    vll even;
+    vll odd;
 
     f(i,0,n){
-        freqMap[v[i]]++;
-    }
-    for(auto& p : freqMap){
-        vec.pb({p.first, p.second});
-    }
-    sort(all(vec));
-   
-    ll res = 0;
-    n = vec.size();
-    f(i,0,n-1){
-        if(vec[i+1][0] - vec[i][0] > 1){
-            ll  a = vec[i][0] * 1;
-            ll b = vec[i][0] * vec[i][1];
-            if(m >= b){
-                res = max(res,b);
-            }else if(m>=a and m<b){
-                ll temp = m/a;
-                temp*=a;
-                res = max(res,temp);
-            }
-        }else{
-            ll a = vec[i][0] * 1;
-            ll b = vec[i][0] * vec[i][1];
-            ll c = vec[i+1][0] + b;
-            ll d = vec[i+1][0] * vec[i+1][1] + b;
+        ll a;
+        a = v[i];
 
-            if(m >= d){
-                res = max(res,d);
-            }else if(m>=c and m<d){
-                ll temp = m - b;
-                temp /= vec[i+1][0];
-                ll q = temp;
-                ll rem = vec[i+1][1] - q;
-                ll rem2 = vec[i][1];
-                rem2 = min(rem,rem2);
-                temp *= vec[i+1][0];
-                ll minus = m - temp - b;
-                // ll ans  = 0;
-                // if(minus > 0){
-                //     ans  = min(minus,rem2);
-                // }
-                res = max(res , temp + b + min(minus,rem2));
-            }else if(m>=b and m<c){
-                ll extra  = min(vec[i+1][1] , vec[i][1]);
-                ll cost = min(extra , m - b);
-                
-                res = max(res,b + cost);
-                // res = max(res,b);
-            }else if(m>=a and m<b){
-                ll temp = m/a;
-                ll q = temp;
-                ll extra = min(q,vec[i+1][1]);
-                temp*=a;
-                ll cost  = min(extra , m - temp);
-                res = max(res,temp + cost);
-            }
+        if(a%2==0){
+            even.pb(a);
+        }else{
+            odd.pb(a);
         }
     }
-    ll  a = vec[n-1][0] * 1;
-    ll b = vec[n-1][0] * vec[n-1][1];
-    if(m >= b){
-        res = max(res,b);
-    }else if(m>=a and m<b){
-        ll temp = m/a;
-        temp*=a;
-        res = max(res,temp);
+
+    if(even.size() == n or odd.size() == n){
+        return 0;
+    }
+    sort(all(even));
+    sort(all(odd));
+
+    ll curr_omax = odd[odd.size() - 1];
+
+    ll res = 0;
+
+    for(auto x:even){
+        if( x < curr_omax){
+            curr_omax += x;
+            res++;
+        }else{
+            curr_omax +=x;
+            curr_omax +=x;
+            res++;
+            res++;
+        }
+        if(curr_omax %2 == 0){
+            cout << (curr_omax%2 == 0) << "\n";
+        }
+        // cout << (curr_omax%2 == 0) << "\n";
     }
     return res;
 
 }
 
-ll Brute_solution(ll n,ll m,vector<ll> v)
-{
-    
-    sort(all(v));
+ll Brute_solution(ll n,vector<ll> v)
+{   
 
-    ll i = 0;
-    ll j = 0;
-    ll sum  = 0;
     ll res = 0;
-    while( j < n){
-        if(v[j] - v[i] > 1){
-            sum-=v[i];
-            i++;
-            continue;
-        }
-        sum += v[j];
-        if(sum > m){
-            while( sum > m and i<=j){
-                sum-=v[i];
-                i++;
+    while(true){
+        int odd = 0;
+        int even = 0;
+        f(i,0,n){
+            if(v[i] %2 == 0){
+                even++;
+            }else{
+                odd++;
             }
         }
-        // cout << sum << "\n";
-        res = max(res,sum);
-        j++;
+        if(odd == n or even == n){
+            return res;
+        }
+        ll omax = LLONG_MIN;
+        ll emin = LLONG_MAX;
+        ll index1 = -1;
+        ll index2 = -1;
+
+        f(i,0,n){
+            if(v[i] %2 == 0){
+                // emin = min(emin , v[i]);
+                if(v[i] < emin){
+                    emin = v[i];
+                    index1 = i;
+                }
+
+            }else{
+                // omax = max(omax,v[i]);
+                if(v[i] > omax){
+                    omax = v[i];
+                    index2 = i;
+                }
+            }
+        }
+        if(emin < omax){
+            v[index1] = emin + omax;
+        }else{
+            v[index2] = emin + omax;
+        }
+        res++;
     }
+    
     return res;
     
 }
@@ -171,15 +159,15 @@ int main()
     while (count <= 10000)
     {
 
-        ll n = rand() %5 +1;
-        ll k = rand() % 20 + 1;
+        ll n = rand() %10 +1;
+        // ll k = rand() % 20 + 1;
         // int d = rand() % 10+1;
         // int w = rand() % 10+1;
 
         // unordered_set<int> s;
         vector<ll> v;
         f(i,0,n){
-            ll a = rand()%10 +1;
+            ll a = rand()%1000 +1;
             v.pb(a);
             // if()
             // s.insert(a);
@@ -192,16 +180,16 @@ int main()
         // sort(all(v));
         // vector<int> myans = FindSecondLargestElement( n,k,v);
         // vector<int> correctans = Brute_solution(n,k,v);
-        if (Brute_solution(n,k,v) != FindSecondLargestElement( n,k,v))
+        if (Brute_solution(n,v) != FindSecondLargestElement( n,v))
         {
             cout<<n<<endl;
-            cout<<k<<endl;
+            // cout<<k<<endl;
             for(auto x:v){
                 cout<<x<<" ";
             }
             cout<<endl;
-            cout<<FindSecondLargestElement( n,k,v)<<"\n";
-            cout << Brute_solution(n,k,v)<<"\n";
+            // cout<<FindSecondLargestElement( n,v)<<"\n";
+            // cout << Brute_solution(n,v)<<"\n";
 
             // cout<<correctans<<" "<<myans;
 
