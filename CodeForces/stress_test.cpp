@@ -14,7 +14,7 @@ bool isValid(int x, int y, int n, int m){
 	if(x < 0 or x >= n)return false;
 	if(y < 0 or y >= m)return false;
 	return true;
-}
+}   
 int factorial(unsigned int n)
 {
 	if (n == 0)
@@ -29,8 +29,8 @@ int diffelements(string s){
     }
     return set1.size();
 }
-bool sortbysec(const pair<int,int> &a,
-            const pair<int,int> &b)
+bool sortbysec(const pair<ll,vll> &a,
+            const pair<ll,vll> &b)
 {
     return (a.second < b.second);
 }
